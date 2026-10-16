@@ -151,10 +151,6 @@ import { tone } from '../../lib/site';
       height: calc(var(--was) + round(up, var(--now) - var(--was), 1px));
     }
   }
-  /* Сайт v2 (SITE-56, слово Данила 16.10): на планшете и десктопе — тот же вертикальный ролик с iPhone (9:16), что на
-     телефоне; карточка уже, по центру под кнопками. Экран ≈ 360 × 640 (≥ 1180 — ≈ 405 × 720). Высота карточки --H берётся
-     так, чтобы отличаться от прежней обложки (--ref: iPad SITE-51 на 768–1179 через --was/--now SITE-53, карточка 16:9 на
-     ≥ 1180) ровно на целое число пикселей — иначе всё ниже обложки сдвигалось бы на доли пикселя. Ширина — от высоты. */
   @media (min-width: 768px) and (max-width: 1179.98px) {
     .hero__fig:not(.is-shot) {
       --F: min(100cqw, 920px);
@@ -163,32 +159,6 @@ import { tone } from '../../lib/site';
       --ar: calc(2360 / 1640);
       --c: min(100cqw, 1200px);
       --car: calc(16 / 9);
-      --ref: calc(var(--was) + round(up, var(--now) - var(--was), 1px));
-      --want: 662px;
-    }
-  }
-  @media (min-width: 1180px) {
-    .hero__col {
-      container-type: inline-size;
-    }
-    .hero__fig:not(.is-shot) {
-      --cp: round(down, clamp(6px, 0.9vw, 12px), 0.015625px);
-      --ref: calc(round(down, (min(100cqw, 1200px) - 2 * var(--cp) - 2px) / (16 / 9), 0.015625px) + 2 * var(--cp) + 2px);
-      --want: 742px;
-    }
-  }
-  @media (min-width: 768px) {
-    .hero__fig:not(.is-shot) {
-      --H: calc(var(--ref) - round(down, var(--ref) - var(--want), 1px));
-      width: fit-content;
-      max-width: 100%;
-      padding: 10px;
-      height: var(--H);
-    }
-    .hero__fig:not(.is-shot) .hero__screen {
-      height: 100%;
-      width: auto;
-      aspect-ratio: 9/16;
     }
   }
   @media (max-width: 767.98px) {
