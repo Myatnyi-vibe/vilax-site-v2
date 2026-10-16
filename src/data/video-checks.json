@@ -1,6 +1,6 @@
 {
  "version": 1,
- "generatedAt": "2026-10-14T19:47:31.120Z",
+ "generatedAt": "2026-10-16T13:36:25.632Z",
  "videos": [
   {
    "cur": "rub",
@@ -10,19 +10,19 @@
    "files": {
     "webm": {
      "file": "video/hero-rub-ru-dark-16x9.webm",
-     "bytes": 2008791
+     "bytes": 2002057
     },
     "mp4": {
      "file": "video/hero-rub-ru-dark-16x9.mp4",
-     "bytes": 1824889
+     "bytes": 1793133
     },
     "webp": {
      "file": "video/hero-rub-ru-dark-16x9.webp",
-     "bytes": 14096
+     "bytes": 12328
     },
     "avif": {
      "file": "video/hero-rub-ru-dark-16x9.avif",
-     "bytes": 5310
+     "bytes": 4626
     }
    },
    "checks": {
@@ -38,8 +38,8 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.128,
-   "loopPsnr": 46.6
+   "luma": 0.117,
+   "loopPsnr": 48.1
   },
   {
    "cur": "rub",
@@ -49,19 +49,19 @@
    "files": {
     "webm": {
      "file": "video/hero-rub-ru-dark-9x16.webm",
-     "bytes": 808683
+     "bytes": 1027805
     },
     "mp4": {
      "file": "video/hero-rub-ru-dark-9x16.mp4",
-     "bytes": 810217
+     "bytes": 1097660
     },
     "webp": {
      "file": "video/hero-rub-ru-dark-9x16.webp",
-     "bytes": 10838
+     "bytes": 9500
     },
     "avif": {
      "file": "video/hero-rub-ru-dark-9x16.avif",
-     "bytes": 4482
+     "bytes": 3729
     }
    },
    "checks": {
@@ -77,8 +77,8 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.117,
-   "loopPsnr": 45.2
+   "luma": 0.118,
+   "loopPsnr": 47.4
   },
   {
    "cur": "rub",
@@ -88,19 +88,19 @@
    "files": {
     "webm": {
      "file": "video/hero-rub-ru-light-16x9.webm",
-     "bytes": 2140918
+     "bytes": 2429550
     },
     "mp4": {
      "file": "video/hero-rub-ru-light-16x9.mp4",
-     "bytes": 1884277
+     "bytes": 1958623
     },
     "webp": {
      "file": "video/hero-rub-ru-light-16x9.webp",
-     "bytes": 13362
+     "bytes": 13210
     },
     "avif": {
      "file": "video/hero-rub-ru-light-16x9.avif",
-     "bytes": 4909
+     "bytes": 5039
     }
    },
    "checks": {
@@ -116,8 +116,8 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.871,
-   "loopPsnr": 47.2
+   "luma": 0.848,
+   "loopPsnr": 47.1
   },
   {
    "cur": "rub",
@@ -127,19 +127,19 @@
    "files": {
     "webm": {
      "file": "video/hero-rub-ru-light-9x16.webm",
-     "bytes": 921276
+     "bytes": 1326284
     },
     "mp4": {
      "file": "video/hero-rub-ru-light-9x16.mp4",
-     "bytes": 887842
+     "bytes": 1244051
     },
     "webp": {
      "file": "video/hero-rub-ru-light-9x16.webp",
-     "bytes": 10060
+     "bytes": 10012
     },
     "avif": {
      "file": "video/hero-rub-ru-light-9x16.avif",
-     "bytes": 4148
+     "bytes": 4221
     }
    },
    "checks": {
@@ -155,8 +155,8 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.852,
-   "loopPsnr": 46
+   "luma": 0.837,
+   "loopPsnr": 46.5
   },
   {
    "cur": "rub",
@@ -166,19 +166,19 @@
    "files": {
     "webm": {
      "file": "video/hero-rub-en-dark-16x9.webm",
-     "bytes": 2092692
+     "bytes": 1991318
     },
     "mp4": {
      "file": "video/hero-rub-en-dark-16x9.mp4",
-     "bytes": 1910907
+     "bytes": 1785760
     },
     "webp": {
      "file": "video/hero-rub-en-dark-16x9.webp",
-     "bytes": 14096
+     "bytes": 12328
     },
     "avif": {
      "file": "video/hero-rub-en-dark-16x9.avif",
-     "bytes": 5310
+     "bytes": 4626
     }
    },
    "checks": {
@@ -194,8 +194,8 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.128,
-   "loopPsnr": 46.7
+   "luma": 0.117,
+   "loopPsnr": 48.3
   },
   {
    "cur": "rub",
@@ -205,175 +205,19 @@
    "files": {
     "webm": {
      "file": "video/hero-rub-en-dark-9x16.webm",
-     "bytes": 722866
+     "bytes": 1000521
     },
     "mp4": {
      "file": "video/hero-rub-en-dark-9x16.mp4",
-     "bytes": 754197
+     "bytes": 1108769
     },
     "webp": {
      "file": "video/hero-rub-en-dark-9x16.webp",
-     "bytes": 10838
+     "bytes": 9500
     },
     "avif": {
      "file": "video/hero-rub-en-dark-9x16.avif",
-     "bytes": 4482
-    }
-   },
-   "checks": {
-    "budget": true,
-    "loop": true,
-    "lang": true,
-    "currency": true,
-    "theme": true
-   },
-   "status": "pass",
-   "width": 720,
-   "height": 1280,
-   "durationSec": 22,
-   "fps": 30,
-   "audio": false,
-   "luma": 0.116,
-   "loopPsnr": 45.7
-  },
-  {
-   "cur": "rub",
-   "lang": "en",
-   "theme": "light",
-   "fmt": "16x9",
-   "files": {
-    "webm": {
-     "file": "video/hero-rub-en-light-16x9.webm",
-     "bytes": 2250308
-    },
-    "mp4": {
-     "file": "video/hero-rub-en-light-16x9.mp4",
-     "bytes": 1991352
-    },
-    "webp": {
-     "file": "video/hero-rub-en-light-16x9.webp",
-     "bytes": 13362
-    },
-    "avif": {
-     "file": "video/hero-rub-en-light-16x9.avif",
-     "bytes": 4909
-    }
-   },
-   "checks": {
-    "budget": true,
-    "loop": true,
-    "lang": true,
-    "currency": true,
-    "theme": true
-   },
-   "status": "pass",
-   "width": 1600,
-   "height": 900,
-   "durationSec": 22,
-   "fps": 30,
-   "audio": false,
-   "luma": 0.871,
-   "loopPsnr": 47.2
-  },
-  {
-   "cur": "rub",
-   "lang": "en",
-   "theme": "light",
-   "fmt": "9x16",
-   "files": {
-    "webm": {
-     "file": "video/hero-rub-en-light-9x16.webm",
-     "bytes": 814002
-    },
-    "mp4": {
-     "file": "video/hero-rub-en-light-9x16.mp4",
-     "bytes": 818846
-    },
-    "webp": {
-     "file": "video/hero-rub-en-light-9x16.webp",
-     "bytes": 10060
-    },
-    "avif": {
-     "file": "video/hero-rub-en-light-9x16.avif",
-     "bytes": 4148
-    }
-   },
-   "checks": {
-    "budget": true,
-    "loop": true,
-    "lang": true,
-    "currency": true,
-    "theme": true
-   },
-   "status": "pass",
-   "width": 720,
-   "height": 1280,
-   "durationSec": 22,
-   "fps": 30,
-   "audio": false,
-   "luma": 0.852,
-   "loopPsnr": 46.1
-  },
-  {
-   "cur": "aed",
-   "lang": "ru",
-   "theme": "dark",
-   "fmt": "16x9",
-   "files": {
-    "webm": {
-     "file": "video/hero-aed-ru-dark-16x9.webm",
-     "bytes": 1706942
-    },
-    "mp4": {
-     "file": "video/hero-aed-ru-dark-16x9.mp4",
-     "bytes": 1544340
-    },
-    "webp": {
-     "file": "video/hero-aed-ru-dark-16x9.webp",
-     "bytes": 14096
-    },
-    "avif": {
-     "file": "video/hero-aed-ru-dark-16x9.avif",
-     "bytes": 5310
-    }
-   },
-   "checks": {
-    "budget": true,
-    "loop": true,
-    "lang": true,
-    "currency": true,
-    "theme": true
-   },
-   "status": "pass",
-   "width": 1600,
-   "height": 900,
-   "durationSec": 22,
-   "fps": 30,
-   "audio": false,
-   "luma": 0.126,
-   "loopPsnr": 46.7
-  },
-  {
-   "cur": "aed",
-   "lang": "ru",
-   "theme": "dark",
-   "fmt": "9x16",
-   "files": {
-    "webm": {
-     "file": "video/hero-aed-ru-dark-9x16.webm",
-     "bytes": 787673
-    },
-    "mp4": {
-     "file": "video/hero-aed-ru-dark-9x16.mp4",
-     "bytes": 852762
-    },
-    "webp": {
-     "file": "video/hero-aed-ru-dark-9x16.webp",
-     "bytes": 10838
-    },
-    "avif": {
-     "file": "video/hero-aed-ru-dark-9x16.avif",
-     "bytes": 4482
+     "bytes": 3729
     }
    },
    "checks": {
@@ -390,29 +234,29 @@
    "fps": 30,
    "audio": false,
    "luma": 0.117,
-   "loopPsnr": 45.3
+   "loopPsnr": 47.3
   },
   {
-   "cur": "aed",
-   "lang": "ru",
+   "cur": "rub",
+   "lang": "en",
    "theme": "light",
    "fmt": "16x9",
    "files": {
     "webm": {
-     "file": "video/hero-aed-ru-light-16x9.webm",
-     "bytes": 1830751
+     "file": "video/hero-rub-en-light-16x9.webm",
+     "bytes": 2427238
     },
     "mp4": {
-     "file": "video/hero-aed-ru-light-16x9.mp4",
-     "bytes": 1595953
+     "file": "video/hero-rub-en-light-16x9.mp4",
+     "bytes": 1951234
     },
     "webp": {
-     "file": "video/hero-aed-ru-light-16x9.webp",
-     "bytes": 13362
+     "file": "video/hero-rub-en-light-16x9.webp",
+     "bytes": 13210
     },
     "avif": {
-     "file": "video/hero-aed-ru-light-16x9.avif",
-     "bytes": 4909
+     "file": "video/hero-rub-en-light-16x9.avif",
+     "bytes": 5039
     }
    },
    "checks": {
@@ -428,7 +272,163 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.87,
+   "luma": 0.848,
+   "loopPsnr": 46.9
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "fmt": "9x16",
+   "files": {
+    "webm": {
+     "file": "video/hero-rub-en-light-9x16.webm",
+     "bytes": 1300433
+    },
+    "mp4": {
+     "file": "video/hero-rub-en-light-9x16.mp4",
+     "bytes": 1260047
+    },
+    "webp": {
+     "file": "video/hero-rub-en-light-9x16.webp",
+     "bytes": 10012
+    },
+    "avif": {
+     "file": "video/hero-rub-en-light-9x16.avif",
+     "bytes": 4221
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 720,
+   "height": 1280,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.836,
+   "loopPsnr": 46.6
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "fmt": "16x9",
+   "files": {
+    "webm": {
+     "file": "video/hero-aed-ru-dark-16x9.webm",
+     "bytes": 1811789
+    },
+    "mp4": {
+     "file": "video/hero-aed-ru-dark-16x9.mp4",
+     "bytes": 1573820
+    },
+    "webp": {
+     "file": "video/hero-aed-ru-dark-16x9.webp",
+     "bytes": 12328
+    },
+    "avif": {
+     "file": "video/hero-aed-ru-dark-16x9.avif",
+     "bytes": 4626
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 1600,
+   "height": 900,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.116,
+   "loopPsnr": 48.1
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "fmt": "9x16",
+   "files": {
+    "webm": {
+     "file": "video/hero-aed-ru-dark-9x16.webm",
+     "bytes": 1016615
+    },
+    "mp4": {
+     "file": "video/hero-aed-ru-dark-9x16.mp4",
+     "bytes": 1074789
+    },
+    "webp": {
+     "file": "video/hero-aed-ru-dark-9x16.webp",
+     "bytes": 9500
+    },
+    "avif": {
+     "file": "video/hero-aed-ru-dark-9x16.avif",
+     "bytes": 3729
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 720,
+   "height": 1280,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.118,
+   "loopPsnr": 47.3
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "fmt": "16x9",
+   "files": {
+    "webm": {
+     "file": "video/hero-aed-ru-light-16x9.webm",
+     "bytes": 2223582
+    },
+    "mp4": {
+     "file": "video/hero-aed-ru-light-16x9.mp4",
+     "bytes": 1745217
+    },
+    "webp": {
+     "file": "video/hero-aed-ru-light-16x9.webp",
+     "bytes": 13210
+    },
+    "avif": {
+     "file": "video/hero-aed-ru-light-16x9.avif",
+     "bytes": 5039
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 1600,
+   "height": 900,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.851,
    "loopPsnr": 47.1
   },
   {
@@ -439,19 +439,19 @@
    "files": {
     "webm": {
      "file": "video/hero-aed-ru-light-9x16.webm",
-     "bytes": 903501
+     "bytes": 1339621
     },
     "mp4": {
      "file": "video/hero-aed-ru-light-9x16.mp4",
-     "bytes": 928657
+     "bytes": 1255271
     },
     "webp": {
      "file": "video/hero-aed-ru-light-9x16.webp",
-     "bytes": 10060
+     "bytes": 10012
     },
     "avif": {
      "file": "video/hero-aed-ru-light-9x16.avif",
-     "bytes": 4148
+     "bytes": 4221
     }
    },
    "checks": {
@@ -467,8 +467,8 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.852,
-   "loopPsnr": 46.2
+   "luma": 0.837,
+   "loopPsnr": 46.5
   },
   {
    "cur": "aed",
@@ -478,19 +478,19 @@
    "files": {
     "webm": {
      "file": "video/hero-aed-en-dark-16x9.webm",
-     "bytes": 1660687
+     "bytes": 1746303
     },
     "mp4": {
      "file": "video/hero-aed-en-dark-16x9.mp4",
-     "bytes": 1499017
+     "bytes": 1530304
     },
     "webp": {
      "file": "video/hero-aed-en-dark-16x9.webp",
-     "bytes": 14096
+     "bytes": 12328
     },
     "avif": {
      "file": "video/hero-aed-en-dark-16x9.avif",
-     "bytes": 5310
+     "bytes": 4626
     }
    },
    "checks": {
@@ -506,8 +506,8 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.125,
-   "loopPsnr": 46.7
+   "luma": 0.115,
+   "loopPsnr": 48.3
   },
   {
    "cur": "aed",
@@ -517,19 +517,19 @@
    "files": {
     "webm": {
      "file": "video/hero-aed-en-dark-9x16.webm",
-     "bytes": 732310
+     "bytes": 966968
     },
     "mp4": {
      "file": "video/hero-aed-en-dark-9x16.mp4",
-     "bytes": 810217
+     "bytes": 1070367
     },
     "webp": {
      "file": "video/hero-aed-en-dark-9x16.webp",
-     "bytes": 10838
+     "bytes": 9500
     },
     "avif": {
      "file": "video/hero-aed-en-dark-9x16.avif",
-     "bytes": 4482
+     "bytes": 3729
     }
    },
    "checks": {
@@ -545,8 +545,8 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.116,
-   "loopPsnr": 45.6
+   "luma": 0.117,
+   "loopPsnr": 47.4
   },
   {
    "cur": "aed",
@@ -556,19 +556,19 @@
    "files": {
     "webm": {
      "file": "video/hero-aed-en-light-16x9.webm",
-     "bytes": 1779588
+     "bytes": 2168678
     },
     "mp4": {
      "file": "video/hero-aed-en-light-16x9.mp4",
-     "bytes": 1571856
+     "bytes": 1705180
     },
     "webp": {
      "file": "video/hero-aed-en-light-16x9.webp",
-     "bytes": 13362
+     "bytes": 13210
     },
     "avif": {
      "file": "video/hero-aed-en-light-16x9.avif",
-     "bytes": 4909
+     "bytes": 5039
     }
    },
    "checks": {
@@ -584,8 +584,8 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.871,
-   "loopPsnr": 47.1
+   "luma": 0.852,
+   "loopPsnr": 47.2
   },
   {
    "cur": "aed",
@@ -595,19 +595,19 @@
    "files": {
     "webm": {
      "file": "video/hero-aed-en-light-9x16.webm",
-     "bytes": 855189
+     "bytes": 1281511
     },
     "mp4": {
      "file": "video/hero-aed-en-light-9x16.mp4",
-     "bytes": 858961
+     "bytes": 1211303
     },
     "webp": {
      "file": "video/hero-aed-en-light-9x16.webp",
-     "bytes": 10060
+     "bytes": 10012
     },
     "avif": {
      "file": "video/hero-aed-en-light-9x16.avif",
-     "bytes": 4148
+     "bytes": 4221
     }
    },
    "checks": {
@@ -623,8 +623,8 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.853,
-   "loopPsnr": 46.1
+   "luma": 0.838,
+   "loopPsnr": 46.5
   }
  ]
 }
