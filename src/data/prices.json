@@ -1,0 +1,145 @@
+{
+ "$comment": "Справочник цен сайта (ТЗ, «Справочник цен»). Калькулятор и таблицы цен берут цифры только отсюда. Владелец формата — сессия B, описание — src/content/FORMAT.md («Справочник цен»). model: v16 — объект commercial страницы продаж v16 (ОАЭ, своё заведение 1–9); blocks — цена блоков за локацию по тарифу сети + УК за сеть (РФ, сеть 2–200). showPrices=false — версия показывает «Расчёт по запросу».",
+ "en": {
+  "model": "v16",
+  "segment": "independent",
+  "currency": "AED",
+  "locale": "en-AE",
+  "taxRate": 0.05,
+  "taxLabel": "Prices before tax. VAT 5% is added on top.",
+  "showPrices": true,
+  "version": "2026-10-05",
+  "versionLabel": "v16",
+  "source": "VILAX — меню и пакеты · версия 16 (объект commercial)",
+  "locations": {
+   "min": 1,
+   "max": 9,
+   "start": 1
+  },
+  "commercial": {
+   "base": 490,
+   "guests": 800,
+   "finance": 549,
+   "loyalty": 365,
+   "academySeat": 11,
+   "peopleSeat": 25,
+   "peopleMinimum": 500,
+   "bundle": 2990,
+   "bundleSeats": 50,
+   "annualDiscount": 0.1,
+   "auraIncluded": 1500,
+   "coordinatorIncluded": 500,
+   "auraTopup": {
+    "units": 1000,
+    "price": 150
+   },
+   "coordinatorTopup": {
+    "units": 500,
+    "price": 100
+   }
+  }
+ },
+ "ru": {
+  "model": "blocks",
+  "segment": "chain",
+  "currency": "RUB",
+  "locale": "ru-RU",
+  "taxRate": 0.22,
+  "taxLabel": "Цены без НДС. НДС 22 % начисляется сверху.",
+  "showPrices": true,
+  "version": "2026-10-12",
+  "versionLabel": "РФ, блоки за локацию",
+  "source": "VILAX_цены_РФ_блоки_за_локацию_2026-10-12.xlsx: лист «Цены» (блоки за локацию по тарифам, столбец «1» не используется), лист «Параметры» (НДС, скидка за год, границы тарифов)",
+  "locations": {
+   "min": 2,
+   "max": 200,
+   "start": 10
+  },
+  "annualDiscount": 0.167,
+  "tiers": [
+   {
+    "key": "2-10",
+    "from": 2,
+    "to": 10
+   },
+   {
+    "key": "11-25",
+    "from": 11,
+    "to": 25
+   },
+   {
+    "key": "26-100",
+    "from": 26,
+    "to": 100
+   },
+   {
+    "key": "101-200",
+    "from": 101,
+    "to": 200
+   },
+   {
+    "key": "201+",
+    "from": 201,
+    "to": null
+   }
+  ],
+  "blocks": [
+   {
+    "key": "base",
+    "default": true,
+    "prices": [
+     2190,
+     1590,
+     1150,
+     970,
+     970
+    ]
+   },
+   {
+    "key": "guests",
+    "earlyAccess": true,
+    "prices": [
+     16310,
+     14550,
+     13170,
+     12570,
+     12570
+    ]
+   },
+   {
+    "key": "finance",
+    "prices": [
+     2470,
+     2470,
+     1840,
+     1600,
+     1600
+    ]
+   },
+   {
+    "key": "loyalty",
+    "prices": [
+     1490,
+     1490,
+     930,
+     760,
+     760
+    ]
+   },
+   {
+    "key": "staff",
+    "earlyAccess": true,
+    "prices": [
+     7380,
+     3590,
+     1250,
+     820,
+     820
+    ]
+   }
+  ],
+  "uk": {
+   "price": 29900
+  }
+ }
+}

@@ -1,0 +1,28 @@
+---
+// Плашка режима сборки: «Локальная версия» или «Превью». В prod не выводится. В прототипе дизайна её нет —
+// она служебная (не уходит на vilax.ai); при сверке с прототипом её область исключается.
+import T from '../T.astro';
+import { MODE } from '../../lib/mode';
+import { tone } from '../../lib/site';
+const on = MODE === 'local' || MODE === 'preview';
+---
+
+{on && <p class="mode-badge" role="note" {...tone('base')} data-mode-badge><T get={(_, u) => (MODE === 'local' ? u.chrome.modeLocal : u.chrome.modePreview)} /></p>}
+
+<style>
+  .mode-badge {
+    position: fixed;
+    left: 12px;
+    bottom: 12px;
+    z-index: 70;
+    margin: 0;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px dashed var(--hairS);
+    background: color-mix(in srgb, var(--bg) 90%, transparent);
+    color: var(--subtle);
+    font-size: 12px;
+    line-height: 1.2;
+    pointer-events: none;
+  }
+</style>

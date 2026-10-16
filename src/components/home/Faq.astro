@@ -1,0 +1,90 @@
+---
+// Вопросы (прототип «FAQ»): H2 sticky top 96, список <details>. Вопросы про франшизу убраны (решения владельца 13.10).
+import T from '../T.astro';
+import { siteOf } from '../../lib/content';
+import { typo } from '../../lib/typo';
+import { tone, VARIANTS } from '../../lib/site';
+---
+
+<section id="faq" class="fq sheet pad" {...tone('faq')} data-screen-label="FAQ">
+  <div class="wrap fq__grid">
+    <h2 class="h2 fq__h2"><T get={(s) => s.faq.title} /></h2>
+    <div class="fq__list">
+      {
+        VARIANTS.map((v) => (
+          <div class="v" data-cur={v.cur} data-lang={v.lang}>
+            {siteOf(v).faq.items.map((q) => (
+              <details class="fq__d">
+                <summary class="fq__s">
+                  {typo(v.lang, q.q)}
+                  <span aria-hidden="true" class="fq__plus">+</span>
+                </summary>
+                <p class="fq__a">{typo(v.lang, q.a)}</p>
+              </details>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .fq__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+    gap: clamp(24px, 5vw, 80px);
+    align-items: start;
+  }
+  .fq__h2 {
+    position: sticky;
+    top: 96px;
+  }
+  /* SITE-42 P0-3: в одну колонку прилипший заголовок наезжал на вопросы при прокрутке. */
+  @media (max-width: 767.98px) {
+    .fq__h2 {
+      position: static;
+    }
+  }
+  .fq__list {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 1;
+  }
+  .fq__d {
+    border-top: 1px solid var(--hairS);
+    padding: 4px 0;
+  }
+  .fq__s {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    align-items: center;
+    padding: 18px 0;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .fq__plus {
+    flex: none;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--subtle);
+  }
+  .fq__a {
+    padding: 0 0 20px;
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 64ch;
+  }
+  /* Планшет-портрет: слева пустая колонка с одним заголовком, вопросы сжаты — одна колонка, заголовок без sticky (SITE-42, P2-4) */
+  @media (min-width: 768px) and (max-width: 1023.98px) {
+    .fq__grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .fq__h2 {
+      position: static;
+    }
+  }
+</style>

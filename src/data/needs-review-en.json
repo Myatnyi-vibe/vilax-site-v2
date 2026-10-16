@@ -1,0 +1,84 @@
+{
+  "$comment": "SITE-5 · фразы English, которые должен вычитать носитель или менеджер в Дубае (Р-7, вычитывающего пока нет). Каждая запись — needsReview: файл словаря en, путь к строке, текст строки как есть, что смущает. tests/content.test.ts сверяет, что строка по пути существует и текст не изменился: поправили фразу — уберите или обновите запись. Снимки — поле shot вместо path.",
+  "reviewer": null,
+  "checkedAt": "2026-10-11",
+  "items": [
+    {
+      "file": "hero.json",
+      "path": "title",
+      "text": "Your venues. One screen.",
+      "note": "Main headline: check that it reads naturally for UAE F&B owners."
+    },
+    {
+      "file": "fusion.json",
+      "path": "items[1]",
+      "text": "Debts and unpaid bills",
+      "note": "The scene shows supplier debts; \"Unpaid invoices\" may be clearer."
+    },
+    {
+      "file": "fusion.json",
+      "path": "items[4]",
+      "text": "Apps nobody understands",
+      "note": "Meaning is \"too many disconnected services\"; consider \"Apps that don't talk to each other\"."
+    },
+    {
+      "file": "fusion.json",
+      "path": "final",
+      "text": "All of it, in VILAX.",
+      "note": "Closing line of the scene: check rhythm and punctuation."
+    },
+    {
+      "file": "platform.json",
+      "path": "blocks[1].task",
+      "text": "Run the guest journey from first inquiry to the next visit",
+      "note": "Spelling: the site follows the product UI in US spelling (program, inquiry). UAE readers often expect UK spelling (programme, enquiry); if changed, change site and product together."
+    },
+    {
+      "file": "platform.json",
+      "path": "blocks[3].name",
+      "text": "People & Academy",
+      "note": "The product UI calls this section \"Staff\" (top menu), the registry uses \"People Overview\". Pick one name for site and product."
+    },
+    {
+      "file": "blocks.json",
+      "path": "items[0].features[1].text",
+      "text": "Revenue, food cost, gross profit, guests, average check and discounts, against the previous period.",
+      "note": "\"Average check\" matches the product UI; UAE/UK usage is often \"average spend\"."
+    },
+    {
+      "file": "blocks.json",
+      "path": "items[2].features[5].text",
+      "text": "Six loss channels, from deletions after pre-check to refunds, plus discounts and write-offs, broken down by staff member.",
+      "note": "Terms \"pre-check\" and \"comps\" come from the product UI; check they are clear to a UAE operations manager."
+    },
+    {
+      "file": "ai.json",
+      "path": "chat.messages[1].text",
+      "text": "Guest count was in line with a typical Friday, but spend per guest was lower, so revenue came in below normal.",
+      "note": "Illustrative answer without figures (the real answer was not recorded on staging). Check tone."
+    },
+    {
+      "file": "pricing.json",
+      "path": "calc.rounding",
+      "text": "Amounts on screen are rounded to the nearest dirham.",
+      "note": "Check wording; alternative: \"Amounts are rounded to whole dirhams.\""
+    },
+    {
+      "file": "pricing.json",
+      "path": "conditions[2]",
+      "text": "Standard onboarding is included with annual billing: one supported connection, user access set-up and a kick-off session for your team. Anything else is quoted separately.",
+      "note": "\"One supported connection\" may be unclear (one POS or data-source integration)."
+    },
+    {
+      "file": "faq.json",
+      "path": "items[5].a",
+      "text": "Monthly, or annually in advance with {annualDiscount} off the subscription and standard onboarding included. Prices exclude VAT; VAT at {taxRate} is added on top.",
+      "note": "VAT wording for the UAE; {taxRate} is filled from prices.json."
+    },
+    {
+      "shot": "/shots/en/t078.webp",
+      "text": "Rough coffee recipe",
+      "note": "Demo knowledge base shows \"Rough coffee recipe\" (machine translation of \"raf\"). Demo content, not site copy: fix in the demo data (DEMO-20) or replace the screenshot."
+    }
+  ]
+}

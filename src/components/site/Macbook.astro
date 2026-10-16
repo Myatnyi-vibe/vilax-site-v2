@@ -1,0 +1,145 @@
+---
+// MacBook вокруг экранного содержимого (SITE-53, сайт v2). Стиль — MacBook обложки SITE-51 (M3): крышка 90 % ширины,
+// экран 16:10, «чёлка» в верхней полосе, шарнир, основа шире крышки с выемкой и тенью; только CSS, размеры — от ширины
+// самого устройства (cqw), декор aria-hidden. Корпус по теме (тёмная — Space Black, светлая — серебро), рамка экрана
+// всегда чёрная. Содержимое (slot) — во всю ширину экрана с пропорцией ratio (по умолчанию 2:1 — снимки блоков),
+// сверху и снизу полосы: цвет края картинки в экране (замер — src/scripts/device-edges.ts), до замера — фон снимков своей темы
+// (сняты с shots/*: тёмная #0a0e1b, светлая #f4f5f8). Снимок не обрезается.
+interface Props {
+  ratio?: string;
+  class?: string;
+}
+const { ratio = '2/1', class: cls } = Astro.props;
+---
+
+<div class:list={['mb', cls]} style={`--mb-ratio: ${ratio}`} data-dev>
+  <div class="mb__lid">
+    <div class="mb__glass">
+      <span class="mb__notch" aria-hidden="true"></span>
+      <div class="mb__screen" data-dev-screen>
+        <slot />
+      </div>
+    </div>
+  </div>
+  <span class="mb__hinge" aria-hidden="true"></span>
+  <span class="mb__base" aria-hidden="true"></span>
+</div>
+
+<script>
+  // Полосы экрана — цвет края картинки в экране (общий замер устройств: src/scripts/device-edges.ts).
+  import '../../scripts/device-edges';
+</script>
+
+<style>
+  .mb {
+    --case: #34363b;
+    --case-hi: #5b5e64;
+    --case-lo: #17181b;
+    --mb-bg: #0a0e1b;
+    --dsh: 0 2.4cqw 5cqw -2.4cqw rgb(0 0 0 / 0.75);
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  :global(html[data-theme='light']) .mb {
+    --case: #d3d5d9;
+    --case-hi: #f4f5f7;
+    --case-lo: #9ea2a8;
+    --mb-bg: #f4f5f8;
+    --dsh: 0 2.4cqw 5cqw -2.4cqw rgb(20 30 60 / 0.4);
+  }
+  .mb > * {
+    flex-shrink: 0;
+  }
+  .mb__lid {
+    position: relative;
+    box-sizing: border-box;
+    width: 90%;
+    padding: 1.4cqw 1.4cqw 1.7cqw;
+    border: max(1px, 0.25cqw) solid var(--case);
+    border-radius: 2.4cqw 2.4cqw 0.7cqw 0.7cqw;
+    background: #060607;
+    box-shadow:
+      inset 0 0 0 1px rgb(255 255 255 / 0.06),
+      var(--dsh);
+  }
+  .mb__glass {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    aspect-ratio: 16/10;
+    border-radius: 0.8cqw 0.8cqw 0 0;
+    background: linear-gradient(var(--dev-top, var(--mb-bg)) 50%, var(--dev-bot, var(--mb-bg)) 50%);
+  }
+  .mb__screen {
+    position: relative;
+    z-index: 1;
+    flex: none;
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: var(--mb-ratio);
+    background: var(--mb-bg);
+  }
+  .mb__notch {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 50%;
+    width: 7cqw;
+    height: 2.2cqw;
+    translate: -50% 0;
+    border-radius: 0 0 0.7cqw 0.7cqw;
+    background: #060607;
+  }
+  .mb__notch::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.55cqw;
+    height: 0.55cqw;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #3a4a6a, #10141d 60%);
+  }
+  .mb__hinge {
+    display: block;
+    width: 80%;
+    height: 0.5cqw;
+    border-radius: 0 0 0.5cqw 0.5cqw;
+    background: linear-gradient(#000, var(--case-lo));
+  }
+  /* основа корпуса: шире крышки, высота ≈ 2 % ширины, выемка-«палец» по центру переднего края, мягкая тень */
+  .mb__base {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 2.1cqw;
+    border-radius: 0.3cqw 0.3cqw 4cqw 4cqw / 0.3cqw 0.3cqw 1.8cqw 1.8cqw;
+    background: linear-gradient(var(--case-hi) 0, var(--case) 24%, var(--case) 55%, var(--case-lo) 100%);
+  }
+  .mb__base::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 12cqw;
+    height: 0.75cqw;
+    translate: -50% 0;
+    border-radius: 0 0 1.2cqw 1.2cqw / 0 0 0.75cqw 0.75cqw;
+    background: linear-gradient(var(--case-lo), var(--case));
+  }
+  .mb__base::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 4%;
+    right: 4%;
+    height: 1.6cqw;
+    background: radial-gradient(50% 100% at 50% 0, rgb(0 0 0 / 0.32), transparent);
+  }
+</style>

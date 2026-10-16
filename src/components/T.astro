@@ -1,0 +1,28 @@
+---
+// Текст, зависящий от сочетания «валюта × язык»: столько <span class="v">, сколько реально разных значений;
+// видимый выбирает CSS по <html lang data-currency> (src/styles/site.css). Одинаковое везде — просто текст.
+// Русский выводится через typo (SITE-47): короткие слова не висят в конце строки; словари не меняются, английский — как есть.
+import { variants, type Pick } from '../lib/content';
+import { typo } from '../lib/typo';
+
+interface Props {
+  get: Pick;
+}
+const raw = variants(Astro.props.get);
+const vs =
+  raw.kind === 'one'
+    ? typo('ru', raw.value) === raw.value
+      ? raw
+      : { kind: 'lang' as const, items: [{ lang: 'ru' as const, value: typo('ru', raw.value) }, { lang: 'en' as const, value: raw.value }] }
+    : raw.kind === 'lang'
+      ? { ...raw, items: raw.items.map((x) => ({ ...x, value: typo(x.lang, x.value) })) }
+      : { ...raw, items: raw.items.map((x) => ({ ...x, value: typo(x.lang, x.value) })) };
+---
+
+{
+  vs.kind === 'one'
+    ? vs.value
+    : vs.kind === 'lang'
+      ? vs.items.map((x) => <span class="v" data-lang={x.lang}>{x.value}</span>)
+      : vs.items.map((x) => <span class="v" data-cur={x.cur} data-lang={x.lang}>{x.value}</span>)
+}

@@ -1,0 +1,69 @@
+{
+  "title": "Request a demo",
+  "lead": "We will walk you through VILAX on a demo network and answer your questions. Leave your details and a manager will contact you.",
+  "close": "Close",
+  "country": {
+    "label": "Country code",
+    "options": { "7": "+7", "971": "+971", "other": "Other code" }
+  },
+  "fields": {
+    "phone": {
+      "label": "Phone",
+      "placeholder": { "7": "900 000-00-00", "971": "50 000 0000", "other": "+44 20 0000 0000" },
+      "required": "Enter your phone number",
+      "invalid": "Check the number: +971 and 9 digits, +7 and 10 digits, other codes 10 to 15 digits"
+    },
+    "name": {
+      "label": "Name",
+      "placeholder": "How should we address you",
+      "required": "Enter your name",
+      "invalid": "Name: 2 to 120 characters, no links"
+    },
+    "city": {
+      "label": "City",
+      "placeholder": "Start typing or choose",
+      "required": "Enter your city",
+      "invalid": "City: 2 to 80 characters, no links"
+    },
+    "venue": {
+      "label": "Venue or group name",
+      "placeholder": "For example, Riverside Cafe",
+      "required": "Enter your venue name",
+      "invalid": "Name: 2 to 160 characters, no links"
+    }
+  },
+  "cities": ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Al Ain"],
+  "consent": {
+    "before": "I agree to the ",
+    "consentLink": "processing of my personal data",
+    "between": " and accept the ",
+    "policyLink": "Privacy Policy",
+    "after": ".",
+    "required": "Please give your consent to send the request",
+    "newTab": "(opens in a new tab)"
+  },
+  "consentVersion": "en-2026-10-10-draft",
+  "submit": "Send request",
+  "sending": "Sending…",
+  "success": {
+    "title": "Thank you!",
+    "text": "A manager will contact you within one business day.",
+    "done": "Done"
+  },
+  "preview": {
+    "title": "Preview: request not sent",
+    "text": "The preview does not send requests. On the live site this says: Thank you! A manager will contact you within one business day."
+  },
+  "failure": {
+    "failed": "We could not send your request. Your details are saved, so please try again or contact us directly.",
+    "unavailable": "Requests through the website are temporarily paused. Your details are saved, so please contact us directly and we will reply within one business day.",
+    "limited": "Too many requests in a row. Please try again in a few minutes or contact us directly.",
+    "invalid": "Please check the form and send it again.",
+    "retry": "Try again",
+    "contacts": "Contact us directly"
+  },
+  "contacts": [
+    { "label": "support@vilax.ai", "href": "mailto:support@vilax.ai" },
+    { "label": "WhatsApp", "href": "" }
+  ]
+}

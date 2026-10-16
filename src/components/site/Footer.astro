@@ -1,0 +1,127 @@
+---
+// Подвал (прототип): знак + tagline, контакты, документы. Документы — по валюте (₽ — РФ, AED — ОАЭ).
+// Строка маршрута прототипа удалена (ТЗ медиа: «удаляются… строка маршрута в подвале»).
+import T from '../T.astro';
+import { va } from '../../lib/content';
+import { tone, url, legalPath, LEGAL_DOCS, LEGAL_LANG, APP_URL, SUPPORT_EMAIL } from '../../lib/site';
+---
+
+<footer class="ftr sheet" {...tone('footer')}>
+  <div class="wrap ftr__in">
+    <div class="ftr__cols">
+      <div class="ftr__brand">
+        <img src={url('/wordmark.svg')} alt="VILAX" class="ftr__word" />
+        <p class="ftr__tag"><T get={(s) => s.tagline} /></p>
+      </div>
+      <div class="ftr__col">
+        <span class="ftr__h"><T get={(_, u) => u.footer.contacts} /></span>
+        <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
+        <a href={APP_URL}><T get={(_, u) => u.clientLogin} /></a>
+      </div>
+      <nav class="ftr__col" {...va('aria-label', (_, u) => u.footer.documents)}>
+        <span class="ftr__h"><T get={(_, u) => u.footer.documents} /></span>
+        {LEGAL_DOCS.map((d) => <a {...va('href', (_, __, v) => legalPath(LEGAL_LANG[v.cur], d))}><T get={(_, u) => u.legal[d]} /></a>)}
+      </nav>
+    </div>
+    <div class="ftr__bottom">
+      <span><T get={(_, u) => u.footer.rights} /></span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .ftr {
+    padding: clamp(56px, 6vw, 88px) 0 40px;
+  }
+  .ftr__in {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  .ftr__cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 40px;
+  }
+  .ftr__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .ftr__word {
+    height: 16px;
+    width: auto;
+    align-self: flex-start;
+  }
+  .ftr__tag {
+    font-size: 14px;
+    color: var(--subtle);
+    max-width: 28ch;
+  }
+  .ftr__col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .ftr__h {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--subtle);
+  }
+  .ftr__col a {
+    font-size: 15px;
+    text-decoration: none;
+  }
+  .ftr__col a:hover {
+    color: var(--accent);
+  }
+  /* SITE-45 P1-7 (телефон): ссылки — строки касания 44 px; шаг почти прежний (было 23 + 10). */
+  @media (max-width: 767.98px) {
+    .ftr__col {
+      gap: 0;
+    }
+    .ftr__h {
+      margin-bottom: 4px;
+    }
+    .ftr__col a {
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 6px 0;
+      align-self: flex-start;
+    }
+  }
+  /* SITE-45 (планшет, сенсорный): ссылки — строки касания 44 px, как на телефоне. */
+  @media (min-width: 768px) and (max-width: 1179.98px) {
+    .ftr__col {
+      gap: 0;
+    }
+    .ftr__h {
+      margin-bottom: 4px;
+    }
+    .ftr__col a {
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 6px 0;
+      align-self: flex-start;
+    }
+  }
+  /* SITE-45 P2-5 (планшет-портрет): три колонки в ряд — «Документы» не уходят на вторую строку с пустотой справа. */
+  @media (min-width: 768px) and (max-width: 1023.98px) {
+    .ftr__cols {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+  }
+  .ftr__bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    border-top: 1px solid var(--hair);
+    font-size: 13px;
+    color: var(--subtle);
+  }
+</style>

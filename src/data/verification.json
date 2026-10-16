@@ -1,0 +1,659 @@
+{
+ "checkedAt": "2026-10-10",
+ "screens": {
+  "t001": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/t001-verdict.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "partial",
+    "shot": null
+   }
+  },
+  "t002": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/t001.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t003": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t004": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t005": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t006": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t007": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t008": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t010": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t011": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "notfound",
+    "shot": null
+   }
+  },
+  "t012": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t013": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "notfound",
+    "shot": null
+   }
+  },
+  "t014": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/t014.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/en/t014.webp"
+   }
+  },
+  "t018": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/t018.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t019": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t020": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/t020.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/en/t020.webp"
+   }
+  },
+  "t031": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t029": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t030": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "empty",
+    "shot": null
+   }
+  },
+  "t032": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "empty",
+    "shot": null
+   }
+  },
+  "y003": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "y004": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/y004.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "y039": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/y039.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t046": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/t046.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/en/t046.webp"
+   }
+  },
+  "t047": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "partial",
+    "shot": null
+   }
+  },
+  "t050": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t026": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t048": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t035": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/t035.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/en/t035.webp"
+   }
+  },
+  "t036": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/t036.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/en/t036.webp"
+   }
+  },
+  "t037": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/t037.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t040": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/t040.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t042": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/t042.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/en/t042.webp"
+   }
+  },
+  "t039": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "empty",
+    "shot": null
+   }
+  },
+  "t038": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "empty",
+    "shot": null
+   }
+  },
+  "t049": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t033": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "empty",
+    "shot": null
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "empty",
+    "shot": null
+   }
+  },
+  "t094": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "y026": {
+   "ru": {
+    "date": "2026-10-13",
+    "result": "ok",
+    "shot": "/shots/ru/y026.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "partial",
+    "shot": null
+   }
+  },
+  "y025": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "partial",
+    "shot": null
+   }
+  },
+  "t065": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "y007": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/y007.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/en/y007.webp"
+   }
+  },
+  "y008": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "y010": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "empty",
+    "shot": null
+   }
+  },
+  "y009": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "empty",
+    "shot": null
+   }
+  },
+  "y011": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "empty",
+    "shot": null
+   }
+  },
+  "y013": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "y012": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "y040": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/y040.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "y019": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t072": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/t072.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/en/t072.webp"
+   }
+  },
+  "t073": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/t073.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/en/t073.webp"
+   }
+  },
+  "t078": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/t078.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/en/t078.webp"
+   }
+  },
+  "t086": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "empty",
+    "shot": null
+   }
+  },
+  "t089": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "empty",
+    "shot": null
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "empty",
+    "shot": null
+   }
+  },
+  "t085": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/t085.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/en/t085.webp"
+   }
+  },
+  "t082": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/ru/t082.webp"
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": "/shots/en/t082.webp"
+   }
+  },
+  "t083": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "empty",
+    "shot": null
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t051": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "partial",
+    "shot": null
+   }
+  },
+  "t057": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t059": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "empty",
+    "shot": null
+   }
+  },
+  "t054": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t053": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t055": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t104": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   },
+   "en": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t115": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t125": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t197": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t163": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "ok",
+    "shot": null
+   }
+  },
+  "t111": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "nourl",
+    "shot": null
+   }
+  },
+  "t109": {
+   "ru": {
+    "date": "2026-10-10",
+    "result": "nourl",
+    "shot": null
+   }
+  },
+  "t077": {
+   "en": {
+    "date": "2026-10-10",
+    "result": "empty",
+    "shot": null
+   }
+  }
+ }
+}

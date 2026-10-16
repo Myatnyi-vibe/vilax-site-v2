@@ -1,0 +1,279 @@
+/* Каркас сайта: шрифты, тона листов, общие элементы. Значения — из прототипа Claude Design 14.10.2026
+   (design_handoff_vilax_redesign: README «Дизайн-токены» и <style> прототипа). Дизайн утверждён — не менять. */
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter-latin.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range: U+0020-007E, U+00A0-00FF, U+2000-206F, U+20AC, U+2122, U+2190-2193, U+2212;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter-cyrillic.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range: U+0400-045F, U+0490-0491, U+20BD, U+2116;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/jbmono-num.woff2') format('woff2');
+  font-weight: 100 800;
+  font-display: swap;
+}
+
+html,
+body {
+  margin: 0;
+  background: #020817;
+}
+html[data-theme='light'],
+html[data-theme='light'] body {
+  background: #f5f7fa;
+}
+html[data-theme='dark'] {
+  color-scheme: dark;
+}
+html[data-theme='light'] {
+  color-scheme: light;
+}
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+p,
+li {
+  text-wrap: pretty;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+button {
+  font: inherit;
+  color: inherit;
+}
+a {
+  color: inherit;
+}
+a:hover {
+  color: var(--accent);
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+summary {
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* ── Тона листов. data-td — тон в тёмной теме, data-tl — в светлой; включает тема на <html>. ── */
+[data-td] {
+  background-color: var(--bg);
+  color: var(--ink);
+}
+html[data-theme='dark'] [data-td] {
+  --ink: #f5f7fa;
+  --muted: #c3ccda;
+  --subtle: #91a0b7;
+  --hair: rgba(145, 160, 183, 0.16);
+  --hairS: rgba(145, 160, 183, 0.3);
+  --field: rgba(145, 160, 183, 0.62);
+  --accent: #18f2df;
+  --accentH: #5ff6ea;
+  --onAccent: #020817;
+  --line: #2297ff;
+  --edge: rgba(245, 247, 250, 0.1);
+  --shadow: none;
+  --err: #ff8a80;
+  color-scheme: dark;
+}
+html[data-theme='dark'] [data-td='navy0'] {
+  --bg: #020817;
+  --surf: #0b1528;
+  --surf2: #0f1c33;
+}
+html[data-theme='dark'] [data-td='navy1'] {
+  --bg: #0b1528;
+  --surf: #0f1c33;
+  --surf2: #14233e;
+}
+html[data-theme='dark'] [data-td='navy2'] {
+  --bg: #0f1c33;
+  --surf: #14233e;
+  --surf2: #1a2b4a;
+}
+html[data-theme='dark'] [data-td='navy3'] {
+  --bg: #14233e;
+  --surf: #1a2b4a;
+  --surf2: #213459;
+}
+html[data-theme='dark'] [data-td='navyB'] {
+  --bg: #0a2350;
+  --surf: rgba(245, 247, 250, 0.06);
+  --surf2: rgba(245, 247, 250, 0.1);
+  --hair: rgba(195, 204, 218, 0.18);
+  --hairS: rgba(195, 204, 218, 0.34);
+  --field: rgba(195, 204, 218, 0.62);
+}
+html[data-theme='light'] [data-td] {
+  --ink: #020817;
+  --muted: #2a3850;
+  --subtle: #56657d;
+  --hair: #dde3ec;
+  --hairS: #c7d0dc;
+  --field: #7d8ba0;
+  --accent: #0b6bcb;
+  --accentH: #095bb0;
+  --onAccent: #ffffff;
+  --line: #2297ff;
+  --edge: rgba(2, 8, 23, 0.1);
+  --shadow: 0 1px 2px rgb(2 8 23/0.04), 0 12px 32px rgb(2 8 23/0.07);
+  --err: #c62828;
+  color-scheme: light;
+}
+html[data-theme='light'] [data-tl='white'] {
+  --bg: #ffffff;
+  --surf: #f5f7fa;
+  --surf2: #edf1f6;
+}
+html[data-theme='light'] [data-tl='paper'] {
+  --bg: #f5f7fa;
+  --surf: #ffffff;
+  --surf2: #edf1f6;
+}
+html[data-theme='light'] [data-tl='mist'] {
+  --bg: #edf1f6;
+  --surf: #ffffff;
+  --surf2: #f5f7fa;
+}
+html[data-theme='light'] [data-tl='ice'] {
+  --bg: #e3edfa;
+  --surf: #ffffff;
+  --surf2: #f1f6fd;
+  --hair: #cfdcec;
+  --hairS: #b7c7dc;
+  --edge: rgba(2, 8, 23, 0.06);
+}
+
+/* ── Варианты текста: валюта × язык. Видим только вариант сочетания на <html>; обёртка не даёт своей коробки. ── */
+.v {
+  display: contents;
+}
+html[data-currency='rub'] .v[data-cur='aed'],
+html[data-currency='aed'] .v[data-cur='rub'],
+html[lang='ru'] .v[data-lang='en'],
+html[lang='en'] .v[data-lang='ru'],
+html[data-theme='dark'] .only-light,
+html[data-theme='light'] .only-dark {
+  display: none !important;
+}
+
+/* ── Общие детали листов (повторяются в каждой секции прототипа). ── */
+.page {
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  transition: background-color 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.wrap {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 3vw, 40px);
+}
+.sheet {
+  position: relative;
+  margin-top: -16px;
+  border-radius: 16px 16px 0 0;
+  box-shadow: inset 0 1px 0 var(--edge);
+}
+.pad {
+  padding: clamp(72px, 9vw, 128px) 0 clamp(88px, 10vw, 144px);
+}
+.h2 {
+  font-size: clamp(36px, 4.4vw, 64px);
+  font-weight: 620;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+}
+.lede {
+  font-size: clamp(17px, 1.3vw, 19px);
+  color: var(--muted);
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 9999px;
+  background: var(--surf);
+  border: 1px solid var(--hairS);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--onAccent);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn-accent:hover {
+  color: var(--onAccent);
+}
+.skip {
+  position: fixed;
+  left: 12px;
+  top: 12px;
+  z-index: 100;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--onAccent);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+.skip:focus-visible {
+  transform: none;
+}
+/* Заглушка медиа — только в режиме local, пока нет файлов B и C (контракт docs/media-contract.md). */
+.media-ph {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: repeating-linear-gradient(135deg, transparent 0 10px, var(--hair) 10px 11px);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--subtle);
+}
+.media-ph[hidden] {
+  display: none;
+}

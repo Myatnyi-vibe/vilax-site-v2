@@ -1,0 +1,38 @@
+---
+// Плавающая «Запросить демо» (прототип): видна на главной при scrollY > 0.9·vh и ширине ≥ 768,
+// прячется, пока на экране #pricing или #cta (src/scripts/app.ts).
+import T from '../T.astro';
+import { tone } from '../../lib/site';
+---
+
+<a href="#pricing" class="fab" {...tone('fab')} data-go-cta data-fab hidden><T get={(_, u) => u.demo} /></a>
+
+<style>
+  .fab {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 50;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    height: 52px;
+    padding: 0 22px;
+    border-radius: 9999px;
+    background: var(--accent);
+    color: var(--onAccent);
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    box-shadow: 0 8px 28px rgb(2 8 23/0.28);
+  }
+  .fab[hidden] {
+    display: none;
+  }
+  /* Планшет: «Запросить демо» всегда в шапке, плавающая кнопка закрывает текст (решение Данила Q-1, SITE-46) */
+  @media (min-width: 768px) and (max-width: 1179.98px) {
+    .fab {
+      display: none;
+    }
+  }
+</style>

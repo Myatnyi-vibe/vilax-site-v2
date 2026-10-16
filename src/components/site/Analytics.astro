@@ -1,0 +1,190 @@
+---
+// Аналитика за выключателем (Р-11): без номера счётчика (PUBLIC_VILAX_YM_ID) компонент не выводит ничего.
+// С номером — плашка согласия на cookie; Яндекс Метрика грузится только после «Разрешить», без Вебвизора.
+// Решение хранится в localStorage (vilax.consent). Цели — src/lib/analytics.ts (GOALS); до согласия события не копятся.
+// Плашки нет в прототипе дизайна: она появляется только с номером счётчика, вид — токены листа.
+import T from '../T.astro';
+import { va } from '../../lib/content';
+import { ANALYTICS_ON, YM_ID } from '../../lib/analytics';
+import { legalPath, LEGAL_LANG, tone } from '../../lib/site';
+---
+
+{
+  ANALYTICS_ON && (
+    <section class="consent" data-consent data-ym={YM_ID} role="region" {...va('aria-label', (_, u) => u.consent.label)} {...tone('form')} hidden>
+      <p class="consent__text">
+        <T get={(_, u) => u.consent.text} />{' '}<a {...va('href', (_, __, v) => legalPath(LEGAL_LANG[v.cur], 'privacy'))}><T get={(_, u) => u.consent.policy} /></a>
+      </p>
+      <div class="consent__actions">
+        <button class="consent__b consent__b--accent" type="button" data-consent-accept>
+          <T get={(_, u) => u.consent.accept} />
+        </button>
+        <button class="consent__b" type="button" data-consent-decline>
+          <T get={(_, u) => u.consent.decline} />
+        </button>
+      </div>
+    </section>
+  )
+}
+
+<script>
+  import { CONSENT_KEY, GOALS, YM_INIT } from '../../lib/analytics';
+
+  type Ym = ((...args: unknown[]) => void) & { a?: unknown[][]; l?: number };
+  const box = document.querySelector<HTMLElement>('[data-consent]');
+  if (box) {
+    const id = Number(box.dataset.ym);
+    const w = window as unknown as { ym?: Ym };
+    const store = {
+      get: () => {
+        try {
+          return localStorage.getItem(CONSENT_KEY);
+        } catch {
+          return null;
+        }
+      },
+      set: (v: string) => {
+        try {
+          localStorage.setItem(CONSENT_KEY, v);
+        } catch {
+          /* приватное окно: решение живёт до закрытия вкладки */
+        }
+      },
+    };
+    let loaded = false;
+    const goal = (name: string, params?: Record<string, unknown>) => {
+      if (loaded) w.ym?.(id, 'reachGoal', name, params);
+    };
+    const load = () => {
+      if (loaded) return;
+      loaded = true;
+      const ym: Ym = function (...args: unknown[]) {
+        (ym.a = ym.a || []).push(args);
+      } as Ym;
+      ym.l = Date.now();
+      w.ym = w.ym || ym;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://mc.yandex.ru/metrika/tag.js';
+      document.head.append(s);
+      w.ym(id, 'init', { ...YM_INIT });
+      // выбор версии на экране выбора — запоминается там и уходит отсюда, когда есть согласие
+      try {
+        const v = sessionStorage.getItem('vilax.goal.version');
+        if (v) {
+          sessionStorage.removeItem('vilax.goal.version');
+          goal(GOALS.version, { version: v });
+        }
+      } catch {
+        /* нет хранилища — цель не отправляется */
+      }
+    };
+    let opener: HTMLElement | null = null;
+    const show = (on: boolean, from?: HTMLElement) => {
+      const hadFocus = box.contains(document.activeElement);
+      box.hidden = !on;
+      if (on && from) {
+        // открыли из подвала — фокус в плашку, после выбора вернётся на кнопку подвала
+        opener = from;
+        box.querySelector<HTMLButtonElement>('[data-consent-accept]')?.focus({ preventScroll: true });
+      }
+      if (!on && hadFocus) {
+        (opener ?? document.getElementById('top'))?.focus({ preventScroll: true });
+        opener = null;
+      }
+    };
+
+    box.querySelector('[data-consent-accept]')?.addEventListener('click', () => {
+      store.set('granted');
+      show(false);
+      load();
+    });
+    box.querySelector('[data-consent-decline]')?.addEventListener('click', () => {
+      // отказ после согласия: дальше страница не шлёт ничего, полностью счётчик уйдёт со следующей загрузкой
+      store.set('denied');
+      loaded = false;
+      show(false);
+    });
+    document.querySelectorAll<HTMLElement>('[data-consent-open]').forEach((b) => b.addEventListener('click', () => show(true, b)));
+
+    const saved = store.get();
+    if (saved === 'granted') load();
+    else if (saved !== 'denied') addEventListener('load', () => (box.hidden = false), { once: true });
+
+    // события сайта → цели
+    document.addEventListener('click', (e) => {
+      const el = (e.target as Element | null)?.closest<HTMLElement>('[data-go-cta]');
+      if (el) goal(GOALS.demo, { section: el.closest('section')?.id ?? 'header' });
+    });
+    let calcSent = false;
+    addEventListener('vilax:calc', () => {
+      if (calcSent) return;
+      calcSent = true;
+      goal(GOALS.calc);
+    });
+    addEventListener('vilax:lead', (e) => {
+      const stage = (e as CustomEvent<{ stage?: string }>).detail?.stage;
+      if (stage === 'open') goal(GOALS.leadOpen);
+      if (stage === 'sent') goal(GOALS.leadSent);
+    });
+    const pricing = document.getElementById('pricing');
+    if (pricing) {
+      const io = new IntersectionObserver(
+        ([en]) => {
+          if (!en.isIntersecting) return;
+          io.disconnect();
+          goal(GOALS.pricing);
+        },
+        { threshold: 0.25 },
+      );
+      io.observe(pricing);
+    }
+  }
+</script>
+
+<style>
+  .consent {
+    position: fixed;
+    z-index: 60;
+    left: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    max-width: 34rem;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 0 1px var(--hair), 0 16px 48px rgb(2 8 23 / 0.28);
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .consent[hidden] {
+    display: none;
+  }
+  .consent__actions {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .consent__b {
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 8px;
+    border: 1px solid var(--hairS);
+    background: transparent;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .consent__b--accent {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--onAccent);
+  }
+  @media (max-width: 767px) {
+    .consent {
+      right: 16px;
+      max-width: none;
+    }
+  }
+</style>

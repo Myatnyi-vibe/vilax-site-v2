@@ -1,0 +1,149 @@
+{
+  "title": "Pricing",
+  "lead": "Core for every venue; blocks and team seats as you need them.",
+  "onRequest": {
+    "title": "Pricing on request",
+    "text": "Your manager will price VILAX for your venues after the demo.",
+    "cta": "Request a demo"
+  },
+  "earlyAccess": "Early access",
+  "packages": {
+    "base": {
+      "name": "Core",
+      "unit": "per venue / month",
+      "note": "Required for every location"
+    },
+    "guests": {
+      "name": "Guests 360",
+      "unit": "per venue / month",
+      "note": "Includes Aura: {auraIncluded} guest conversations per location per month"
+    },
+    "finance": {
+      "name": "Finance & Control",
+      "unit": "per venue / month",
+      "note": "P&L, cash flow, menu, losses"
+    },
+    "loyalty": {
+      "name": "Loyalty",
+      "unit": "per venue / month",
+      "note": "Your own program, member base and Telegram mini app"
+    },
+    "academy": {
+      "name": "Academy",
+      "unit": "per active employee / month",
+      "note": "No minimum"
+    },
+    "people": {
+      "name": "People + Academy",
+      "unit": "per employee / month",
+      "note": "Minimum {peopleMinimum} per month for your team; Academy included"
+    },
+    "bundle": {
+      "name": "All-in",
+      "unit": "per venue / month",
+      "note": "Core, all four blocks and {bundleSeats} employees per location"
+    },
+    "franchise": {
+      "name": "Franchise",
+      "price": "On request"
+    }
+  },
+  "calc": {
+    "title": "Price calculator",
+    "locations": "Venues",
+    "locationsHint": "{locationsMin} to {locationsMax}",
+    "modules": "What you need",
+    "baseIncluded": "Core included",
+    "bundle": "All-in",
+    "staff": "Team",
+    "staffNone": "Not needed",
+    "staffAcademy": "Academy only",
+    "staffPeople": "People + Academy",
+    "employees": "Employees in your team",
+    "billing": "Billing",
+    "monthly": "Monthly",
+    "annual": "Annual",
+    "annualNote": "save {annualDiscount}",
+    "extra": "Add-ons",
+    "aura": "Aura packs per location, +{auraUnits} conversations",
+    "coordinator": "Coordinator packs per location, +{coordinatorUnits} requests",
+    "topupNote": "Packs last until the end of the billing month. No automatic charges, no annual discount.",
+    "perMonth": "Per month",
+    "perMonthDiscounted": "Per month, discounted",
+    "dueMonth": "Due monthly",
+    "dueYear": "Due annually",
+    "saving": "You save with annual billing",
+    "topups": "AI packs, per month, on top of the subscription",
+    "lines": {
+      "base": "Core",
+      "bundle": "All-in",
+      "guests": "Guests 360",
+      "finance": "Finance & Control",
+      "loyalty": "Loyalty",
+      "people": "People + Academy",
+      "academy": "Academy",
+      "aura": "Aura packs",
+      "coordinator": "Coordinator packs"
+    },
+    "cta": "Request a demo with this quote",
+    "validFrom": "Prices valid from {date}",
+    "rounding": "Amounts on screen are rounded to the nearest dirham."
+  },
+  "conditions": [
+    "AI usage included: the Coordinator handles {coordinatorIncluded} requests per location per month; Aura in Guests 360 handles {auraIncluded} guest conversations per location per month.",
+    "Telephony, WhatsApp and SMS are billed at your provider's rates and are not included.",
+    "Standard onboarding is included with annual billing: one supported connection, user access set-up and a kick-off session for your team. Anything else is quoted separately."
+  ],
+  "blocks": {
+    "unit": "per location / month",
+    "entry": "{tier} locations",
+    "items": {
+      "base": {
+        "name": "Core",
+        "note": "Revenue, KPIs, actual vs target and location rankings every day. Coordinator at no extra cost"
+      },
+      "guests": {
+        "name": "Guests 360",
+        "note": "The guest journey from first inquiry to the next visit"
+      },
+      "finance": {
+        "name": "Finance & Control",
+        "note": "P&L and cash flow, food cost, menu, losses"
+      },
+      "loyalty": {
+        "name": "Loyalty",
+        "note": "Your own program, member base and Telegram mini app"
+      },
+      "staff": {
+        "name": "People & Academy",
+        "note": "Team performance, training, tests, knowledge base"
+      }
+    },
+    "uk": {
+      "name": "Management company billing",
+      "unit": "per group / month",
+      "note": "For the management company: partner contracts, invoices, receivables by age and payments"
+    },
+    "table": {
+      "title": "Price per location by group size, per month before tax",
+      "head": "Locations in the group",
+      "ukCell": "{ukPrice} per group",
+      "note": "Every location in the group pays the same price, which depends only on group size. Management company billing is charged per group, not per location."
+    },
+    "calc": {
+      "locations": "Locations in the group",
+      "locationsHint": "{locationsMin} to {locationsMax}",
+      "blocks": "Blocks",
+      "uk": "Management company billing",
+      "ukHint": "{ukPrice} per month for the whole group",
+      "tier": "Tier: {tier} locations",
+      "perMonth": "Total per month",
+      "perLocation": "Per location per month",
+      "year": "Per year",
+      "yearDue": "Due annually",
+      "saving": "You save per year",
+      "discount": "Annual discount",
+      "empty": "Select at least one block"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+---
+// Главная — одна страница «/» (ТЗ медиа, Р-25): язык × валюта × тема переключаются без перезагрузки.
+// Порядок секций — прототип: обложка → fusion → платформа → блоки → подключение → заявка → вопросы → призыв → подвал.
+import Base from '../layouts/Base.astro';
+import Hero from '../components/home/Hero.astro';
+import Fusion from '../components/home/Fusion.astro';
+import Platform from '../components/home/Platform.astro';
+import Blocks from '../components/home/Blocks.astro';
+import Onboarding from '../components/home/Onboarding.astro';
+import Lead from '../components/home/Lead.astro';
+import Faq from '../components/home/Faq.astro';
+import Cta from '../components/home/Cta.astro';
+import Fab from '../components/site/Fab.astro';
+import { url } from '../lib/site';
+import { organizationLd } from '../lib/seo';
+---
+
+<Base page="home" path={url('/')} jsonLd={[organizationLd()]}>
+  <Hero />
+  <Fusion />
+  <Platform />
+  <Blocks />
+  <Onboarding />
+  <Lead />
+  <Faq />
+  <Cta />
+  <Fab slot="after" />
+</Base>

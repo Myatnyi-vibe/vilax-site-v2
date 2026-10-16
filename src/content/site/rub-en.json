@@ -1,0 +1,291 @@
+{
+  "tagline": "Management system for restaurant groups",
+  "hero": {
+    "title": "Your whole group in one screen",
+    "subtitle": "Revenue, guests, team and money for every location, every day, in one system.",
+    "ctaDemo": "Request a demo",
+    "ctaPrices": "See pricing",
+    "panel": "Video: VILAX brings your group data into one screen"
+  },
+  "fusion": {
+    "lead": "This is how groups are run today:",
+    "items": [
+      "A million chats",
+      "Debts",
+      "Reports",
+      "Endless Excel spreadsheets",
+      "Services nobody understands"
+    ],
+    "merge": "We bring all of it together, into one screen.",
+    "final": "All of this is VILAX."
+  },
+  "platform": {
+    "pill": "Platform",
+    "title": "Core plus three blocks",
+    "lead": "Finance & Control is the core every location runs on. Add a block when you need it: guests, team, loyalty.",
+    "required": "Required"
+  },
+  "blocks": [
+    {
+      "key": "base",
+      "name": "Finance & Control",
+      "task": "See where each restaurant earns and where it loses money",
+      "shot": "t001",
+      "features": [
+        {
+          "screen": "t002",
+          "title": "Revenue and checks through the day",
+          "text": "Group revenue by the hour, with an end-of-day forecast and a comparison with a typical same weekday."
+        },
+        {
+          "screen": "t014",
+          "title": "Key metrics",
+          "text": "Revenue, food cost, gross profit, guests, average check and discounts for the period, against the previous period."
+        },
+        {
+          "screen": "t018",
+          "title": "Actual vs target",
+          "text": "A target for every day that follows weekdays and seasonality, the gap and a month-end forecast for each location."
+        },
+        {
+          "screen": "t020",
+          "title": "Location rankings",
+          "text": "Locations by zone (normal, attention, risk): revenue, trend, food cost, discounts and average check."
+        },
+        {
+          "screen": "y004",
+          "title": "Shift review",
+          "text": "Yesterday’s shift against target, a typical day and its potential at normal revenue per guest."
+        },
+        {
+          "screen": "y039",
+          "title": "Shift team",
+          "text": "Results for each staff member: tables, guests, revenue per table and per guest, losses."
+        },
+        {
+          "screen": "t035",
+          "title": "P&L",
+          "text": "Profit and loss for the group and each location by week, month or quarter."
+        },
+        {
+          "screen": "t036",
+          "title": "Cash flow",
+          "text": "Money in and out across the group, by line and by location."
+        },
+        {
+          "screen": "t037",
+          "title": "Menu ABC analysis",
+          "text": "Which dishes drive revenue and which only take up space on the menu."
+        },
+        {
+          "screen": "t040",
+          "title": "Menu matrix",
+          "text": "Dishes by sales and margin: what to promote, what to reprice, what to drop."
+        },
+        {
+          "screen": "t042",
+          "title": "Food cost",
+          "text": "Food cost by menu group and location against the group standard."
+        },
+        {
+          "screen": "t046",
+          "title": "Losses across six channels",
+          "text": "Deletions after pre-check, voids, refunds, discounts and write-offs, broken down by staff member."
+        }
+      ]
+    },
+    {
+      "key": "guests",
+      "name": "Guests 360",
+      "task": "Take each guest from first inquiry to the next visit",
+      "shot": "y026",
+      "features": [
+        {
+          "screen": "t094",
+          "title": "Tables and orders",
+          "text": "The server’s screen: floor tables, open orders and what is on them."
+        },
+        {
+          "screen": "y026",
+          "title": "Floor overview",
+          "text": "Who is on shift and how the floor is doing in every venue."
+        },
+        {
+          "screen": "g-booking",
+          "title": "Reservations",
+          "text": "Bookings for the whole floor in one screen: statuses, seating, who is expected."
+        },
+        {
+          "screen": "g-reviews",
+          "title": "Reviews and auto-replies",
+          "text": "Yandex Maps and 2GIS reviews in one feed, answered automatically."
+        },
+        {
+          "screen": "g-aura",
+          "title": "Aura answers guests",
+          "text": "AI answers your guests on Telegram and your website."
+        }
+      ]
+    },
+    {
+      "key": "people",
+      "name": "Staff & Academy",
+      "task": "Train the team and see its work in numbers",
+      "shot": "t072",
+      "features": [
+        {
+          "screen": "y040",
+          "title": "Team overview",
+          "text": "How many people worked this month and the revenue per person."
+        },
+        {
+          "screen": "t072",
+          "title": "Training programs",
+          "text": "Programs and tracks by role, from a new barista to the venue manager."
+        },
+        {
+          "screen": "t073",
+          "title": "Tests",
+          "text": "Tests with a question bank that plug into training programs."
+        },
+        {
+          "screen": "t078",
+          "title": "Knowledge base",
+          "text": "SOPs, checklists, recipes and service standards in one place."
+        },
+        {
+          "screen": "t082",
+          "title": "Achievements",
+          "text": "Badges for completed training and test results."
+        },
+        {
+          "screen": "t085",
+          "title": "Rewards store",
+          "text": "Staff earn points for training and exchange them for rewards."
+        }
+      ]
+    },
+    {
+      "key": "loyalty",
+      "name": "Loyalty program",
+      "task": "Launch your own program and grow repeat visits",
+      "shot": "y007",
+      "features": [
+        {
+          "screen": "y007",
+          "title": "Club members",
+          "text": "The program member base: spend, visits and last visit for every guest."
+        },
+        {
+          "screen": "y008",
+          "title": "RFM analysis",
+          "text": "Guests by recency, frequency and spend: who to win back and who to keep."
+        },
+        {
+          "screen": "y010",
+          "title": "Card anti-fraud",
+          "text": "Suspicious point redemptions and manual card operations."
+        }
+      ]
+    }
+  ],
+  "onboarding": {
+    "title": "How we connect you",
+    "steps": [
+      {
+        "title": "Request",
+        "text": "You leave your phone number, name, city and venue name. A manager gets in touch."
+      },
+      {
+        "title": "Demo",
+        "text": "We show the system on a demo group and go through your tasks: which reports you need, which POS and services to connect."
+      },
+      {
+        "title": "POS connection",
+        "text": "We connect the POS and the group’s other data sources."
+      },
+      {
+        "title": "Kick-off session",
+        "text": "A kick-off session for the team: roles and access, reports, Telegram summaries."
+      },
+      {
+        "title": "Live",
+        "text": "The group runs on VILAX every day, with group summaries delivered to Telegram."
+      }
+    ]
+  },
+  "lead": {
+    "title": "Get a VILAX quote for your group",
+    "text": "Leave your details: a manager will call, go through what your group needs and send you a quote.",
+    "points": [
+      "The bigger the group, the lower the price per location",
+      "You only pay for the blocks you need",
+      "See the system on demo data before you buy"
+    ],
+    "name": "Name",
+    "phone": "Phone",
+    "city": "City",
+    "company": "Company name",
+    "chain": "I run a restaurant group",
+    "locations": "Number of locations",
+    "phonePh": "+7 900 000-00-00",
+    "submit": "Get a quote",
+    "consentPre": "By clicking the button, you give your ",
+    "consentLink": "consent to the processing of personal data",
+    "consentPost": ".",
+    "err": {
+      "name": "Enter your name",
+      "phone": "Enter your phone number",
+      "phoneBad": "Check the phone number",
+      "city": "Enter your city",
+      "cityBad": "Check the city: at least 2 letters, no links",
+      "company": "Enter your company name",
+      "locations": "Enter a number from 2"
+    },
+    "doneTitle": "Thank you, {name}!",
+    "doneText": "Your request is in. A manager will contact you at {phone}.",
+    "doneEdit": "Edit details"
+  },
+  "faq": {
+    "title": "FAQ",
+    "items": [
+      {
+        "q": "Which POS systems does VILAX work with?",
+        "a": "In Russia, iiko and Quick Resto. Accounting and stock come in from 1C and MoySklad, targets and reference data from Google Sheets."
+      },
+      {
+        "q": "How long does set-up take?",
+        "a": "It depends on the POS and the number of locations; your manager will give you a timeline after the demo. With annual billing, standard onboarding is included: one connection, access set-up and a kick-off session for the team."
+      },
+      {
+        "q": "Who can see the group’s data?",
+        "a": "Only the people you give access to. Access is set by role and location: a location manager sees their location, the owner sees the whole group."
+      },
+      {
+        "q": "Can we connect only some blocks?",
+        "a": "Yes. You choose the blocks; the price per location is the sum of the ones you pick and is the same for every location in the group. The tier depends on how many locations run on VILAX."
+      },
+      {
+        "q": "What group size does VILAX start from?",
+        "a": "From 2 locations. The price per location is the same for every location and goes down as the group grows."
+      },
+      {
+        "q": "How does billing work?",
+        "a": "Monthly or annually in advance. Annual billing gives 16.7% off and includes standard onboarding. Prices exclude VAT; VAT at 22% is added on top."
+      },
+      {
+        "q": "What does AI cost?",
+        "a": "The Coordinator, AI reports across the group, is included in Core at no extra cost."
+      },
+      {
+        "q": "Is there an app?",
+        "a": "No separate app is needed: the system runs in the browser on desktop and mobile, and group summaries arrive in Telegram."
+      }
+    ]
+  },
+  "cta": {
+    "title": "See your group in VILAX",
+    "text": "We’ll show the system on demo data and price it for your group.",
+    "button": "Request a demo"
+  }
+}

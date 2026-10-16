@@ -1,0 +1,32 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-10-10T14:35:58.648Z",
+        "reason": "Бренд-гайд VILAX v1.0 и ТЗ сайта vilax.ai (раздел «Бренд»): Inter для текста, JetBrains Mono для цифр — шрифт задан брендом"
+      },
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "src/components/home/Hero.astro"
+        ],
+        "createdAt": "2026-10-14T14:06:38.250Z",
+        "reason": "Claude: src ставит inline-скрипт сразу после рамки по сочетанию валюта×язык×тема (медиа-слой SITE-25); без src img скрыт CSS"
+      },
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "src/components/home/Blocks.astro"
+        ],
+        "createdAt": "2026-10-14T14:08:24.526Z",
+        "reason": "Claude: src снимка ставит скрипт по сочетанию валюта×язык×тема (SITE-25); без src img скрыт CSS"
+      }
+    ]
+  }
+}

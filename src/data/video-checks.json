@@ -1,0 +1,630 @@
+{
+ "version": 1,
+ "generatedAt": "2026-10-14T19:47:31.120Z",
+ "videos": [
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "fmt": "16x9",
+   "files": {
+    "webm": {
+     "file": "video/hero-rub-ru-dark-16x9.webm",
+     "bytes": 2008791
+    },
+    "mp4": {
+     "file": "video/hero-rub-ru-dark-16x9.mp4",
+     "bytes": 1824889
+    },
+    "webp": {
+     "file": "video/hero-rub-ru-dark-16x9.webp",
+     "bytes": 14096
+    },
+    "avif": {
+     "file": "video/hero-rub-ru-dark-16x9.avif",
+     "bytes": 5310
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 1600,
+   "height": 900,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.128,
+   "loopPsnr": 46.6
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "fmt": "9x16",
+   "files": {
+    "webm": {
+     "file": "video/hero-rub-ru-dark-9x16.webm",
+     "bytes": 808683
+    },
+    "mp4": {
+     "file": "video/hero-rub-ru-dark-9x16.mp4",
+     "bytes": 810217
+    },
+    "webp": {
+     "file": "video/hero-rub-ru-dark-9x16.webp",
+     "bytes": 10838
+    },
+    "avif": {
+     "file": "video/hero-rub-ru-dark-9x16.avif",
+     "bytes": 4482
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 720,
+   "height": 1280,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.117,
+   "loopPsnr": 45.2
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "fmt": "16x9",
+   "files": {
+    "webm": {
+     "file": "video/hero-rub-ru-light-16x9.webm",
+     "bytes": 2140918
+    },
+    "mp4": {
+     "file": "video/hero-rub-ru-light-16x9.mp4",
+     "bytes": 1884277
+    },
+    "webp": {
+     "file": "video/hero-rub-ru-light-16x9.webp",
+     "bytes": 13362
+    },
+    "avif": {
+     "file": "video/hero-rub-ru-light-16x9.avif",
+     "bytes": 4909
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 1600,
+   "height": 900,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.871,
+   "loopPsnr": 47.2
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "fmt": "9x16",
+   "files": {
+    "webm": {
+     "file": "video/hero-rub-ru-light-9x16.webm",
+     "bytes": 921276
+    },
+    "mp4": {
+     "file": "video/hero-rub-ru-light-9x16.mp4",
+     "bytes": 887842
+    },
+    "webp": {
+     "file": "video/hero-rub-ru-light-9x16.webp",
+     "bytes": 10060
+    },
+    "avif": {
+     "file": "video/hero-rub-ru-light-9x16.avif",
+     "bytes": 4148
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 720,
+   "height": 1280,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.852,
+   "loopPsnr": 46
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "fmt": "16x9",
+   "files": {
+    "webm": {
+     "file": "video/hero-rub-en-dark-16x9.webm",
+     "bytes": 2092692
+    },
+    "mp4": {
+     "file": "video/hero-rub-en-dark-16x9.mp4",
+     "bytes": 1910907
+    },
+    "webp": {
+     "file": "video/hero-rub-en-dark-16x9.webp",
+     "bytes": 14096
+    },
+    "avif": {
+     "file": "video/hero-rub-en-dark-16x9.avif",
+     "bytes": 5310
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 1600,
+   "height": 900,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.128,
+   "loopPsnr": 46.7
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "fmt": "9x16",
+   "files": {
+    "webm": {
+     "file": "video/hero-rub-en-dark-9x16.webm",
+     "bytes": 722866
+    },
+    "mp4": {
+     "file": "video/hero-rub-en-dark-9x16.mp4",
+     "bytes": 754197
+    },
+    "webp": {
+     "file": "video/hero-rub-en-dark-9x16.webp",
+     "bytes": 10838
+    },
+    "avif": {
+     "file": "video/hero-rub-en-dark-9x16.avif",
+     "bytes": 4482
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 720,
+   "height": 1280,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.116,
+   "loopPsnr": 45.7
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "fmt": "16x9",
+   "files": {
+    "webm": {
+     "file": "video/hero-rub-en-light-16x9.webm",
+     "bytes": 2250308
+    },
+    "mp4": {
+     "file": "video/hero-rub-en-light-16x9.mp4",
+     "bytes": 1991352
+    },
+    "webp": {
+     "file": "video/hero-rub-en-light-16x9.webp",
+     "bytes": 13362
+    },
+    "avif": {
+     "file": "video/hero-rub-en-light-16x9.avif",
+     "bytes": 4909
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 1600,
+   "height": 900,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.871,
+   "loopPsnr": 47.2
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "fmt": "9x16",
+   "files": {
+    "webm": {
+     "file": "video/hero-rub-en-light-9x16.webm",
+     "bytes": 814002
+    },
+    "mp4": {
+     "file": "video/hero-rub-en-light-9x16.mp4",
+     "bytes": 818846
+    },
+    "webp": {
+     "file": "video/hero-rub-en-light-9x16.webp",
+     "bytes": 10060
+    },
+    "avif": {
+     "file": "video/hero-rub-en-light-9x16.avif",
+     "bytes": 4148
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 720,
+   "height": 1280,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.852,
+   "loopPsnr": 46.1
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "fmt": "16x9",
+   "files": {
+    "webm": {
+     "file": "video/hero-aed-ru-dark-16x9.webm",
+     "bytes": 1706942
+    },
+    "mp4": {
+     "file": "video/hero-aed-ru-dark-16x9.mp4",
+     "bytes": 1544340
+    },
+    "webp": {
+     "file": "video/hero-aed-ru-dark-16x9.webp",
+     "bytes": 14096
+    },
+    "avif": {
+     "file": "video/hero-aed-ru-dark-16x9.avif",
+     "bytes": 5310
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 1600,
+   "height": 900,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.126,
+   "loopPsnr": 46.7
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "fmt": "9x16",
+   "files": {
+    "webm": {
+     "file": "video/hero-aed-ru-dark-9x16.webm",
+     "bytes": 787673
+    },
+    "mp4": {
+     "file": "video/hero-aed-ru-dark-9x16.mp4",
+     "bytes": 852762
+    },
+    "webp": {
+     "file": "video/hero-aed-ru-dark-9x16.webp",
+     "bytes": 10838
+    },
+    "avif": {
+     "file": "video/hero-aed-ru-dark-9x16.avif",
+     "bytes": 4482
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 720,
+   "height": 1280,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.117,
+   "loopPsnr": 45.3
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "fmt": "16x9",
+   "files": {
+    "webm": {
+     "file": "video/hero-aed-ru-light-16x9.webm",
+     "bytes": 1830751
+    },
+    "mp4": {
+     "file": "video/hero-aed-ru-light-16x9.mp4",
+     "bytes": 1595953
+    },
+    "webp": {
+     "file": "video/hero-aed-ru-light-16x9.webp",
+     "bytes": 13362
+    },
+    "avif": {
+     "file": "video/hero-aed-ru-light-16x9.avif",
+     "bytes": 4909
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 1600,
+   "height": 900,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.87,
+   "loopPsnr": 47.1
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "fmt": "9x16",
+   "files": {
+    "webm": {
+     "file": "video/hero-aed-ru-light-9x16.webm",
+     "bytes": 903501
+    },
+    "mp4": {
+     "file": "video/hero-aed-ru-light-9x16.mp4",
+     "bytes": 928657
+    },
+    "webp": {
+     "file": "video/hero-aed-ru-light-9x16.webp",
+     "bytes": 10060
+    },
+    "avif": {
+     "file": "video/hero-aed-ru-light-9x16.avif",
+     "bytes": 4148
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 720,
+   "height": 1280,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.852,
+   "loopPsnr": 46.2
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "fmt": "16x9",
+   "files": {
+    "webm": {
+     "file": "video/hero-aed-en-dark-16x9.webm",
+     "bytes": 1660687
+    },
+    "mp4": {
+     "file": "video/hero-aed-en-dark-16x9.mp4",
+     "bytes": 1499017
+    },
+    "webp": {
+     "file": "video/hero-aed-en-dark-16x9.webp",
+     "bytes": 14096
+    },
+    "avif": {
+     "file": "video/hero-aed-en-dark-16x9.avif",
+     "bytes": 5310
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 1600,
+   "height": 900,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.125,
+   "loopPsnr": 46.7
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "fmt": "9x16",
+   "files": {
+    "webm": {
+     "file": "video/hero-aed-en-dark-9x16.webm",
+     "bytes": 732310
+    },
+    "mp4": {
+     "file": "video/hero-aed-en-dark-9x16.mp4",
+     "bytes": 810217
+    },
+    "webp": {
+     "file": "video/hero-aed-en-dark-9x16.webp",
+     "bytes": 10838
+    },
+    "avif": {
+     "file": "video/hero-aed-en-dark-9x16.avif",
+     "bytes": 4482
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 720,
+   "height": 1280,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.116,
+   "loopPsnr": 45.6
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "fmt": "16x9",
+   "files": {
+    "webm": {
+     "file": "video/hero-aed-en-light-16x9.webm",
+     "bytes": 1779588
+    },
+    "mp4": {
+     "file": "video/hero-aed-en-light-16x9.mp4",
+     "bytes": 1571856
+    },
+    "webp": {
+     "file": "video/hero-aed-en-light-16x9.webp",
+     "bytes": 13362
+    },
+    "avif": {
+     "file": "video/hero-aed-en-light-16x9.avif",
+     "bytes": 4909
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 1600,
+   "height": 900,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.871,
+   "loopPsnr": 47.1
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "fmt": "9x16",
+   "files": {
+    "webm": {
+     "file": "video/hero-aed-en-light-9x16.webm",
+     "bytes": 855189
+    },
+    "mp4": {
+     "file": "video/hero-aed-en-light-9x16.mp4",
+     "bytes": 858961
+    },
+    "webp": {
+     "file": "video/hero-aed-en-light-9x16.webp",
+     "bytes": 10060
+    },
+    "avif": {
+     "file": "video/hero-aed-en-light-9x16.avif",
+     "bytes": 4148
+    }
+   },
+   "checks": {
+    "budget": true,
+    "loop": true,
+    "lang": true,
+    "currency": true,
+    "theme": true
+   },
+   "status": "pass",
+   "width": 720,
+   "height": 1280,
+   "durationSec": 22,
+   "fps": 30,
+   "audio": false,
+   "luma": 0.853,
+   "loopPsnr": 46.1
+  }
+ ]
+}

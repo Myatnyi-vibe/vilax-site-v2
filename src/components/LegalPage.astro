@@ -1,0 +1,134 @@
+---
+// Правовая страница по прежнему адресу (/privacy, /terms, /support, /ru/*, /ru|en/consent). Вид — прототип «Legal»:
+// шапка в тоне обложки (плашки документов 36 px + H1), тело — лист в тоне платформы, max-width 760.
+// Документы — по валюте: русские (/ru/…) — документы РФ (₽), английские — ОАЭ (AED); валюта на странице закреплена.
+// alias — синоним /en/<doc> английской версии, canonical у него — прежний адрес.
+import Base from '../layouts/Base.astro';
+import T from './T.astro';
+import { va } from '../lib/content';
+import { ui } from '../i18n';
+import { legalHtml, type LegalDoc } from '../lib/legal';
+import { typo } from '../lib/typo';
+import { legalPath, tone, url, LEGAL_DOCS, type Lang } from '../lib/site';
+
+interface Props {
+  lang: Lang;
+  doc: LegalDoc;
+  alias?: boolean;
+}
+
+const { lang, doc, alias = false } = Astro.props;
+const canonicalPath = legalPath(lang, doc);
+// H1 документа выводит шапка страницы — из тела его убираем, чтобы на странице был один H1.
+// Русский текст — через typo (SITE-47): правила трогают только кириллицу и «—», разметку не меняют.
+const html = typo(lang, legalHtml(lang, doc).replace(/^\s*<h1>[\s\S]*?<\/h1>\s*/, ''));
+const titles = { ru: `${ui('ru').legal[doc]} · VILAX`, en: `${ui('en').legal[doc]} · VILAX` };
+---
+
+<Base page="legal" path={alias ? url(`/en/${doc}`) : canonicalPath} canonicalPath={canonicalPath} fixCur={lang === 'ru' ? 'rub' : 'aed'} titles={titles} noindex={alias}>
+  <section class="lg-head" {...tone('hero')} data-screen-label="Legal">
+    <div class="wrap lg-head__in">
+      <nav class="lg-docs" {...va('aria-label', (_, u) => u.footer.documents)}>
+        {LEGAL_DOCS.map((d) => <a href={legalPath(lang, d)} class="lg-doc" aria-current={d === doc ? 'page' : 'false'}><T get={(_, u) => u.legal[d]} /></a>)}
+      </nav>
+      <h1 class="lg-h1"><T get={(_, u) => u.legal[doc]} /></h1>
+    </div>
+  </section>
+  <section class="lg-body sheet" {...tone('platform')}>
+    <article class="lg-text" lang={lang} set:html={html} />
+  </section>
+</Base>
+
+<style>
+  .lg-head {
+    padding: clamp(120px, 12vw, 160px) 0 clamp(88px, 10vw, 144px);
+  }
+  .lg-head__in {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .lg-docs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .lg-doc {
+    display: inline-flex;
+    align-items: center;
+    height: 36px;
+    padding: 0 14px;
+    border-radius: 9999px;
+    border: 1px solid var(--hairS);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    background: transparent;
+    color: var(--ink);
+  }
+  /* SITE-49 (ворота): на телефоне и планшете вид тот же (36 px), зона касания — 44 по высоте. */
+  @media (max-width: 1179.98px) {
+    .lg-doc {
+      position: relative;
+    }
+    .lg-doc::after {
+      content: '';
+      position: absolute;
+      inset: -4px 0;
+    }
+  }
+  .lg-doc[aria-current='page'] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .lg-h1 {
+    font-size: clamp(36px, 4.4vw, 64px);
+    font-weight: 620;
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+    max-width: 20ch;
+  }
+  /* SITE-41 P0-2: на 360 слово «конфиденциальности» в H1 36 px шире строки → страница 371 px, прокрутка вбок.
+     До 390 размер плавно растёт к прежним 36 px. */
+  @media (max-width: 389.98px) {
+    .lg-h1 {
+      font-size: min(36px, 9.2vw);
+    }
+  }
+  .lg-body {
+    padding: clamp(56px, 7vw, 96px) 0 clamp(88px, 10vw, 144px);
+  }
+  .lg-text {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 3vw, 40px);
+  }
+  .lg-text :global(h2) {
+    margin: 40px 0 12px;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  .lg-text :global(p),
+  .lg-text :global(li) {
+    color: var(--muted);
+  }
+  .lg-text :global(p + p) {
+    margin-top: 12px;
+  }
+  .lg-text :global(ul),
+  .lg-text :global(ol) {
+    margin: 12px 0;
+    padding-left: 22px;
+  }
+  .lg-text :global(a) {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .lg-text :global(.muted) {
+    color: var(--subtle);
+    font-size: 14px;
+  }
+</style>

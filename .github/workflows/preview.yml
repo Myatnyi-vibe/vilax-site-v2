@@ -1,0 +1,116 @@
+# Проверки и превью сайта v2 на GitHub Pages (SITE-54): https://myatnyi-vibe.github.io/vilax-site-v2/
+# Каждый push и PR: npm run check (типы, сборка, тесты, verify-dist) и поиск секретов по всей истории (gitleaks).
+# Push в main: сборка preview под подпутём /vilax-site-v2/ → CSP → проверка папки → браузерная проверка → Pages.
+# Превью закрыто от поисковиков (noindex на каждой странице), форма в режиме показа — никуда не отправляет.
+# Прод (vilax.ai) отсюда не выкладывается никогда: только deploy/site-release.sh по команде.
+name: preview
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: preview-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '24'
+
+jobs:
+  check:
+    name: npm run check
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - name: Тесты комплекта выкладки
+        run: node --test "deploy/tests/*.test.mjs"
+
+  secrets:
+    name: секреты (gitleaks)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Страж публичного репозитория (почты, стейдж, локальные пути, внутренние ссылки)
+        run: node deploy/public-audit.mjs --ref HEAD --history
+
+  build:
+    name: сборка превью
+    needs: [check, secrets]
+    runs-on: ubuntu-24.04
+    env:
+      VILAX_SITE: https://myatnyi-vibe.github.io
+      VILAX_BASE: /vilax-site-v2
+      # Метрика в превью не включается (PUBLIC_VILAX_YM_ID не задаём), адрес приёмника — тоже.
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      - run: npm run build:preview
+      - run: node deploy/csp.mjs --dist dist --mode preview
+      - run: node deploy/check-dist.mjs --dist dist --mode preview --site "$VILAX_SITE" --base "$VILAX_BASE"
+      - name: Браузерная проверка
+        run: node deploy/smoke.mjs --dist dist --base "$VILAX_BASE" --mode preview
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  lighthouse:
+    name: Lighthouse (для сведения)
+    needs: check
+    runs-on: ubuntu-24.04
+    # Общие машины GitHub шумят по скорости — отчёт не останавливает превью; бюджет проверяет приёмка (SITE-7).
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      - run: npm run lighthouse -- --no-lock-check
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse
+          path: |
+            .lighthouse/
+            !.lighthouse/dist/
+          if-no-files-found: ignore
+
+  deploy:
+    name: GitHub Pages
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.pages.outputs.page_url }}
+    steps:
+      - id: pages
+        uses: actions/deploy-pages@v4

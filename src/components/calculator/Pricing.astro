@@ -1,0 +1,749 @@
+---
+// Секция 8 «Цены и калькулятор» (SITE-8, SITE-3, SITE-14). Модель цены — по версии сайта (src/data/prices.json → model):
+// РФ — сеть 2–200, блоки за локацию по тарифу сети + УК за сеть (blocks); ОАЭ — своё заведение 1–9, пакеты v16 (v16).
+// Цифры — только из src/data/prices.json, подписи — из src/content/{ru,en}/pricing.json. Цвета — переменные темы.
+// Без скриптов секция читается: цены и расчёт по умолчанию отрисованы при сборке.
+import ruDict from '../../content/ru/pricing.json';
+import enDict from '../../content/en/pricing.json';
+import { typo } from '../../lib/typo';
+import {
+  quoteFor,
+  lines,
+  leadPayload,
+  DEFAULT_INPUT,
+  LIMITS,
+  quoteBlocks,
+  blocksLines,
+  blocksLeadPayload,
+  defaultBlocksInput,
+  type BlockKey,
+  type Tier,
+} from '../../lib/pricing-calc';
+import { versionVars, fill, formatPrice, priceVersion } from '../../lib/pricing-text';
+
+interface Props {
+  lang: 'ru' | 'en';
+}
+const { lang } = Astro.props;
+const t = lang === 'ru' ? ruDict : enDict;
+const p = priceVersion(lang);
+const tx = (s: string) => typo(lang, s);
+const v = versionVars(lang);
+const f = (s: string) => tx(fill(s, v));
+const money = (n: number) => formatPrice(n, lang, p.currency);
+const show = p.showPrices && (p.model === 'blocks' || !!p.commercial);
+const L = p.locations;
+
+/** Подпись тарифа из границ справочника: «2–10», «201+». */
+const tierLabel = (x: Tier) => (x.to === null ? `${x.from}+` : `${x.from}–${x.to}`);
+
+// ── Модель v16 (ОАЭ): пакеты и калькулятор на модуле VilaxPricing ──
+const c = p.model === 'v16' ? p.commercial : null;
+const PACKAGES = [
+  { key: 'base', price: c?.base, early: false },
+  { key: 'guests', price: c?.guests, early: true },
+  { key: 'finance', price: c?.finance, early: false },
+  { key: 'loyalty', price: c?.loyalty, early: false },
+  { key: 'academy', price: c?.academySeat, early: false },
+  { key: 'people', price: c?.peopleSeat, early: true },
+  { key: 'bundle', price: c?.bundle, early: false },
+] as const;
+type PackageKey = (typeof PACKAGES)[number]['key'];
+const pkg = (k: PackageKey) => t.packages[k] as { name: string; unit: string; note: string };
+const q16 = c ? quoteFor(c, { ...DEFAULT_INPUT, locations: L.start }) : null;
+const lines16 = c && q16 ? lines(c, q16) : [];
+const lead16 = c && q16 ? JSON.stringify(leadPayload({ ...DEFAULT_INPUT, locations: L.start }, q16, p.version ?? '', p.currency, p.segment)) : '';
+const config16 = c ? JSON.stringify({ model: 'v16', lang, currency: p.currency, version: p.version, segment: p.segment, locations: L, commercial: c, lines: t.calc.lines }) : '';
+
+// ── Модель blocks (РФ): блоки за локацию по тарифу сети + УК ──
+const bt = t.blocks;
+const bp = p.model === 'blocks' ? p : null;
+const blockName = (k: BlockKey) => tx(bt.items[k].name);
+const qb = bp ? quoteBlocks(bp, defaultBlocksInput(bp)) : null;
+const linesB = bp && qb ? blocksLines(bp, qb) : [];
+const leadB = bp && qb ? JSON.stringify(blocksLeadPayload(bp, qb)) : '';
+const tierText = (x: Tier) => tx(fill(bt.calc.tier, { tier: tierLabel(x) }));
+const lineName = (k: string) => (k === 'uk' ? tx(bt.uk.name) : k === 'discount' ? `${tx(bt.calc.discount)} ${v.annualDiscount ?? ''}`.trim() : blockName(k as BlockKey));
+const lineSub = (perLocation: number | null, n: number) => (perLocation === null ? '' : `${money(perLocation)} × ${n}`);
+const MINUS = String.fromCharCode(0x2212);
+const signed = (n: number) => (n < 0 ? `${MINUS}${money(-n)}` : money(n));
+const configB = bp
+  ? JSON.stringify({
+      model: 'blocks',
+      lang,
+      price: bp,
+      names: Object.fromEntries([...bp.blocks.map((b) => [b.key, blockName(b.key)]), ['uk', tx(bt.uk.name)], ['discount', lineName('discount')]]),
+      tierTemplate: tx(bt.calc.tier),
+      tierLabels: bp.tiers.map(tierLabel),
+      year: tx(bt.calc.year),
+      yearDue: tx(bt.calc.yearDue),
+    })
+  : '';
+---
+
+<div class="pr" data-pricing={lang} data-model={p.model}>
+  {
+    !show ? (
+      <div class="pr__request">
+        <h3 class="pr__request-title">{tx(t.onRequest.title)}</h3>
+        <p class="pr__request-text">{tx(t.onRequest.text)}</p>
+        <a class="btn btn--primary" href="#demo" data-demo="pricing">{tx(t.onRequest.cta)}</a>
+      </div>
+    ) : bp && qb ? (
+      <>
+        <ul class="pr__packages" role="list">
+          {bp.blocks.map((b) => (
+            <li class="pr__pkg">
+              <div class="pr__pkg-head">
+                <span class="pr__pkg-name">{blockName(b.key)}</span>
+                {b.earlyAccess && <span class="pr__badge">{tx(t.earlyAccess)}</span>}
+              </div>
+              <p class="pr__pkg-note">{f(bt.items[b.key].note)}</p>
+              <p class="pr__pkg-price">
+                <span class="num">{money(b.prices[0])}</span>
+                <span class="pr__pkg-unit">
+                  {tx(bt.unit)}
+                  <span class="pr__pkg-step"> · {tx(fill(bt.entry, { tier: tierLabel(bp.tiers[0]) }))}</span>
+                </span>
+              </p>
+            </li>
+          ))}
+          <li class="pr__pkg">
+            <div class="pr__pkg-head">
+              <span class="pr__pkg-name">{tx(bt.uk.name)}</span>
+            </div>
+            <p class="pr__pkg-note">{f(bt.uk.note)}</p>
+            <p class="pr__pkg-price">
+              <span class="num">{money(bp.uk.price)}</span>
+              <span class="pr__pkg-unit">{tx(bt.uk.unit)}</span>
+            </p>
+          </li>
+        </ul>
+
+        <div class="pr__ladder">
+          <h3 class="pr__ladder-title">{tx(bt.table.title)}</h3>
+          <div class="pr__ladder-scroll" tabindex="0" role="region" aria-label={tx(bt.table.title)}>
+            <table class="pr__ladder-table">
+              <thead>
+                <tr>
+                  <th scope="col">{tx(bt.table.head)}</th>
+                  {bp.tiers.map((x, i) => (
+                    <th scope="col" class:list={['num', { 'is-current': i === qb.tierIndex }]} data-tier-col={i}>
+                      {tierLabel(x)}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {bp.blocks.map((b) => (
+                  <tr>
+                    <th scope="row">{blockName(b.key)}</th>
+                    {b.prices.map((x, i) => (
+                      <td class:list={['num', { 'is-current': i === qb.tierIndex }]} data-tier-col={i}>
+                        {money(x)}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+                <tr>
+                  <th scope="row">{tx(bt.uk.name)}</th>
+                  <td class="pr__ladder-flat" colspan={bp.tiers.length}>{f(bt.table.ukCell)}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="pr__ladder-note">{tx(bt.table.note)}</p>
+        </div>
+
+        <div class="calc" data-calc data-config={configB}>
+          <form class="calc__form" aria-label={t.calc.title}>
+            <h3 class="calc__title">{tx(t.calc.title)}</h3>
+
+            <div class="calc__field">
+              <label class="calc__label" for={`calc-loc-${lang}`}>{tx(bt.calc.locations)}</label>
+              <div class="calc__loc">
+                <input class="calc__range" type="range" min={L.min} max={L.max} value={L.start} name="locationsRange" aria-hidden="true" tabindex="-1" />
+                <input class="calc__num num" id={`calc-loc-${lang}`} type="number" inputmode="numeric" min={L.min} max={L.max} value={L.start} name="locations" aria-describedby={`calc-loc-hint-${lang}`} />
+              </div>
+              <p class="calc__hint" id={`calc-loc-hint-${lang}`}>
+                {f(bt.calc.locationsHint)} · <span class="calc__tier" data-out="tier">{tierText(qb.tier)}</span>
+              </p>
+            </div>
+
+            <fieldset class="calc__field">
+              <legend class="calc__label">{tx(bt.calc.blocks)}</legend>
+              {bp.blocks.map((b) => (
+                <label class="calc__check">
+                  <input type="checkbox" name="block" value={b.key} checked={!!b.default} />
+                  <span>{blockName(b.key)}</span>
+                  <span class="calc__check-price num" data-block-price={b.key}>{money(b.prices[qb.tierIndex])}</span>
+                </label>
+              ))}
+              <label class="calc__switch">
+                <input type="checkbox" role="switch" name="uk" />
+                <span class="calc__switch-text">
+                  <span>{tx(bt.calc.uk)}</span>
+                  <span class="calc__hint">{f(bt.calc.ukHint)}</span>
+                </span>
+              </label>
+            </fieldset>
+
+            <fieldset class="calc__field">
+              <legend class="calc__label">{tx(t.calc.billing)}</legend>
+              <div class="calc__seg" role="radiogroup">
+                <label><input type="radio" name="billing" value="monthly" checked /> <span>{tx(t.calc.monthly)}</span></label>
+                <label><input type="radio" name="billing" value="annual" /> <span>{tx(t.calc.annual)} · {f(t.calc.annualNote)}</span></label>
+              </div>
+            </fieldset>
+          </form>
+
+          <aside class="calc__result">
+            <p class="calc__res-label">{tx(bt.calc.perMonth)}</p>
+            <p class="calc__res-main num" data-out="main">{money(qb.monthlyEquivalent)}</p>
+            <p class="visually-hidden" data-out="live" aria-live="polite" aria-atomic="true"></p>
+            <dl class="calc__res-rows">
+              <div><dt>{tx(bt.calc.perLocation)}</dt><dd class="num" data-out="perLocation">{money(qb.perLocationEquivalent)}</dd></div>
+              <div><dt data-out="yearLabel">{tx(bt.calc.year)}</dt><dd class="num" data-out="year">{money(qb.yearly)}</dd></div>
+              <div data-row="saving" hidden><dt>{tx(bt.calc.saving)}</dt><dd class="num" data-out="saving"></dd></div>
+            </dl>
+            <p class="calc__empty" data-out="empty" hidden={qb.blocks.length > 0 || qb.uk}>{tx(bt.calc.empty)}</p>
+            <ul class="calc__lines" role="list" data-out="lines">
+              {linesB.map((l) => (
+                <li>
+                  <span>{lineName(l.key)}{l.perLocation !== null && <span class="calc__line-sub num">{lineSub(l.perLocation, qb.locations)}</span>}</span>
+                  <span class="num">{signed(l.amount)}</span>
+                </li>
+              ))}
+            </ul>
+            <p class="calc__tax">{tx(p.taxLabel)} {tx(t.calc.rounding)}</p>
+            {p.version && <p class="calc__tax">{f(t.calc.validFrom)}</p>}
+            <a class="btn btn--primary calc__cta" href="#demo" data-demo="pricing" data-demo-calc={leadB}>{tx(t.calc.cta)}</a>
+          </aside>
+
+          <div class="calc__bar" aria-hidden="true">
+            <span class="calc__bar-sum num" data-out="bar">{money(qb.monthlyEquivalent)}</span>
+            <a class="btn btn--primary" href="#demo" data-demo="pricing" data-demo-calc={leadB} tabindex="-1">{tx(t.onRequest.cta)}</a>
+          </div>
+        </div>
+
+        <ul class="pr__conditions" role="list">
+          {t.conditions.map((s) => <li>{f(s)}</li>)}
+        </ul>
+      </>
+    ) : (
+      <>
+        <ul class="pr__packages" role="list">
+          {PACKAGES.map((x) => (
+            <li class="pr__pkg">
+              <div class="pr__pkg-head">
+                <span class="pr__pkg-name">{tx(pkg(x.key).name)}</span>
+                {x.early && <span class="pr__badge">{tx(t.earlyAccess)}</span>}
+              </div>
+              <p class="pr__pkg-note">{f(pkg(x.key).note)}</p>
+              <p class="pr__pkg-price">
+                <span class="num">{money(x.price as number)}</span>
+                <span class="pr__pkg-unit">{tx(pkg(x.key).unit)}</span>
+              </p>
+            </li>
+          ))}
+        </ul>
+
+        <div class="calc" data-calc data-config={config16} data-labels={JSON.stringify({ perMonth: tx(t.calc.perMonth), dueMonth: tx(t.calc.dueMonth), dueYear: tx(t.calc.dueYear) })}>
+          <form class="calc__form" aria-label={t.calc.title}>
+            <h3 class="calc__title">{tx(t.calc.title)}</h3>
+
+            <div class="calc__field">
+              <label class="calc__label" for={`calc-loc-${lang}`}>{tx(t.calc.locations)}</label>
+              <div class="calc__loc">
+                <input class="calc__range" type="range" min={L.min} max={L.max} value={L.start} name="locationsRange" aria-hidden="true" tabindex="-1" />
+                <input class="calc__num num" id={`calc-loc-${lang}`} type="number" inputmode="numeric" min={L.min} max={L.max} value={L.start} name="locations" />
+              </div>
+              <p class="calc__hint">{f(t.calc.locationsHint)}</p>
+            </div>
+
+            <fieldset class="calc__field">
+              <legend class="calc__label">{tx(t.calc.modules)}</legend>
+              <label class="calc__check"><input type="checkbox" checked disabled /> <span>{tx(t.calc.baseIncluded)}</span></label>
+              <label class="calc__check"><input type="checkbox" name="guests" data-module /> <span>{tx(t.calc.lines.guests)}</span></label>
+              <label class="calc__check"><input type="checkbox" name="finance" data-module /> <span>{tx(t.calc.lines.finance)}</span></label>
+              <label class="calc__check"><input type="checkbox" name="loyalty" data-module /> <span>{tx(t.calc.lines.loyalty)}</span></label>
+              <label class="calc__switch"><input type="checkbox" role="switch" name="bundle" /> <span>{tx(t.calc.bundle)}</span></label>
+            </fieldset>
+
+            <fieldset class="calc__field">
+              <legend class="calc__label">{tx(t.calc.staff)}</legend>
+              <div class="calc__seg" role="radiogroup">
+                <label><input type="radio" name="staff" value="none" checked /> <span>{tx(t.calc.staffNone)}</span></label>
+                <label><input type="radio" name="staff" value="academy" /> <span>{tx(t.calc.staffAcademy)}</span></label>
+                <label><input type="radio" name="staff" value="people" /> <span>{tx(t.calc.staffPeople)}</span></label>
+              </div>
+              <label class="calc__sub" data-employees hidden>
+                <span>{tx(t.calc.employees)}</span>
+                <input class="calc__num num" type="number" inputmode="numeric" min="0" max={LIMITS.employeesMax} value="0" name="employees" />
+              </label>
+            </fieldset>
+
+            <fieldset class="calc__field">
+              <legend class="calc__label">{tx(t.calc.billing)}</legend>
+              <div class="calc__seg" role="radiogroup">
+                <label><input type="radio" name="billing" value="monthly" checked /> <span>{tx(t.calc.monthly)}</span></label>
+                <label><input type="radio" name="billing" value="annual" /> <span>{tx(t.calc.annual)} · {f(t.calc.annualNote)}</span></label>
+              </div>
+            </fieldset>
+
+            <details class="calc__extra">
+              <summary>{tx(t.calc.extra)}</summary>
+              <label class="calc__sub" data-aura>
+                <span>{f(t.calc.aura)}</span>
+                <input class="calc__num num" type="number" inputmode="numeric" min="0" max={LIMITS.blocksMax} value="0" name="auraBlocks" />
+              </label>
+              <label class="calc__sub">
+                <span>{f(t.calc.coordinator)}</span>
+                <input class="calc__num num" type="number" inputmode="numeric" min="0" max={LIMITS.blocksMax} value="0" name="coordBlocks" />
+              </label>
+              <p class="calc__hint">{tx(t.calc.topupNote)}</p>
+            </details>
+          </form>
+
+          <aside class="calc__result">
+            <p class="calc__res-label" data-out="mainLabel">{tx(t.calc.perMonth)}</p>
+            <p class="calc__res-main num" data-out="main" aria-live="polite" aria-atomic="true">{q16 && money(q16.monthly)}</p>
+            <dl class="calc__res-rows">
+              <div data-row="discounted" hidden><dt>{tx(t.calc.perMonthDiscounted)}</dt><dd class="num" data-out="discounted"></dd></div>
+              <div data-row="due"><dt data-out="dueLabel">{tx(t.calc.dueMonth)}</dt><dd class="num" data-out="due">{q16 && money(q16.subscriptionDue)}</dd></div>
+              <div data-row="saving" hidden><dt>{tx(t.calc.saving)}</dt><dd class="num" data-out="saving"></dd></div>
+              <div data-row="topups" hidden><dt>{tx(t.calc.topups)}</dt><dd class="num" data-out="topups"></dd></div>
+            </dl>
+            <ul class="calc__lines" role="list" data-out="lines">
+              {lines16.map((l) => (
+                <li><span>{tx(t.calc.lines[l.key])}</span><span class="num">{money(l.amount)}</span></li>
+              ))}
+            </ul>
+            <p class="calc__tax">{tx(p.taxLabel)} {tx(t.calc.rounding)}</p>
+            {p.version && <p class="calc__tax">{f(t.calc.validFrom)}</p>}
+            <a class="btn btn--primary calc__cta" href="#demo" data-demo="pricing" data-demo-calc={lead16}>{tx(t.calc.cta)}</a>
+          </aside>
+
+          <div class="calc__bar" aria-hidden="true">
+            <span class="calc__bar-sum num" data-out="bar">{q16 && money(q16.monthly)}</span>
+            <a class="btn btn--primary" href="#demo" data-demo="pricing" data-demo-calc={lead16} tabindex="-1">{tx(t.onRequest.cta)}</a>
+          </div>
+        </div>
+
+        <ul class="pr__conditions" role="list">
+          {t.conditions.map((s) => <li>{f(s)}</li>)}
+        </ul>
+      </>
+    )
+  }
+</div>
+
+<script>
+  // Расчёт догружается, когда до калькулятора долистали (бюджет скриптов при загрузке, ТЗ).
+  const roots = document.querySelectorAll<HTMLElement>('[data-calc]');
+  if (roots.length) {
+    const start = () => import('./calc-client').then((m) => roots.forEach((r) => m.mount(r)));
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          io.disconnect();
+          start();
+        }
+      }, { rootMargin: '600px 0px' });
+      roots.forEach((r) => io.observe(r));
+    } else start();
+  }
+</script>
+
+<style>
+  .pr {
+    display: grid;
+    gap: var(--sp-7);
+  }
+  .pr__request {
+    display: grid;
+    gap: var(--sp-4);
+    justify-items: start;
+    max-width: 640px;
+    padding: var(--sp-6);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    background: var(--surface-1);
+  }
+  .pr__request-title {
+    font-size: var(--fs-headline);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+  }
+  .pr__request-text {
+    color: var(--ink-muted);
+    max-width: 56ch;
+  }
+
+  .pr__packages {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    border-top: 1px solid var(--hairline);
+  }
+  .pr__pkg {
+    display: grid;
+    gap: var(--sp-2);
+    align-content: start;
+    padding: var(--sp-5) var(--sp-4) var(--sp-5) 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .pr__pkg-head {
+    display: flex;
+    gap: var(--sp-2);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .pr__pkg-name {
+    font-size: var(--fs-title);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .pr__badge {
+    padding: 2px 8px;
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--r-xs);
+    font-size: var(--fs-caption);
+    color: var(--ink-subtle);
+  }
+  .pr__pkg-note {
+    font-size: var(--fs-small);
+    color: var(--ink-muted);
+  }
+  .pr__pkg-price {
+    display: flex;
+    gap: var(--sp-2);
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  .pr__pkg-price .num {
+    font-size: 1.375rem;
+  }
+  .pr__pkg-unit {
+    font-size: var(--fs-small);
+    color: var(--ink-subtle);
+  }
+
+  .pr__ladder {
+    display: grid;
+    gap: var(--sp-3);
+  }
+  .pr__ladder-title {
+    font-size: var(--fs-title);
+    font-weight: 600;
+  }
+  .pr__ladder-scroll {
+    overflow-x: auto;
+  }
+  .pr__ladder-table {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    font-size: var(--fs-small);
+  }
+  .pr__ladder-table th,
+  .pr__ladder-table td {
+    padding: var(--sp-2) var(--sp-3);
+    border-bottom: 1px solid var(--hairline);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .pr__ladder-table th[scope='row'],
+  .pr__ladder-table thead th:first-child {
+    text-align: left;
+    font-weight: 600;
+  }
+  .pr__ladder-table thead th {
+    color: var(--ink-subtle);
+    font-weight: 500;
+  }
+  /* Тариф, в который попадает сеть из калькулятора, подсвечен (blocks, РФ). */
+  .pr__ladder-table .is-current {
+    color: var(--ink);
+    background: var(--surface-1);
+    box-shadow: inset 0 -2px 0 var(--accent);
+  }
+  .pr__ladder-table td.pr__ladder-flat {
+    text-align: left;
+    color: var(--ink-muted);
+  }
+  .pr__ladder-note {
+    font-size: var(--fs-caption);
+    color: var(--ink-subtle);
+    max-width: 72ch;
+  }
+
+  .calc {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--sp-5);
+    align-items: start;
+  }
+  .calc__form {
+    display: grid;
+    gap: var(--sp-5);
+    padding: var(--sp-6);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    background: var(--surface-1);
+  }
+  .calc__title {
+    font-size: var(--fs-title);
+    font-weight: 600;
+  }
+  .calc__field {
+    display: grid;
+    gap: var(--sp-2);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 0;
+  }
+  .calc__label {
+    padding: 0;
+    font-size: var(--fs-small);
+    font-weight: 600;
+    color: var(--ink-muted);
+  }
+  .calc__hint {
+    font-size: var(--fs-caption);
+    color: var(--ink-subtle);
+  }
+  .calc__loc {
+    display: flex;
+    gap: var(--sp-4);
+    align-items: center;
+  }
+  .calc__range {
+    flex: 1;
+    accent-color: var(--accent);
+  }
+  .calc__num {
+    width: 96px;
+    height: 44px;
+    padding: 0 var(--sp-3);
+    border: 1px solid var(--field-border);
+    border-radius: var(--r-sm);
+    background: var(--surface-2);
+    color: var(--ink);
+    font-size: 1rem;
+  }
+  .calc__check,
+  .calc__switch {
+    display: flex;
+    gap: var(--sp-3);
+    align-items: center;
+    min-height: 40px;
+    cursor: pointer;
+  }
+  .calc__check input,
+  .calc__switch input,
+  .calc__seg input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+  }
+  .calc__check-price {
+    margin-left: auto;
+    font-size: var(--fs-small);
+    color: var(--ink-subtle);
+  }
+  .calc__switch-text {
+    display: grid;
+    gap: 2px;
+  }
+  .calc__tier {
+    color: var(--ink-muted);
+  }
+  .calc__empty {
+    font-size: var(--fs-small);
+    color: var(--ink-muted);
+  }
+  .calc__empty[hidden] {
+    display: none;
+  }
+  /* Строки раскладки дорисовывает скрипт — без атрибута области видимости, поэтому :global. */
+  .calc__lines :global(.calc__line-sub) {
+    display: block;
+    font-size: var(--fs-caption);
+    color: var(--ink-subtle);
+  }
+  .calc__switch {
+    margin-top: var(--sp-2);
+    padding-top: var(--sp-3);
+    border-top: 1px solid var(--hairline);
+  }
+  .calc__seg {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+  }
+  .calc__seg label {
+    display: inline-flex;
+    gap: var(--sp-2);
+    align-items: center;
+    min-height: 40px;
+    padding: 0 var(--sp-3);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-sm);
+    cursor: pointer;
+  }
+  .calc__seg label:has(input:checked) {
+    border-color: var(--accent);
+  }
+  .calc__sub {
+    display: flex;
+    gap: var(--sp-4);
+    align-items: center;
+    justify-content: space-between;
+    margin-top: var(--sp-2);
+    font-size: var(--fs-small);
+  }
+  .calc__sub[hidden] {
+    display: none;
+  }
+  .calc__extra summary {
+    cursor: pointer;
+    font-size: var(--fs-small);
+    font-weight: 600;
+    color: var(--ink-muted);
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  .calc__result {
+    display: grid;
+    gap: var(--sp-3);
+    padding: var(--sp-6);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    background: var(--surface-2);
+  }
+  /* English: тёмная вставка итога на светлой странице (DESIGN.md → inverse). */
+  :global([data-theme='en']) .calc__result {
+    --ink: var(--brand-pure-white);
+    --ink-muted: #c3ccda;
+    --ink-subtle: var(--brand-slate);
+    --hairline: rgb(145 160 183 / 0.22);
+    background: var(--inverse);
+    border-color: var(--inverse);
+    color: var(--ink);
+  }
+  .calc__res-label {
+    font-size: var(--fs-small);
+    color: var(--ink-muted);
+  }
+  .calc__res-main {
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .calc__res-rows {
+    display: grid;
+    gap: var(--sp-2);
+    margin: 0;
+  }
+  .calc__res-rows div {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    font-size: var(--fs-small);
+  }
+  .calc__res-rows div[hidden] {
+    display: none;
+  }
+  .calc__res-rows dt {
+    color: var(--ink-muted);
+  }
+  .calc__res-rows dd {
+    margin: 0;
+  }
+  .calc__lines {
+    list-style: none;
+    margin: 0;
+    padding: var(--sp-3) 0 0;
+    border-top: 1px solid var(--hairline);
+    display: grid;
+    gap: var(--sp-2);
+    font-size: var(--fs-small);
+  }
+  /* Строки дорисовывает скрипт — без атрибута области видимости Astro, поэтому :global. */
+  .calc__lines :global(li) {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    color: var(--ink-muted);
+  }
+  .calc__tax {
+    font-size: var(--fs-caption);
+    color: var(--ink-subtle);
+  }
+  .calc__cta {
+    justify-self: stretch;
+    margin-top: var(--sp-2);
+  }
+  .pr__conditions {
+    margin: 0;
+    padding-left: 1.1em;
+    display: grid;
+    gap: var(--sp-2);
+    max-width: 72ch;
+    font-size: var(--fs-small);
+    color: var(--ink-subtle);
+  }
+
+  /* Две колонки и прилипший итог — только когда столбцу итога хватает ширины.
+     Ниже 960px калькулятор в одну колонку: карточка итога во всю ширину,
+     без переполнения на 768–820 (ворота 1). */
+  @media (min-width: 960px) {
+    .calc {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    }
+    .calc__result {
+      position: sticky;
+      top: calc(var(--header-h) + var(--sp-4));
+    }
+  }
+
+  @media (max-width: 767px) {
+    .calc__form {
+      padding: var(--sp-5) var(--sp-4);
+    }
+    .calc__result {
+      padding: var(--sp-5) var(--sp-4);
+    }
+    /* Итог прилипает к низу экрана, пока калькулятор на виду. */
+    .calc__bar {
+      position: sticky;
+      bottom: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-4);
+      padding: var(--sp-3) var(--sp-4);
+      border-top: 1px solid var(--hairline);
+      background: var(--surface-2);
+    }
+    /* Полоса не перекрывает поле в фокусе (WCAG 2.4.11): уходит из потока прилипания. */
+    .calc:focus-within .calc__bar {
+      position: static;
+    }
+    .calc__bar-sum {
+      font-size: 1.25rem;
+    }
+  }
+  @media (min-width: 768px) {
+    .calc__bar {
+      display: none;
+    }
+  }
+</style>

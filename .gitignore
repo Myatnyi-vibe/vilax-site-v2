@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.astro/
+.lighthouse/
+.shots/
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+prototypes/
+.impeccable/hook.cache.json
+src/data/media.json

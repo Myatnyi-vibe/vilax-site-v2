@@ -1,0 +1,32 @@
+---
+// Старый адрес версии → «/» с тем же сочетанием (ТЗ медиа: /ru/, /en/, /ru/en/, /en/ru/). Остальные параметры
+// адреса (utm_*) и якорь сохраняются; тема не задаётся — её выберет «/» по запомненному или от валюты.
+import { url } from '../lib/site';
+import { MODE } from '../lib/mode';
+
+interface Props {
+  lang: 'ru' | 'en';
+  cur: 'rub' | 'aed';
+}
+const { lang, cur } = Astro.props;
+const target = `${url('/')}?lang=${lang}&cur=${cur}`;
+---
+
+<!doctype html>
+<html lang={lang} data-mode={MODE}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href={new URL(url('/'), Astro.site).href} />
+    <meta http-equiv="refresh" content={`0;url=${target}`} />
+    <script is:inline define:vars={{ home: url('/'), lang, cur }}>
+      var q = new URLSearchParams(location.search);
+      q.set('lang', lang); q.set('cur', cur);
+      location.replace(home + '?' + q.toString() + location.hash);
+    </script>
+    <title>VILAX</title>
+  </head>
+  <body>
+    <a href={target}>VILAX</a>
+  </body>
+</html>

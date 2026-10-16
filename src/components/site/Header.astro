@@ -1,0 +1,368 @@
+---
+// Шапка и мобильное меню (SITE-21). Значения — прототип: шапка fixed 64/56 px, над обложкой прозрачная,
+// после прокрутки — фон .88 + blur(12px) + волосок. Справа: RU / EN, ₽ / AED (тот же компонент, Р-27), тема,
+// «Запросить демо», бургер < 1180 px. «Сменить регион» удалён (одна страница, ТЗ медиа).
+import T from '../T.astro';
+import { va } from '../../lib/content';
+import { tone, url, NAV_SECTIONS, LANGS, CURS } from '../../lib/site';
+import { MARK_VIEWBOX, MARK_PATH, WORD_VIEWBOX, WORD_PATH, CYCLE_STOPS } from '../brand/logo-paths';
+
+interface Props {
+  page: 'home' | 'legal' | '404';
+}
+const { page } = Astro.props;
+const home = page === 'home';
+const anchor = (id: string) => (home ? `#${id}` : url(`/#${id}`));
+const CUR_LABEL = { rub: '₽', aed: 'AED' } as const;
+---
+
+<a class="skip" href="#top"><T get={(_, u) => u.skip} /></a>
+<header class:list={['hdr', { 'is-solid': !home }]} {...tone('base')} data-hdr>
+  <div class="hdr__in">
+    <a href={home ? '#top' : url('/')} class="hdr__home" data-go-home {...va('aria-label', (_, u) => u.home)}>
+      {/* Знак и надпись переливаются, как на vilax.ai: градиент голубой → фиолетовый плывёт по кругу, сверху мягкий блик.
+          При «уменьшить движение» анимацию останавливает app.ts (pauseAnimations), блик скрыт. */}
+      <svg class="hdr__logo" viewBox={MARK_VIEWBOX} aria-hidden="true" focusable="false" data-logo-anim>
+        <defs>
+          <linearGradient id="hdr-cycle" x1="0" y1="0" x2="1" y2="0" spreadMethod="repeat">
+            {CYCLE_STOPS.map(([o, c]) => <stop offset={o} stop-color={c} />)}
+            <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="1 0" dur="6s" repeatCount="indefinite" />
+          </linearGradient>
+          <linearGradient id="hdr-shine" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#fff" stop-opacity="0" />
+            <stop offset=".42" stop-color="#fff" stop-opacity="0" />
+            <stop offset=".5" stop-color="#fff" stop-opacity=".6" />
+            <stop offset=".58" stop-color="#fff" stop-opacity="0" />
+            <stop offset="1" stop-color="#fff" stop-opacity="0" />
+            <animateTransform attributeName="gradientTransform" type="translate" from="-1.4 0" to="1.4 0" dur="6s" repeatCount="indefinite" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#hdr-cycle)" d={MARK_PATH} />
+        <path class="hdr__shine" fill="url(#hdr-shine)" d={MARK_PATH} />
+      </svg>
+      <svg class="hdr__word" viewBox={WORD_VIEWBOX} aria-hidden="true" focusable="false" data-logo-anim>
+        <path fill="url(#hdr-cycle)" d={WORD_PATH} />
+        <path class="hdr__shine" fill="url(#hdr-shine)" d={WORD_PATH} />
+      </svg>
+    </a>
+    <nav class="hdr__nav" {...va('aria-label', (_, u) => u.nav)}>
+      {NAV_SECTIONS.map((k) => <a href={anchor(k)} data-go={k}><T get={(_, u) => u.navItems[k]} /></a>)}
+    </nav>
+    <div class="hdr__right">
+      <div class="hdr__chrome">
+        <div role="group" class="seg" {...va('aria-label', (_, u) => u.langLabel)}>
+          {LANGS.map((l) => <button type="button" class="seg__b" data-set-lang={l} lang={l} aria-pressed={l === 'ru' ? 'true' : 'false'}>{l.toUpperCase()}</button>)}
+        </div>
+        <div role="group" class="seg" {...va('aria-label', (_, u) => u.curLabel)}>
+          {CURS.map((c) => <button type="button" class="seg__b" data-set-cur={c} aria-pressed={c === 'rub' ? 'true' : 'false'} {...va('aria-label', (_, u) => u.cur[c])} {...va('title', (_, u) => u.cur[c])}>{CUR_LABEL[c]}</button>)}
+        </div>
+        <button type="button" class="hdr__theme" data-theme-toggle {...va('aria-label', (_, u) => u.themeToLight)} {...va('title', (_, u) => u.themeToLight)}>
+          <svg class="only-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+          <svg class="only-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+        </button>
+      </div>
+      <a href={anchor('pricing')} class="hdr__demo" data-go-cta><T get={(_, u) => u.demo} /></a>
+      <button type="button" class="hdr__burger" data-menu-toggle aria-expanded="false" aria-controls="mmenu" {...va('aria-label', (_, u) => u.menuOpen)}>
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="mmenu" class="mm" {...tone('base')} data-mmenu hidden>
+  {NAV_SECTIONS.map((k) => <a href={anchor(k)} class="mm__link" data-go={k}><T get={(_, u) => u.navItems[k]} /></a>)}
+  <div class="mm__row">
+    <div role="group" class="seg" {...va('aria-label', (_, u) => u.langLabel)}>
+      {LANGS.map((l) => <button type="button" class="seg__b seg__b--m" data-set-lang={l} lang={l} aria-pressed={l === 'ru' ? 'true' : 'false'}>{l.toUpperCase()}</button>)}
+    </div>
+    <div role="group" class="seg" {...va('aria-label', (_, u) => u.curLabel)}>
+      {CURS.map((c) => <button type="button" class="seg__b seg__b--m" data-set-cur={c} aria-pressed={c === 'rub' ? 'true' : 'false'} {...va('aria-label', (_, u) => u.cur[c])}>{CUR_LABEL[c]}</button>)}
+    </div>
+    <button type="button" class="mm__theme" data-theme-toggle><span class="only-dark"><T get={(_, u) => u.themeToLight} /></span><span class="only-light"><T get={(_, u) => u.themeToDark} /></span></button>
+  </div>
+</div>
+
+<style>
+  .hdr {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 40;
+    height: 64px;
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    transition:
+      background-color 0.24s cubic-bezier(0.23, 1, 0.32, 1),
+      box-shadow 0.24s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .hdr.is-solid {
+    background-color: rgb(2 8 23 / 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: inset 0 -1px 0 var(--hair);
+  }
+  :global(html[data-theme='light']) .hdr.is-solid {
+    background-color: rgb(245 247 250 / 0.88);
+  }
+  .hdr__in {
+    max-width: 1360px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 3vw, 40px);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .hdr__home {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex: none;
+  }
+  .hdr__logo {
+    width: 30px;
+    height: auto;
+    aspect-ratio: 712 / 608;
+  }
+  .hdr__word {
+    height: 13px;
+    width: auto;
+    aspect-ratio: 424 / 64;
+  }
+  .hdr__shine {
+    mix-blend-mode: screen;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hdr__shine {
+      display: none;
+    }
+  }
+  .hdr__nav {
+    display: flex;
+    gap: 28px;
+    margin-left: 24px;
+  }
+  .hdr__nav a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .hdr__right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hdr__chrome {
+    display: contents;
+  }
+  .seg {
+    display: flex;
+    padding: 3px;
+    border-radius: 9999px;
+    border: 1px solid var(--hairS);
+  }
+  .seg__b {
+    height: 30px;
+    min-width: 38px;
+    padding: 0 10px;
+    border: 0;
+    border-radius: 9999px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    background: transparent;
+    color: var(--ink);
+    transition: background-color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .seg__b--m {
+    height: 40px;
+    min-width: 52px;
+    padding: revert;
+    font-size: 14px;
+    letter-spacing: normal;
+    transition: none;
+  }
+  .seg__b[aria-pressed='true'] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .hdr__theme {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 9999px;
+    border: 1px solid var(--hairS);
+    background: transparent;
+    cursor: pointer;
+    color: var(--ink);
+    padding: revert;
+  }
+  .hdr__demo {
+    display: inline-flex;
+    align-items: center;
+    height: 38px;
+    padding: 0 16px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: var(--onAccent);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .hdr__burger {
+    width: 44px;
+    height: 44px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--hairS);
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+  }
+  .hdr__burger span {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: var(--ink);
+  }
+  @media (max-width: 1179.98px) {
+    .hdr__nav {
+      display: none;
+    }
+    .hdr__burger {
+      display: flex;
+    }
+  }
+  @media (max-width: 767.98px) {
+    .hdr {
+      height: 56px;
+    }
+    .hdr__demo {
+      height: 44px;
+    }
+    /* SITE-41 (телефон): зазоры уже, чтобы на 640–767 RU/EN, ₽/AED, тема, кнопка и бургер помещались,
+       а касания были ≥ 44 px. Сегмент остаётся 46 px по высоте, кнопка внутри — 38, зона касания — вся высота сегмента. */
+    .hdr__in {
+      gap: 16px;
+    }
+    .hdr__right {
+      gap: 8px;
+    }
+    .hdr__chrome .seg__b {
+      position: relative;
+      height: 38px;
+      min-width: 44px;
+    }
+    .hdr__chrome .seg__b::after {
+      content: '';
+      position: absolute;
+      inset: -4px 0;
+    }
+    .hdr__theme {
+      width: 44px;
+      height: 44px;
+    }
+  }
+  @media (max-width: 639.98px) {
+    .hdr__chrome {
+      display: none;
+    }
+  }
+  /* SITE-41 P0-1: на 360 лого + «Запросить демо» + бургер не помещались (369 px), бургер обрезался. */
+  @media (max-width: 389.98px) {
+    .hdr__in {
+      gap: 12px;
+    }
+    .hdr__demo {
+      padding: 0 10px;
+    }
+  }
+  /* SITE-41 P1-1 (планшет, сенсорный): касания ≥ 44 — как у телефона 640–767: кнопка сегмента 38, зона касания
+     на всю высоту сегмента (46), тема и «Запросить демо» 44. На 768 всё помещается (~680 px из 768). */
+  @media (min-width: 768px) and (max-width: 1179.98px) {
+    .hdr__chrome .seg__b {
+      position: relative;
+      height: 38px;
+      min-width: 44px;
+    }
+    .hdr__chrome .seg__b::after {
+      content: '';
+      position: absolute;
+      inset: -4px 0;
+    }
+    .hdr__theme {
+      width: 44px;
+      height: 44px;
+    }
+    .hdr__demo {
+      height: 44px;
+    }
+    .mm .seg__b--m {
+      height: 44px;
+    }
+  }
+
+  .mm {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid var(--hair);
+    overflow-y: auto;
+  }
+  .mm[hidden] {
+    display: none;
+  }
+  @media (max-width: 767.98px) {
+    .mm {
+      top: 56px;
+    }
+    /* SITE-41 P1-2: переключатели в меню — касание 44 px. */
+    .mm .seg__b--m {
+      height: 44px;
+    }
+  }
+  .mm__link {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--hair);
+  }
+  .mm__row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .mm__theme {
+    height: 46px;
+    padding: 0 18px;
+    border-radius: 9999px;
+    border: 1px solid var(--hairS);
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+</style>

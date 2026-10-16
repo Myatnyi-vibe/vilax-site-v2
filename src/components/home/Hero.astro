@@ -1,0 +1,184 @@
+---
+// Обложка (прототип «Hero»). Ролик SITE-10 — строго своего сочетания валюта × язык × тема (медиа-слой SITE-25):
+// 16:9 на компьютере, 9:16 на телефоне (< 768). Кадр-обложку ставит скрипт сразу после рамки — до первой отрисовки;
+// ролик подключает src/scripts/hero-video.ts. Нет ролика у сочетания (не прошёл проверку) — рамки нет.
+// Сайт v2 (SITE-53): подача до SITE-51 — ролик без устройства вокруг, устройства — внутри самих роликов (SITE-52).
+import T from '../T.astro';
+import { va } from '../../lib/content';
+import { tone } from '../../lib/site';
+---
+
+<section class="hero" {...tone('hero')} data-screen-label="Hero">
+  <div class="wrap hero__col">
+    <span class="hero__tag"><T get={(s) => s.tagline} /></span>
+    <h1 class="hero__h1"><T get={(s) => s.hero.title} /></h1>
+    <p class="hero__sub"><T get={(s) => s.hero.subtitle} /></p>
+    <div class="hero__btns">
+      <a href="#pricing" class="hero__b hero__b--accent" data-go-cta data-reveal-btn><T get={(s) => s.hero.ctaDemo} /></a>
+      <a href="#pricing" class="hero__b hero__b--ghost" data-go="pricing" data-reveal-btn><T get={(s) => s.hero.ctaPrices} /></a>
+    </div>
+    <figure class="hero__fig" data-reveal data-ri="4" data-hero-fig>
+      <div class="hero__screen" data-hero-screen>
+        <img class="hero__poster" data-hero-poster width="1600" height="900" fetchpriority="high" {...va('alt', (s) => s.hero.panel)} />
+        <span class="media-ph" data-hero-ph hidden></span>
+      </div>
+    </figure>
+    <script is:inline>
+      window.__vlxHeroPoster && window.__vlxHeroPoster();
+    </script>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding: clamp(120px, 14vw, 176px) 0 clamp(72px, 8vw, 112px);
+    overflow: hidden;
+  }
+  .hero__col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+  }
+  .hero__tag {
+    display: inline-flex;
+    align-items: center;
+    height: 30px;
+    padding: 0 14px;
+    border-radius: 9999px;
+    border: 1px solid var(--hairS);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .hero__h1 {
+    font-size: clamp(44px, 6vw, 88px);
+    font-weight: 620;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    max-width: 14ch;
+  }
+  .hero__sub {
+    font-size: clamp(17px, 1.3vw, 19px);
+    color: var(--muted);
+    max-width: 44ch;
+  }
+  .hero__btns {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  .hero__b {
+    display: inline-flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .hero__b--accent {
+    background: var(--accent);
+    color: var(--onAccent);
+  }
+  .hero__b--ghost {
+    background: var(--surf);
+    border: 1px solid var(--hairS);
+    color: var(--ink);
+  }
+  .hero__fig {
+    margin: clamp(32px, 5vw, 64px) 0 0;
+    width: 100%;
+    max-width: 1200px;
+    padding: clamp(6px, 0.9vw, 12px);
+    border-radius: 20px;
+    background: var(--surf);
+    border: 1px solid var(--hairS);
+    box-shadow: var(--shadow);
+  }
+  .hero__fig[hidden] {
+    display: none;
+  }
+  .hero__screen {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    aspect-ratio: 16/9;
+    background: var(--bg);
+  }
+  .hero__poster {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero__poster:not([src]) {
+    visibility: hidden;
+  }
+  .hero__screen .media-ph {
+    position: absolute;
+    inset: 0;
+  }
+  @media (max-width: 767.98px) {
+    .hero__fig {
+      max-width: 340px;
+    }
+    .hero__screen {
+      aspect-ratio: 9/16;
+    }
+  }
+  /* Сайт v2 (SITE-53): ролик без устройства — карточка как до SITE-51 (устройства теперь внутри роликов, SITE-52).
+     < 1180 высота карточки дополняется (< 1 px) так, чтобы обложка отличалась от iPhone / iPad из SITE-51 ровно на целое
+     число пикселей, — всё ниже обложки не сдвигается на доли пикселя (сверка по секциям 0 px). --was — высота устройства
+     SITE-51 (рамка экрана — целые пиксели, как рисует Chrome; доли — шагом вёрстки 1/64 px), --now — высота карточки.
+     ≥ 1180 MacBook SITE-51 сам выравнивался под эту карточку — правка не нужна. */
+  @media (max-width: 1179.98px) {
+    .hero__col {
+      container-type: inline-size;
+    }
+    .hero__fig:not(.is-shot) {
+      --cp: round(down, clamp(6px, 0.9vw, 12px), 0.015625px);
+      --was: calc(round(down, (var(--F) - 2 * var(--dp) - 2 * var(--db)) / var(--ar), 0.015625px) + 2 * var(--dp) + 2 * var(--db));
+      --now: calc(round(down, (var(--c) - 2 * var(--cp) - 2px) / var(--car), 0.015625px) + 2 * var(--cp) + 2px);
+      height: calc(var(--was) + round(up, var(--now) - var(--was), 1px));
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1179.98px) {
+    .hero__fig:not(.is-shot) {
+      --F: min(100cqw, 920px);
+      --dp: round(down, var(--F) * 0.025, 0.015625px);
+      --db: round(down, max(1.5px, var(--F) * 0.005), 1px);
+      --ar: calc(2360 / 1640);
+      --c: min(100cqw, 1200px);
+      --car: calc(16 / 9);
+    }
+  }
+  @media (max-width: 767.98px) {
+    .hero__fig:not(.is-shot) {
+      --F: min(100cqw, 320px);
+      --dp: round(down, var(--F) * 0.03, 0.015625px);
+      --db: round(down, max(1.5px, var(--F) * 0.009), 1px);
+      --ar: calc(9 / 19.5);
+      --c: min(100cqw, 340px);
+      --car: calc(9 / 16);
+    }
+  }
+  /* Ролика сочетания нет — снимок блока (heroPanel 'shot' прототипа): рамка 1200, снимок 2:1, cover, top — и на телефоне. */
+  .hero__fig.is-shot {
+    max-width: 1200px;
+  }
+  .is-shot .hero__screen {
+    aspect-ratio: 2/1;
+  }
+  .is-shot .hero__poster {
+    object-position: top;
+  }
+</style>

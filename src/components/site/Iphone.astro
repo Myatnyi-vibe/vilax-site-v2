@@ -1,0 +1,186 @@
+---
+// iPhone вокруг экрана приложения (SITE-55, сайт v2). Стиль — iPhone обложки SITE-51 (M3): экран 9:19,5, Dynamic Island,
+// строка состояния 9:41, полоска «домой», боковые кнопки; только CSS, размеры — от ширины самого устройства (cqw), декор
+// aria-hidden. Корпус по теме (тёмная — Space Black, светлая — серебро), рамка экрана всегда чёрная. Ширину задаёт тот,
+// кто вставляет (width на корне).
+// Экран: сверху — строка состояния iOS (кадр приложения снят без неё: верх кадра — шапка приложения), снизу — полоса
+// «домой»; между ними кадр 1179:2556 целиком (нижняя панель приложения видна); строка состояния — цвет верхнего края кадра,
+// поля по бокам и полоса «домой» — цвет боковых краёв
+// (замер src/scripts/device-edges.ts), до замера — фон приложения своей темы. Ничего не обрезается.
+interface Props {
+  class?: string;
+}
+const { class: cls } = Astro.props;
+---
+
+<div class:list={['ip', cls]} data-dev>
+  <div class="ip__lid">
+    <span class="ip__keys" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <div class="ip__glass">
+      <span class="ip__island" aria-hidden="true"></span>
+      <span class="ip__bar" aria-hidden="true">
+        <svg class="ip__clock" viewBox="0 0 26 12" focusable="false"><text x="13" y="10.5" text-anchor="middle">9:41</text></svg>
+        <svg class="ip__ico" viewBox="0 0 64 12" focusable="false">
+          <rect x="0" y="8" width="3" height="4" rx=".8"></rect><rect x="4.5" y="6" width="3" height="6" rx=".8"></rect>
+          <rect x="9" y="3.5" width="3" height="8.5" rx=".8"></rect><rect x="13.5" y="1" width="3" height="11" rx=".8"></rect>
+          <path d="M22.6 7.1a5.5 5.5 0 0 1 7.8 0M20.1 4.6a9 9 0 0 1 12.7 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+          <circle cx="26.5" cy="10.4" r="1.5"></circle>
+          <rect x="38.5" y="1.5" width="21" height="9" rx="2.6" fill="none" stroke="currentColor" stroke-opacity=".4"></rect>
+          <rect x="40.5" y="3.5" width="17" height="5" rx="1.3"></rect><rect x="61" y="4.5" width="1.6" height="3" rx=".7" fill-opacity=".4"></rect>
+        </svg>
+      </span>
+      <div class="ip__screen" data-dev-screen>
+        <slot />
+      </div>
+      <span class="ip__home" aria-hidden="true"></span>
+    </div>
+  </div>
+</div>
+
+<script>
+  import '../../scripts/device-edges';
+</script>
+
+<style>
+  .ip {
+    --case: #34363b;
+    --case-hi: #5b5e64;
+    --case-lo: #17181b;
+    --ip-bg: #0a0e1b;
+    --ip-ink: #f2f4fa;
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+  }
+  :global(html[data-theme='light']) .ip {
+    --case: #d3d5d9;
+    --case-hi: #f4f5f7;
+    --case-lo: #9ea2a8;
+    --ip-bg: #f4f5f8;
+    --ip-ink: #0b1020;
+  }
+  .ip__lid {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 3cqw;
+    border: max(1.5px, 0.9cqw) solid var(--case);
+    border-radius: 15.5cqw;
+    background: #060607;
+    box-shadow:
+      inset 0 0 0 1px rgb(255 255 255 / 0.06),
+      0 3cqw 8cqw -3cqw rgb(0 0 0 / 0.55);
+  }
+  /* строка состояния 12,7 % ширины (54 pt из 393), полоса «домой» 5 % (21 pt), между ними — кадр целиком по высоте */
+  .ip__glass {
+    position: relative;
+    display: grid;
+    grid-template-rows: 12.7cqw minmax(0, 1fr) 5cqw;
+    justify-items: center;
+    overflow: hidden;
+    aspect-ratio: 9/19.5;
+    border-radius: 11.6cqw;
+    background: linear-gradient(var(--dev-top, var(--ip-bg)), var(--dev-top, var(--ip-bg))) top / 100% 12.7cqw no-repeat var(--dev-side, var(--ip-bg));
+  }
+  .ip__screen {
+    grid-row: 2;
+    position: relative;
+    height: 100%;
+    aspect-ratio: 1179/2556;
+    overflow: hidden;
+    background: var(--ip-bg);
+  }
+  .ip__island {
+    position: absolute;
+    z-index: 3;
+    top: 2.6cqw;
+    left: 50%;
+    width: 29.6cqw;
+    height: 8.7cqw;
+    translate: -50% 0;
+    border-radius: 9999px;
+    background: #000;
+  }
+  .ip__island::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 3.2cqw;
+    width: 2.6cqw;
+    height: 2.6cqw;
+    translate: 0 -50%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #3a4a6a, #10141d 60%);
+  }
+  .ip__bar {
+    position: absolute;
+    z-index: 2;
+    top: 2.6cqw;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: 1fr 29.6cqw 1fr;
+    justify-items: center;
+    align-items: center;
+    height: 8.7cqw;
+    color: var(--ip-ink);
+  }
+  /* часы — рисунок, а не текст: в маленьком iPhone «Блоков» это ~6 px декора, читать его не нужно */
+  .ip__clock {
+    display: block;
+    height: 2.9cqw;
+    width: auto;
+    fill: currentColor;
+    font: 600 12px -apple-system, 'SF Pro Text', system-ui, sans-serif;
+  }
+  .ip__ico {
+    grid-column: 3;
+    display: block;
+    width: auto;
+    height: 2.9cqw;
+    fill: currentColor;
+  }
+  .ip__home {
+    position: absolute;
+    z-index: 2;
+    bottom: 1.6cqw;
+    left: 50%;
+    width: 31.4cqw;
+    height: 1.25cqw;
+    translate: -50% 0;
+    border-radius: 9999px;
+    background: var(--ip-ink);
+  }
+  .ip__keys {
+    position: absolute;
+    inset: 0;
+  }
+  .ip__keys i {
+    position: absolute;
+    display: block;
+    width: 0.8cqw;
+    background: linear-gradient(90deg, var(--case-lo), var(--case-hi) 50%, var(--case-lo));
+  }
+  .ip__keys i:nth-child(-n + 3) {
+    left: calc(-0.9cqw - 0.8cqw);
+    border-radius: 0.4cqw 0 0 0.4cqw;
+  }
+  .ip__keys i:nth-child(1) {
+    top: 17%;
+    height: 5.5%;
+  }
+  .ip__keys i:nth-child(2) {
+    top: 26%;
+    height: 10%;
+  }
+  .ip__keys i:nth-child(3) {
+    top: 38.5%;
+    height: 10%;
+  }
+  .ip__keys i:nth-child(4) {
+    right: calc(-0.9cqw - 0.8cqw);
+    top: 29%;
+    height: 15%;
+    border-radius: 0 0.4cqw 0.4cqw 0;
+  }
+</style>

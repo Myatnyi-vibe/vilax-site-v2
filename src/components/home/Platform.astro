@@ -1,0 +1,221 @@
+---
+// «Основа и три блока» (прототип «Platform»): слева плашка, H2, лид и список из четырёх пунктов — по умолчанию
+// только названия, наведение или фокус раскрывает описание (grid-rows 0fr → 1fr), остальные гаснут до .4;
+// клик открывает вкладку в «Блоках». Справа 3D-слот platform-all с подписями-плашками над блоками.
+import T from '../T.astro';
+import { siteOf } from '../../lib/content';
+import { tone, VARIANTS } from '../../lib/site';
+
+const keys = siteOf(VARIANTS[0]).blocks.map((b) => b.key);
+const block = (s: ReturnType<typeof siteOf>, k: string) => s.blocks.find((b) => b.key === k)!;
+---
+
+<section id="platform" class="pl sheet pad" {...tone('platform')} data-screen-label="Platform">
+  <div class="wrap pl__out">
+    <div class="pl__grid">
+      <div class="pl__left">
+        <div data-reveal class="pl__head">
+          <span class="pill"><T get={(s) => s.platform.pill} /></span>
+          <h2 class="h2"><T get={(s) => s.platform.title} /></h2>
+          <p class="lede pl__lead"><T get={(s) => s.platform.lead} /></p>
+        </div>
+        <ul class="pl__list" data-plat-list>
+          {
+            keys.map((k) => (
+              <li class="pl__li" data-plat={k}>
+                <span class="pl__row">
+                  <a href="#blocks" class="pl__name" data-open-tab={k} aria-expanded="false">
+                    <T get={(s) => block(s, k).name} />
+                  </a>
+                  {k === 'base' && (
+                    <span class="pl__tag">
+                      <T get={(s) => s.platform.required} />
+                    </span>
+                  )}
+                </span>
+                <div class="pl__rows">
+                  <div class="pl__clip">
+                    <p class="pl__task">
+                      <T get={(s) => block(s, k).task} />
+                    </p>
+                  </div>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div data-vlx3d="platform-all" aria-hidden="true" class="pl__slot">
+        {keys.map((k) => <span data-vlx-label={k} class="pl__label"><T get={(s) => block(s, k).name} /></span>)}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pl__out {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(40px, 5vw, 64px);
+  }
+  .pl__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(24px, 4vw, 64px);
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .pl__grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr);
+    }
+  }
+  .pl__left {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(32px, 3.4vw, 48px);
+    min-width: 0;
+  }
+  .pl__head {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .pl__lead {
+    max-width: 46ch;
+  }
+  .pl__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1.2vw, 16px);
+    max-width: 480px;
+  }
+  .pl__li {
+    display: flex;
+    flex-direction: column;
+    padding: 4px 0;
+    opacity: 1;
+    transition: opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .pl__list[data-hover] .pl__li:not(.is-open) {
+    opacity: 0.4;
+  }
+  .pl__row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .pl__name {
+    font-size: clamp(20px, 1.7vw, 24px);
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    line-height: 1.25;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .pl__tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    padding: 5px 8px;
+    border-radius: 9999px;
+    color: var(--subtle);
+    box-shadow: inset 0 0 0 1px var(--hairS);
+  }
+  .pl__rows {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .is-open .pl__rows {
+    grid-template-rows: 1fr;
+  }
+  .pl__clip {
+    overflow: hidden;
+    min-height: 0;
+  }
+  .pl__task {
+    padding-top: 8px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--muted);
+    max-width: 42ch;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition:
+      opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+      transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .is-open .pl__task {
+    opacity: 1;
+    transform: none;
+  }
+  .pl__slot {
+    position: relative;
+    height: clamp(360px, 44vw, 700px);
+    width: 100%;
+  }
+  .pl__label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 35;
+    opacity: 0;
+    width: max-content;
+    max-width: 118px;
+    text-align: center;
+    text-wrap: balance;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    line-height: 1.25;
+    padding: 6px 10px;
+    border-radius: 9999px;
+    background: var(--bg);
+    color: var(--ink);
+    box-shadow:
+      0 0 0 1px var(--hair),
+      0 4px 14px rgb(2 8 23/0.08);
+    pointer-events: none;
+    will-change: transform;
+  }
+  /* SITE-44 (телефон). P1-6: на 360–430 блоки сцены близко — подписи компактнее, чтобы не наезжали друг на друга
+     (сцена и модели те же). P2-2: названия блоков — строка касания 44 px, шаг списка как был (~44). */
+  @media (max-width: 767.98px) {
+    .pl__label {
+      max-width: 92px;
+      font-size: 11px;
+      padding: 4px 8px;
+    }
+    .pl__list {
+      gap: 0;
+    }
+    .pl__li {
+      padding: 0;
+    }
+    .pl__name {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+  }
+  /* SITE-49 (ворота, планшет): названия блоков — строка касания 44 px, как на телефоне (P2-2 — для всех < 1180). */
+  @media (min-width: 768px) and (max-width: 1179.98px) {
+    .pl__list {
+      gap: 0;
+    }
+    .pl__li {
+      padding: 0;
+    }
+    .pl__name {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+  }
+</style>

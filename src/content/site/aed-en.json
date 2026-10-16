@@ -1,0 +1,286 @@
+{
+  "tagline": "One system for your restaurants",
+  "hero": {
+    "title": "Your venues. One screen.",
+    "subtitle": "Revenue, guests, team and costs for each of your venues, every day, in one place.",
+    "ctaDemo": "Request a demo",
+    "ctaPrices": "See pricing",
+    "panel": "Video: VILAX brings your venues’ data into one screen"
+  },
+  "fusion": {
+    "lead": "How most venues run today:",
+    "items": [
+      "Endless group chats",
+      "Debts and unpaid bills",
+      "Reports built by hand",
+      "Spreadsheets that never end",
+      "Apps nobody understands"
+    ],
+    "merge": "VILAX brings it all into one screen.",
+    "final": "All of it, in VILAX."
+  },
+  "platform": {
+    "pill": "Platform",
+    "title": "Core plus three blocks",
+    "lead": "Finance & Control is the core every location runs on. Add a block when you need it: guests, team, loyalty.",
+    "required": "Required"
+  },
+  "blocks": [
+    {
+      "key": "base",
+      "name": "Finance & Control",
+      "task": "See where each restaurant makes money and where it leaks",
+      "shot": "t014",
+      "features": [
+        {
+          "screen": "t002",
+          "title": "Live revenue and checks",
+          "text": "Revenue across your venues by the hour, with an end-of-day forecast and a comparison with a typical day."
+        },
+        {
+          "screen": "t014",
+          "title": "Key metrics",
+          "text": "Revenue, food cost, gross profit, guests, average check and discounts, against the previous period."
+        },
+        {
+          "screen": "t018",
+          "title": "Actual vs target",
+          "text": "Daily targets that follow weekdays and seasonality, the gap to target and a month-end forecast for every location."
+        },
+        {
+          "screen": "t020",
+          "title": "Location rankings",
+          "text": "Locations grouped into normal, attention and risk by revenue, trend, food cost, discounts and average check."
+        },
+        {
+          "screen": "y004",
+          "title": "Shift review",
+          "text": "Yesterday’s shift against target, a typical day and its potential at normal spend per guest."
+        },
+        {
+          "screen": "y039",
+          "title": "Shift team",
+          "text": "Results for every team member: tables, guests, revenue per table and per guest, losses."
+        },
+        {
+          "screen": "t035",
+          "title": "Profit & loss",
+          "text": "P&L for the business and each venue by week, month or quarter."
+        },
+        {
+          "screen": "t036",
+          "title": "Cash flow",
+          "text": "Money in and out across the business, by line and by venue."
+        },
+        {
+          "screen": "t037",
+          "title": "Menu ABC analysis",
+          "text": "Which dishes drive sales and which just take up space on the menu."
+        },
+        {
+          "screen": "t040",
+          "title": "Menu matrix (BCG)",
+          "text": "Dishes by sales and margin: what to promote, what to reprice, what to drop."
+        },
+        {
+          "screen": "t042",
+          "title": "Food cost",
+          "text": "Food cost by menu group and venue against your own standard."
+        },
+        {
+          "screen": "t046",
+          "title": "Loss summary",
+          "text": "Six loss channels, from deletions after pre-check to refunds, plus discounts and write-offs, broken down by staff member."
+        }
+      ]
+    },
+    {
+      "key": "guests",
+      "name": "Guests 360",
+      "task": "Run the guest journey from first inquiry to the next visit",
+      "shot": "g-booking",
+      "features": [
+        {
+          "screen": "t094",
+          "title": "Tables and orders",
+          "text": "The server’s screen: floor tables, open orders and what is on them."
+        },
+        {
+          "screen": "g-booking",
+          "title": "Reservations",
+          "text": "Bookings for the whole floor in one screen: statuses, seating, who is expected."
+        },
+        {
+          "screen": "g-reviews",
+          "title": "Reviews and auto-replies",
+          "text": "Google Maps reviews in one feed, answered automatically."
+        },
+        {
+          "screen": "g-aura",
+          "title": "Aura answers guests",
+          "text": "AI answers your guests on WhatsApp and Instagram."
+        }
+      ]
+    },
+    {
+      "key": "people",
+      "name": "People & Academy",
+      "task": "Train your team and track how it performs",
+      "shot": "t072",
+      "features": [
+        {
+          "screen": "y040",
+          "title": "Team overview",
+          "text": "How many people worked this month and revenue per person."
+        },
+        {
+          "screen": "t072",
+          "title": "Programs and learning paths",
+          "text": "Programs and learning paths by role, from a new barista to the venue manager."
+        },
+        {
+          "screen": "t073",
+          "title": "Tests",
+          "text": "Tests with a question bank that plug into your training programs."
+        },
+        {
+          "screen": "t078",
+          "title": "Knowledge base",
+          "text": "SOPs, checklists, recipes and service standards in one place."
+        },
+        {
+          "screen": "t082",
+          "title": "Achievements",
+          "text": "Badges for completed training and test results."
+        },
+        {
+          "screen": "t085",
+          "title": "Rewards store",
+          "text": "Staff earn points for learning and spend them on rewards."
+        }
+      ]
+    },
+    {
+      "key": "loyalty",
+      "name": "Loyalty program",
+      "task": "Launch your own program and grow repeat visits",
+      "shot": "y007",
+      "features": [
+        {
+          "screen": "t065",
+          "title": "Loyalty program",
+          "text": "Members, active guests, points earned and redeemed, and the points liability at month end."
+        },
+        {
+          "screen": "y007",
+          "title": "Loyalty members",
+          "text": "Your program members with spend, visits and last visit for every guest."
+        },
+        {
+          "screen": "y008",
+          "title": "RFM analysis",
+          "text": "Guests by recency, frequency and spend: who to win back and who to keep."
+        }
+      ]
+    }
+  ],
+  "onboarding": {
+    "title": "Getting started",
+    "steps": [
+      {
+        "title": "Request",
+        "text": "Leave your phone number, name, city and venue name. A manager will get in touch."
+      },
+      {
+        "title": "Demo",
+        "text": "We show you the platform on a demo venue and go through what you need: reports, POS and the tools to connect."
+      },
+      {
+        "title": "POS connection",
+        "text": "We connect your POS and the other data sources your venues already use."
+      },
+      {
+        "title": "Team kick-off",
+        "text": "A kick-off session for your team: roles and access, reports and Telegram summaries."
+      },
+      {
+        "title": "Live",
+        "text": "Your venues run on VILAX every day, with summaries delivered to Telegram."
+      }
+    ]
+  },
+  "lead": {
+    "title": "Get a VILAX quote for your venues",
+    "text": "Leave your details and a manager will get in touch, go through what your venues need and send you a quote.",
+    "points": [
+      "Core for every venue, blocks only where you need them",
+      "Team seats that grow with your team",
+      "A walkthrough on demo data before you buy"
+    ],
+    "name": "Name",
+    "phone": "Phone",
+    "city": "City",
+    "company": "Company name",
+    "chain": "I run several venues",
+    "locations": "Number of venues",
+    "phonePh": "+971 50 000 0000",
+    "submit": "Get a quote",
+    "consentPre": "By clicking the button, you give your ",
+    "consentLink": "consent to the processing of personal data",
+    "consentPost": ".",
+    "err": {
+      "name": "Enter your name",
+      "phone": "Enter your phone number",
+      "phoneBad": "Check the phone number",
+      "city": "Enter your city",
+      "cityBad": "Check the city: at least 2 letters, no links",
+      "company": "Enter your company name",
+      "locations": "Enter a number from 2"
+    },
+    "doneTitle": "Thank you, {name}!",
+    "doneText": "Your request is in. A manager will contact you at {phone}.",
+    "doneEdit": "Edit details"
+  },
+  "faq": {
+    "title": "FAQ",
+    "items": [
+      {
+        "q": "Which POS systems do you support?",
+        "a": "Syrve today, with Foodics on the roadmap. Reservations come in from SevenRooms, and targets and reference data from Google Sheets."
+      },
+      {
+        "q": "How long does set-up take?",
+        "a": "It depends on your POS and the number of locations. Your manager will give you a timeline after the demo. Standard onboarding is included with annual billing: one supported connection, user access set-up and a kick-off session."
+      },
+      {
+        "q": "Who can see our data?",
+        "a": "Only the people you give access to. Access is set by role and location: a venue manager sees their venue, the owner sees every venue."
+      },
+      {
+        "q": "Can we start with some locations or some blocks?",
+        "a": "Yes. Core is required for each location on VILAX; blocks are added only where you need them."
+      },
+      {
+        "q": "Does VILAX work for a single venue?",
+        "a": "Yes. Pricing is per location, starting from one."
+      },
+      {
+        "q": "How does billing work?",
+        "a": "Monthly, or annually in advance with 10% off the subscription and standard onboarding included. Prices exclude VAT; VAT at 5% is added on top."
+      },
+      {
+        "q": "What does AI cost?",
+        "a": "AI usage is included in the subscription: the Coordinator handles 500 requests per location per month. If you need more, add a pack for the rest of the month, with no automatic charges."
+      },
+      {
+        "q": "Is there an app?",
+        "a": "No separate app is needed: VILAX runs in the browser on desktop and mobile, and daily summaries arrive in Telegram."
+      }
+    ]
+  },
+  "cta": {
+    "title": "See your venues in VILAX",
+    "text": "We’ll walk you through the platform on demo data and price it for your venues.",
+    "button": "Request a demo"
+  }
+}

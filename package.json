@@ -1,0 +1,35 @@
+{
+  "name": "vilax-site",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "node scripts/media.mjs && astro dev --port 4321",
+    "build": "node scripts/media.mjs && astro build",
+    "build:local": "node scripts/media.mjs --mode local && cross-env VILAX_MODE=local astro build",
+    "build:preview": "node scripts/media.mjs --mode preview && cross-env VILAX_MODE=preview astro build",
+    "build:prod": "node scripts/media.mjs --mode prod && cross-env VILAX_MODE=prod astro build",
+    "preview": "astro preview --port 4321",
+    "typecheck": "node scripts/media.mjs && astro check",
+    "test": "node scripts/media.mjs && node --test --experimental-strip-types \"tests/**/*.test.ts\"",
+    "verify": "node scripts/verify-dist.mjs",
+    "check": "npm run typecheck && npm run build:local && npm run test && npm run verify",
+    "lighthouse": "node scripts/lighthouse.mjs",
+    "media": "node scripts/media.mjs"
+  },
+  "dependencies": {
+    "astro": "5.18.2",
+    "three": "0.169.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@types/three": "0.169.0",
+    "cross-env": "7.0.3",
+    "lighthouse": "13.5.0",
+    "puppeteer-core": "24.43.1",
+    "typescript": "5.9.3"
+  }
+}

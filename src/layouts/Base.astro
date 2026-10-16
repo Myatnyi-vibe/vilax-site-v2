@@ -1,0 +1,151 @@
+---
+// Каркас всех страниц: три оси на <html> (lang, data-currency, data-theme), мета, шапка, подвал, скрипт страницы.
+// Сочетание выставляет маленький скрипт в <head> до первой отрисовки: параметры адреса → запомненный выбор →
+// по умолчанию (язык браузера → валюта от языка → тема от валюты). Без мигания и без сдвига вёрстки.
+import '../styles/site.css';
+import { NOINDEX, MODE } from '../lib/mode';
+import { ui } from '../i18n';
+import { url, tone, PREFS_KEY, type Cur } from '../lib/site';
+import { mediaMap } from '../lib/media';
+import { siteOf } from '../lib/content';
+import { typo } from '../lib/typo';
+import { VARIANTS } from '../lib/site';
+import Header from '../components/site/Header.astro';
+import Footer from '../components/site/Footer.astro';
+import ModeBadge from '../components/site/ModeBadge.astro';
+import Analytics from '../components/site/Analytics.astro';
+
+interface Props {
+  /** Страница: главная, правовая или 404 — от этого шапка (навигация к якорям главной) и наличие плавающей кнопки. */
+  page: 'home' | 'legal' | '404';
+  /** Путь страницы от корня с подпутём сборки (url()). */
+  path: string;
+  /** canonical, если отличается от path (синонимы /en/<doc> → прежний адрес). */
+  canonicalPath?: string;
+  /** Правовая страница: валюта её документов (₽ — документы РФ, AED — ОАЭ) — фиксирует ось валюты. */
+  fixCur?: Cur;
+  /** Заголовок вкладки по языку; по умолчанию — meta.title. */
+  titles?: { ru: string; en: string };
+  noindex?: boolean;
+  jsonLd?: object[];
+}
+
+const { page, path, canonicalPath, fixCur, noindex = false, jsonLd = [] } = Astro.props;
+const titles = Astro.props.titles ?? { ru: ui('ru').meta.title, en: ui('en').meta.title };
+const site = Astro.site!;
+const canonical = new URL(canonicalPath ?? path, site).href;
+const robots = noindex ? 'noindex, follow' : NOINDEX ? 'noindex, nofollow' : 'index, follow';
+const ogImage = new URL(url('/og/ru.png'), site).href;
+const meta = {
+  titles,
+  descriptions: { ru: ui('ru').meta.description, en: ui('en').meta.description },
+};
+// Данные для скрипта страницы: какие медиа есть по сочетаниям, тексты формы и подписи, зависящие от темы.
+const pageData = {
+  key: PREFS_KEY,
+  page,
+  fixCur: fixCur ?? null,
+  media: mediaMap(),
+  meta,
+  ui: {
+    ru: { themeToLight: ui('ru').themeToLight, themeToDark: ui('ru').themeToDark, menuOpen: ui('ru').menuOpen, menuClose: ui('ru').menuClose, video: ui('ru').video, shotAlt: ui('ru').shotAlt, send: ui('ru').send },
+    en: { themeToLight: ui('en').themeToLight, themeToDark: ui('en').themeToDark, menuOpen: ui('en').menuOpen, menuClose: ui('en').menuClose, video: ui('en').video, shotAlt: ui('en').shotAlt, send: ui('en').send },
+  },
+  // тексты формы, которые подставляет скрипт: русский — через typo (SITE-47), placeholder — как в словаре
+  lead: Object.fromEntries(VARIANTS.map((v) => {
+    const L = siteOf(v).lead;
+    const t = (s: string) => typo(v.lang, s);
+    const err = Object.fromEntries(Object.entries(L.err).map(([k, s]) => [k, t(s)])) as typeof L.err;
+    return [`${v.cur}-${v.lang}`, { err, phonePh: L.phonePh, doneTitle: t(L.doneTitle), doneText: t(L.doneText) }];
+  })),
+};
+---
+
+<!doctype html>
+<html lang="ru" data-currency={fixCur ?? 'rub'} data-theme="dark" data-mode={MODE} data-page={page} data-fix-cur={fixCur}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline define:vars={{ K: PREFS_KEY, CYR: url('/fonts/inter-cyrillic.woff2') }}>
+      (function () {
+        var d = document.documentElement, s = {}, q;
+        try { q = new URLSearchParams(location.search); } catch (e) { q = { get: function () { return null; } }; }
+        try { s = JSON.parse(localStorage.getItem(K) || '{}') || {}; } catch (e) {}
+        function p(v, a) { return a.indexOf(v) > -1 ? v : null; }
+        var nl = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+        var lang = p(q.get('lang'), ['ru', 'en']) || p(s.lang, ['ru', 'en']) || (/^ru/i.test(nl) ? 'ru' : 'en');
+        var cur = d.getAttribute('data-fix-cur') || p(q.get('cur'), ['rub', 'aed']) || p(s.cur, ['rub', 'aed']) || (lang === 'ru' ? 'rub' : 'aed');
+        var theme = p(q.get('theme'), ['dark', 'light']) || p(s.theme, ['dark', 'light']) || (cur === 'rub' ? 'dark' : 'light');
+        d.lang = lang; d.setAttribute('data-currency', cur); d.setAttribute('data-theme', theme);
+        if (lang === 'ru' || cur === 'rub') {
+          var l = document.createElement('link'); l.rel = 'preload'; l.as = 'font'; l.type = 'font/woff2'; l.crossOrigin = ''; l.href = CYR;
+          document.head.appendChild(l);
+        }
+      })();
+    </script>
+    <title>{titles.ru}</title>
+    <meta name="description" content={meta.descriptions.ru} />
+    <meta name="robots" content={robots} />
+    <meta name="theme-color" content="#020817" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={url('/favicon.svg')} type="image/svg+xml" />
+    <link rel="icon" href={url('/favicon.ico')} sizes="32x32" />
+    <link rel="apple-touch-icon" href={url('/apple-touch-icon.png')} />
+    <link rel="preload" href={url('/fonts/inter-latin.woff2')} as="font" type="font/woff2" crossorigin />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="VILAX" />
+    <meta property="og:title" content={titles.ru} />
+    <meta property="og:description" content={meta.descriptions.ru} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ui('ru').meta.ogAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    {jsonLd.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
+    <script is:inline>
+      (function () {
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m && document.documentElement.getAttribute('data-theme') === 'light') m.setAttribute('content', '#F5F7FA');
+      })();
+    </script>
+    <script type="application/json" id="vlx-data" set:html={JSON.stringify(pageData)} />
+    <script is:inline>
+      // кадр-обложка ролика своего сочетания — сразу при разборе обложки (LCP), до скрипта страницы
+      window.__vlxHeroPoster = function () {
+        try {
+          var D = JSON.parse(document.getElementById('vlx-data').textContent), d = document.documentElement;
+          var c = d.getAttribute('data-currency') + '-' + d.lang + '-' + d.getAttribute('data-theme');
+          var m = innerWidth < 768, f = m ? '9x16' : '16x9', k = (D.media.video[c] || '00').charAt(m ? 1 : 0);
+          var fig = document.querySelector('[data-hero-fig]');
+          if (!fig) return;
+          var img = fig.querySelector('[data-hero-poster]'), ph = fig.querySelector('[data-hero-ph]');
+          if (k === '1') { img.width = m ? 720 : 1600; img.height = m ? 1280 : 900; img.src = D.media.base + 'video/hero-' + c + '-' + f + '.webp'; return; }
+          // ролика сочетания нет — снимок блока своего сочетания в рамке 2:1 (heroPanel 'shot' прототипа)
+          var cur = d.getAttribute('data-currency'), id = cur === 'rub' ? 't001' : 't014';
+          var sl = ['ru-dark', 'ru-light', 'en-dark', 'en-light'].indexOf(d.lang + '-' + d.getAttribute('data-theme'));
+          var sc = ((D.media.shots[cur] || {})[id] || '0000').charAt(sl);
+          fig.classList.add('is-shot'); fig.hidden = sc === '0';
+          if (sc === '1') { img.width = 1600; img.height = 800; img.src = D.media.base + 'shots/' + cur + '/' + d.lang + '/' + d.getAttribute('data-theme') + '/' + id + '.webp'; }
+          else if (sc === 'p') { ph.hidden = false; ph.textContent = cur + '/' + d.lang + '/' + d.getAttribute('data-theme') + '/' + id; }
+        } catch (e) {}
+      };
+    </script>
+  </head>
+  <body>
+    <div class="page" {...tone('base')}>
+      <Header page={page} />
+      <main id="top">
+        <slot />
+        <Footer />
+      </main>
+      <slot name="after" />
+    </div>
+    <ModeBadge />
+    <Analytics />
+    <script>
+      import { start } from '../scripts/app';
+      start();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+---
+// «Так сетью управляют сегодня» (прототип «Fusion»): секция 380vh (100vh при «меньше движения»), внутри
+// sticky-сцена 100vh. Тексты гаснут и появляются прямой записью стилей по p (src/scripts/app.ts, paintFusion),
+// 3D — сцена fusion из src/scenes/vilax3d.js. Подписи иконок — DOM-плашки [data-vlx-label=f0…f4].
+import T from '../T.astro';
+import { tone, url } from '../../lib/site';
+---
+
+<section id="fusion" class="fu sheet" {...tone('fusion')} data-noreveal data-screen-label="Fusion">
+  <div class="fu__stick">
+    <div data-vlx3d="fusion" aria-hidden="true" class="fu__slot">
+      {[0, 1, 2, 3, 4].map((i) => <span data-vlx-label={`f${i}`} class="fu__label"><T get={(s) => s.fusion.items[i]} /></span>)}
+    </div>
+    <div class="fu__text">
+      <h2 data-f="lead" class="fu__big"><T get={(s) => s.fusion.lead} /></h2>
+      <p data-f="merge" class="fu__big fu__merge"><T get={(s) => s.fusion.merge} /></p>
+    </div>
+    <div class="fu__center">
+      <div data-f="logo" class="fu__logo">
+        <img src={url('/logo.svg')} alt="VILAX" class="fu__img" />
+        <p data-f="final" class="fu__final"><T get={(s) => s.fusion.final} /></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .fu {
+    height: 380vh;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fu {
+      height: 100vh;
+    }
+  }
+  .fu__stick {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    border-radius: 16px 16px 0 0;
+  }
+  .fu__slot {
+    position: absolute;
+    inset: 0;
+  }
+  .fu__label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 35;
+    opacity: 0;
+    width: max-content;
+    max-width: min(180px, 42vw);
+    text-align: center;
+    text-wrap: balance;
+    font-size: clamp(13px, 1vw, 15px);
+    font-weight: 600;
+    line-height: 1.25;
+    padding: 7px 12px;
+    border-radius: 9999px;
+    background: var(--bg);
+    color: var(--ink);
+    box-shadow:
+      0 0 0 1px var(--hair),
+      0 4px 14px rgb(2 8 23/0.08);
+    pointer-events: none;
+    will-change: transform, opacity;
+  }
+  .fu__text {
+    position: relative;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: clamp(88px, 11vh, 128px) clamp(16px, 3vw, 40px) 0;
+    display: grid;
+    pointer-events: none;
+  }
+  .fu__big {
+    grid-area: 1/1;
+    font-size: clamp(30px, 3.6vw, 56px);
+    font-weight: 620;
+    letter-spacing: -0.03em;
+    line-height: 1.06;
+    max-width: 22ch;
+    will-change: opacity, transform;
+  }
+  .fu__merge {
+    opacity: 0;
+    will-change: opacity;
+  }
+  .fu__center {
+    position: absolute;
+    inset: 0;
+    padding-top: 72px;
+    box-sizing: border-box;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    z-index: 36;
+  }
+  .fu__logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(20px, 3vh, 32px);
+    opacity: 0;
+    will-change: opacity;
+  }
+  .fu__img {
+    width: min(clamp(300px, 32vw, 500px), 80vw, 52vh);
+    height: auto;
+  }
+  .fu__final {
+    font-size: clamp(36px, 4.4vw, 64px);
+    font-weight: 620;
+    letter-spacing: -0.03em;
+    line-height: 1.06;
+    text-align: center;
+    opacity: 0;
+  }
+</style>

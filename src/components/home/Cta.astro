@@ -1,0 +1,57 @@
+---
+// Призыв (прототип «CTA»): слева H2, текст и кнопка к форме, справа знак.
+import T from '../T.astro';
+import { tone, url } from '../../lib/site';
+---
+
+<section id="cta" class="ct sheet pad" {...tone('cta')} data-screen-label="CTA">
+  <div class="wrap ct__grid">
+    <div data-reveal class="ct__left">
+      <h2 class="h2 ct__h2"><T get={(s) => s.cta.title} /></h2>
+      <p class="lede ct__p"><T get={(s) => s.cta.text} /></p>
+      <a href="#pricing" class="ct__btn" data-go-cta><T get={(s) => s.cta.button} /></a>
+    </div>
+    <img src={url('/logo.svg')} alt="" aria-hidden="true" class="ct__logo" loading="lazy" />
+  </div>
+</section>
+
+<style>
+  .ct {
+    overflow: hidden;
+  }
+  .ct__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+    gap: 40px;
+    align-items: center;
+  }
+  .ct__left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .ct__h2 {
+    max-width: 16ch;
+  }
+  .ct__p {
+    max-width: 44ch;
+  }
+  .ct__btn {
+    display: inline-flex;
+    align-items: center;
+    height: 52px;
+    padding: 0 24px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: var(--onAccent);
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+  }
+  .ct__logo {
+    width: min(80%, 440px);
+    height: auto;
+    justify-self: center;
+  }
+</style>

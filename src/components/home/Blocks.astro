@@ -1,0 +1,352 @@
+---
+// Блоки платформы (прототип «Blocks»): вкладки ARIA tabs (← → Home End), панель: слева H3, задача и функции
+// (по умолчанию заголовки, наведение раскрывает описание и меняет снимок), справа sticky-рамка со снимком 2:1.
+// Сайт v2 (SITE-53): снимок — в экране MacBook (src/components/site/Macbook.astro) на всех ширинах.
+// SITE-55: на телефоне (< 768) — экран самого приложения VILAX в iPhone (Iphone.astro, кадры shots-app); нет годного
+// кадра приложения — настольный снимок в MacBook, нет и его — функция без снимка (Р-22). Грузится только нужный слой.
+// Снимки — строго своего сочетания валюта × язык × тема (медиа-слой SITE-25): функции без снимка в сочетании —
+// не кнопки (Р-22), чужим вариантом не подменяем. Какой элемент виден — решает src/scripts/blocks.ts.
+import T from '../T.astro';
+import Macbook from '../site/Macbook.astro';
+import Iphone from '../site/Iphone.astro';
+import { siteOf, va } from '../../lib/content';
+import { typo } from '../../lib/typo';
+import { tone, VARIANTS, CURS, type Cur } from '../../lib/site';
+
+const keys = siteOf(VARIANTS[0]).blocks.map((b) => b.key);
+const block = (s: ReturnType<typeof siteOf>, k: string) => s.blocks.find((b) => b.key === k)!;
+---
+
+<section id="blocks" class="bl sheet pad" {...tone('blocks')} data-screen-label="Blocks">
+  <div class="wrap bl__out">
+    <h2 data-reveal class="h2"><T get={(_, u) => u.blocksTabs} /></h2>
+    <div role="tablist" class="bl__tabs" {...va('aria-label', (_, u) => u.blocksTabs)} data-tablist>
+      {
+        keys.map((k, i) => (
+          <button type="button" role="tab" id={`tab-${k}`} class="bl__tab" aria-selected={i === 0 ? 'true' : 'false'} aria-controls={`panel-${k}`} tabindex={i === 0 ? 0 : -1} data-tab={k}>
+            <T get={(s) => block(s, k).name} />
+          </button>
+        ))
+      }
+    </div>
+    {
+      keys.map((k, i) => (
+        <div id={`panel-${k}`} role="tabpanel" aria-labelledby={`tab-${k}`} class="bl__panel" data-panel={k} hidden={i !== 0}>
+          <div class="bl__left">
+            <div class="bl__head">
+              <h3 class="bl__h3">
+                <T get={(s) => block(s, k).name} />
+              </h3>
+              <p class="bl__task">
+                <T get={(s) => block(s, k).task} />
+              </p>
+            </div>
+            {VARIANTS.map((v) => (
+              <div class="v bl__vl" data-cur={v.cur} data-lang={v.lang}>
+                <ul class="bl__feats">
+                  {block(siteOf(v), k).features.map((f, fi) => (
+                    <li class="bl__li" data-fi={fi} data-screen={f.screen}>
+                      <button type="button" class="bl__f bl__f--btn" aria-pressed="false" aria-expanded="false">
+                        <span class="bl__tw"><span class="bl__ft">{typo(v.lang, f.title)}</span></span>
+                        <span class="bl__rows">
+                          <span class="bl__clip">
+                            <span class="bl__fx">{typo(v.lang, f.text)}</span>
+                          </span>
+                        </span>
+                      </button>
+                      <div class="bl__f bl__f--div">
+                        <span class="bl__tw"><span class="bl__ft">{typo(v.lang, f.title)}</span></span>
+                        <div class="bl__rows">
+                          <div class="bl__clip">
+                            <p class="bl__fx">{typo(v.lang, f.text)}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <figure class="bl__fig" hidden>
+            <Macbook>
+              <img class="bl__img" alt="" width="1600" height="800" loading="lazy" decoding="async" data-shot-img />
+              <span class="media-ph" data-shot-ph hidden></span>
+            </Macbook>
+            <Iphone>
+              <img class="bl__app" alt="" width="590" height="1279" loading="lazy" decoding="async" data-app-img />
+            </Iphone>
+          </figure>
+        </div>
+      ))
+    }
+    <script type="application/json" data-block-shots set:html={JSON.stringify(
+      Object.fromEntries(CURS.map((c: Cur) => [c, Object.fromEntries(keys.map((k) => [k, block(siteOf({ cur: c, lang: 'ru' }), k).shot]))]))
+    )} />
+  </div>
+</section>
+
+<style>
+  .bl__out {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .bl__tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 4px;
+    margin: -4px;
+    scrollbar-width: none;
+  }
+  .bl__tab {
+    flex: none;
+    height: 44px;
+    padding: 0 18px;
+    border-radius: 9999px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    border: 1px solid var(--hairS);
+    background: transparent;
+    color: var(--ink);
+    transition:
+      background-color 0.2s cubic-bezier(0.23, 1, 0.32, 1),
+      color 0.2s;
+  }
+  .bl__tab[aria-selected='true'] {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: var(--bg);
+  }
+  /* Планшет-портрет: четыре вкладки RU помещаются в строку на 768, без обрезанной последней (SITE-46) */
+  @media (min-width: 768px) and (max-width: 1023.98px) {
+    .bl__tab {
+      padding: 0 14px;
+    }
+  }
+  .bl__panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(24px, 3vw, 48px);
+    align-items: start;
+    padding: clamp(20px, 2.5vw, 32px);
+    border-radius: 20px;
+    background: var(--surf);
+    border: 1px solid var(--hair);
+    box-shadow: var(--shadow);
+  }
+  .bl__panel[hidden] {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .bl__panel.has-shot {
+      grid-template-columns: minmax(260px, 1fr) minmax(0, 3fr);
+    }
+  }
+  .bl__left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+  }
+  .bl__head {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .bl__h3 {
+    font-size: clamp(24px, 2.2vw, 30px);
+    font-weight: 620;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
+  .bl__task {
+    font-size: 17px;
+    color: var(--muted);
+  }
+  .bl__feats {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 4px;
+  }
+  .has-shot .bl__feats {
+    grid-template-columns: 1fr;
+  }
+  @media (max-width: 767.98px) {
+    .bl__feats {
+      grid-template-columns: 1fr;
+    }
+  }
+  .bl__li {
+    min-width: 0;
+  }
+  .bl__f {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 14px;
+    border: 1px solid transparent;
+  }
+  .bl__f--btn {
+    width: 100%;
+    text-align: left;
+    border-radius: 12px;
+    background: transparent;
+    cursor: pointer;
+    transition: background-color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .bl__f--btn[aria-pressed='true'] {
+    background: var(--surf2);
+    border-color: var(--hairS);
+  }
+  .bl__li:not(.is-shot) .bl__f--btn,
+  .bl__li.is-shot .bl__f--div {
+    display: none;
+  }
+  .bl__ft {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .bl__tw {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .bl__rows {
+    display: grid;
+    width: 100%;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .bl__f--div .bl__rows {
+    width: auto;
+  }
+  .is-open .bl__rows {
+    grid-template-rows: 1fr;
+  }
+  .bl__clip {
+    display: block;
+    overflow: hidden;
+    min-height: 0;
+  }
+  .bl__fx {
+    display: block;
+    padding-top: 4px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--muted);
+    opacity: 0;
+    transform: translateY(-6px);
+    transition:
+      opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+      transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .is-open .bl__fx {
+    opacity: 1;
+    transform: none;
+  }
+  /* v2: рамки нет — снимок в MacBook; поле снизу — под тень основы корпуса */
+  .bl__fig {
+    margin: 0;
+    position: sticky;
+    top: 96px;
+    padding-bottom: 1.5%;
+  }
+  .bl__fig[hidden] {
+    display: none;
+  }
+  .bl__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2/1;
+    object-fit: cover;
+    object-position: top;
+  }
+  .bl__img:not([src]) {
+    display: none;
+  }
+  .bl__app {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  /* iPhone — только на телефоне и только когда у выбранной функции есть кадр приложения (is-app ставит blocks.ts) */
+  .bl__fig :global(.ip),
+  .bl__fig.is-app :global(.mb) {
+    display: none;
+  }
+  .bl__fig .media-ph {
+    aspect-ratio: 2/1;
+    height: auto;
+    border-radius: 0;
+  }
+  /* SITE-43 (телефон). P1-5: снимок между заголовком блока и списком функций и прилипает под шапкой, пока идёт
+     список, — нажатие функции меняет снимок на виду. Кольцо цвета карточки закрывает пункты, уходящие под снимок.
+     P2-1: полоса вкладок затухает с той стороны, куда ещё можно прокрутить (data-edge ставит blocks.ts). */
+  @media (max-width: 767.98px) {
+    .bl__panel.has-shot {
+      gap: 20px;
+    }
+    .bl__panel.has-shot .bl__left {
+      display: contents;
+    }
+    .bl__panel.has-shot .bl__fig {
+      order: 1;
+      top: 64px;
+      z-index: 1;
+      background: var(--surf);
+      box-shadow: 0 0 0 8px var(--surf);
+    }
+    /* v2: высота MacBook (≈ 0,618 ширины + тень основы) дополняется так, чтобы карточка отличалась от прежней рамки
+       (поля 8 + рамка 1, снимок 2:1) ровно на целое число пикселей, — секции ниже не сдвигаются на доли пикселя. */
+    .bl__panel {
+      container-type: inline-size;
+    }
+    .bl__panel.has-shot .bl__fig {
+      --was: calc(18px + round(down, (100cqw - 18px) / 2, 0.015625px));
+      --now: calc(100cqw * 0.618 + 1px);
+      height: calc(var(--was) + round(up, var(--now) - var(--was), 1px));
+      padding-bottom: 0;
+    }
+    /* SITE-55: в блоке есть кадры приложения (has-app) — карточка снимка высотой iPhone для всех функций блока, чтобы
+       список не прыгал при переключении (функция без кадра приложения — MacBook по центру той же карточки). Ширина iPhone —
+       до 190 px и не больше ~45 % высоты экрана под шапкой: прилипший снимок оставляет место списку. Высота iPhone ≈ 2,1 ширины. */
+    .bl__panel.has-app .bl__fig {
+      --ipw: min(190px, 48cqw, (100svh - 88px) * 0.216);
+      --now: calc(var(--ipw) * 2.1 + 1px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .bl__fig.is-app :global(.ip) {
+      display: flex;
+      width: var(--ipw);
+    }
+    .bl__panel.has-shot .bl__feats {
+      order: 2;
+    }
+    .bl__tabs[data-edge='start'] {
+      -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent);
+      mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent);
+    }
+    .bl__tabs[data-edge='mid'] {
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 48px, #000 calc(100% - 48px), transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 48px, #000 calc(100% - 48px), transparent);
+    }
+    .bl__tabs[data-edge='end'] {
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 48px);
+      mask-image: linear-gradient(90deg, transparent, #000 48px);
+    }
+  }
+</style>

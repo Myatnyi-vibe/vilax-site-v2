@@ -1,0 +1,384 @@
+---
+// Заявка (прототип «Request», якорь #pricing — заменила калькулятор, Р-24). Слева плашка «Цены», H2, текст, три пункта;
+// справа карточка формы: имя, телефон, город (решение Данила 14.10 по Р-23 — тем же компонентом), компания, «У меня сеть» + количество локаций (по умолчанию 2, минимум 2).
+// Проверка и отправка — src/scripts/lead-form.ts → приёмник SITE-15 (src/lib/lead.ts): company → venue,
+// chain/locations → segment и calc.locations, region — по валюте. Вид формы — как в прототипе (Р-23).
+import T from '../T.astro';
+import { siteOf, va } from '../../lib/content';
+import { tone, VARIANTS, LEGAL_LANG, legalPath } from '../../lib/site';
+import { MODE } from '../../lib/mode';
+import { leadUrl } from '../../lib/lead';
+import form from '../../content/ru/legal/form.json';
+import formEn from '../../content/en/legal/form.json';
+
+const points = siteOf(VARIANTS[0]).lead.points.map((_, i) => i);
+const fields = [
+  { id: 'lead-name', name: 'name', type: 'text' as const, ac: 'name', im: 'text' as const, label: 'name' as const, ph: false },
+  { id: 'lead-phone', name: 'phone', type: 'tel' as const, ac: 'tel', im: 'tel' as const, label: 'phone' as const, ph: true },
+  { id: 'lead-city', name: 'city', type: 'text' as const, ac: 'address-level2', im: 'text' as const, label: 'city' as const, ph: false },
+  { id: 'lead-company', name: 'company', type: 'text' as const, ac: 'organization', im: 'text' as const, label: 'company' as const, ph: false },
+];
+const endpoint = leadUrl(MODE, import.meta.env.PUBLIC_VILAX_LEAD_URL);
+const consentVersion = { rub: form.consentVersion, aed: formEn.consentVersion };
+---
+
+<section id="pricing" class="ld sheet pad" {...tone('pricing')} data-screen-label="Request">
+  <div class="wrap ld__grid">
+    <div class="ld__left">
+      <div data-reveal class="ld__head">
+        <span class="pill"><T get={(_, u) => u.navItems.pricing} /></span>
+        <h2 class="h2 ld__h2"><T get={(s) => s.lead.title} /></h2>
+        <p class="lede ld__text"><T get={(s) => s.lead.text} /></p>
+      </div>
+      <ul class="ld__points">
+        {
+          points.map((i) => (
+            <li class="ld__pt">
+              <span class="ld__n">{String(i + 1).padStart(2, '0')}</span>
+              <span>
+                <T get={(s) => s.lead.points[i]} />
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div data-reveal class="ld__card" {...tone('form')} data-lead-card>
+      <form
+        class="ld__form"
+        novalidate
+        data-lead-form
+        data-mode={MODE}
+        data-url={endpoint ?? ''}
+        data-consent-rub={consentVersion.rub}
+        data-consent-aed={consentVersion.aed}
+      >
+        {
+          fields.map((f) => (
+            <div class="ld__field">
+              <label for={f.id} class="ld__label">
+                <T get={(s) => s.lead[f.label]} />
+              </label>
+              <input
+                id={f.id}
+                name={f.name}
+                type={f.type}
+                autocomplete={f.ac}
+                inputmode={f.im}
+                required
+                aria-invalid="false"
+                aria-describedby={`${f.id}-err`}
+                class="ld__input"
+                {...(f.ph ? va('placeholder', (s) => s.lead.phonePh) : {})}
+              />
+              <span id={`${f.id}-err`} class="ld__err" hidden />
+            </div>
+          ))
+        }
+        <div class="ld__chainbox">
+          <label class="ld__chain">
+            <input type="checkbox" name="chain" class="ld__cb" aria-controls="lead-loc-box" aria-expanded="false" data-chain />
+            <span><T get={(s) => s.lead.chain} /></span>
+          </label>
+          <div id="lead-loc-box" class="ld__locbox">
+            <div class="ld__clip">
+              <div class="ld__loc">
+                <label for="lead-loc" class="ld__label"><T get={(s) => s.lead.locations} /></label>
+                <div class="ld__step">
+                  <button type="button" class="ld__sb" aria-label="−1" disabled data-loc-dec>−</button>
+                  <input id="lead-loc" name="locations" type="number" inputmode="numeric" min="2" max="99999" value="" disabled aria-invalid="false" aria-describedby="lead-loc-err" class="ld__num" />
+                  <button type="button" class="ld__sb" aria-label="+1" disabled data-loc-inc>+</button>
+                </div>
+                <span id="lead-loc-err" class="ld__err" hidden />
+              </div>
+            </div>
+          </div>
+        </div>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="ld__hp" />
+        <button type="submit" class="ld__submit"><T get={(s) => s.lead.submit} /></button>
+        <p class="ld__send" role="status" aria-live="polite" hidden data-lead-status></p>
+        <p class="ld__consent">
+          <T get={(s) => s.lead.consentPre} /><a {...va('href', (_, __, v) => legalPath(LEGAL_LANG[v.cur], 'consent'))} class="ld__clink"><T get={(s) => s.lead.consentLink} /></a><T get={(s) => s.lead.consentPost} />
+        </p>
+      </form>
+      <div id="lead-done" tabindex="-1" class="ld__done" hidden data-lead-done>
+        <h3 class="ld__dh" data-done-title></h3>
+        <p class="ld__dp" data-done-text></p>
+        <button type="button" class="ld__edit" data-lead-edit><T get={(s) => s.lead.doneEdit} /></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ld__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+    gap: clamp(40px, 5vw, 88px);
+    align-items: start;
+  }
+  .ld__left {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(28px, 3vw, 40px);
+    min-width: 0;
+  }
+  .ld__head {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .ld__h2 {
+    max-width: 16ch;
+    text-wrap: balance;
+  }
+  .ld__text {
+    max-width: 46ch;
+    text-wrap: pretty;
+  }
+  .ld__points {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 520px;
+  }
+  .ld__pt {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    padding: 16px 0;
+    border-top: 1px solid var(--hairS);
+    font-size: clamp(16px, 1.2vw, 18px);
+    font-weight: 600;
+    line-height: 1.4;
+    text-wrap: pretty;
+  }
+  .ld__n {
+    flex: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--subtle);
+  }
+  .ld__card {
+    border-radius: 20px;
+    padding: clamp(24px, 3vw, 40px);
+    min-width: 0;
+    box-shadow: 0 0 0 1px var(--hair);
+  }
+  .ld__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .ld__form[hidden] {
+    display: none;
+  }
+  .ld__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .ld__label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .ld__input {
+    height: 52px;
+    padding: 0 16px;
+    border-radius: 10px;
+    border: 1px solid var(--field);
+    background: var(--surf);
+    color: var(--ink);
+    font: inherit;
+    font-size: 16px;
+    outline: none;
+    transition:
+      border-color 0.2s,
+      box-shadow 0.2s;
+  }
+  .ld__input[aria-invalid='true'],
+  .ld__num[aria-invalid='true'] {
+    border-color: var(--err);
+  }
+  .ld__input:focus,
+  .ld__num:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 28%, transparent);
+  }
+  .ld__err {
+    font-size: 13px;
+    color: var(--err);
+  }
+  .ld__err[hidden] {
+    display: none;
+  }
+  .ld__chainbox {
+    display: flex;
+    flex-direction: column;
+  }
+  .ld__chain {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+    width: fit-content;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  /* SITE-45 P2-3 (телефон): «У меня сеть» — касание на всю строку 44 px, не только по тексту. */
+  @media (max-width: 767.98px) {
+    .ld__chain {
+      width: 100%;
+    }
+  }
+  .ld__cb {
+    flex: none;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    accent-color: var(--accent);
+    cursor: pointer;
+  }
+  .ld__locbox {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .ld__locbox.is-open {
+    grid-template-rows: 1fr;
+  }
+  .ld__clip {
+    overflow: hidden;
+    min-height: 0;
+  }
+  .ld__loc {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 0 2px 32px;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition:
+      opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+      transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .is-open .ld__loc {
+    opacity: 1;
+    transform: none;
+  }
+  .ld__step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ld__sb {
+    width: 48px;
+    height: 48px;
+    flex: none;
+    border-radius: 10px;
+    border: 1px solid var(--field);
+    background: var(--surf);
+    color: var(--ink);
+    font-size: 22px;
+    cursor: pointer;
+  }
+  .ld__num {
+    width: 104px;
+    height: 48px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid var(--field);
+    background: var(--surf);
+    color: var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 20px;
+    outline: none;
+  }
+  .ld__hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+  .ld__submit {
+    height: 56px;
+    margin-top: 4px;
+    border-radius: 8px;
+    border: 0;
+    background: var(--accent);
+    color: var(--onAccent);
+    font: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .ld__submit:hover {
+    background: var(--accentH);
+  }
+  .ld__submit[aria-busy='true'] {
+    cursor: progress;
+  }
+  .ld__send {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--err);
+  }
+  .ld__send[hidden] {
+    display: none;
+  }
+  .ld__consent {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--subtle);
+    text-wrap: pretty;
+  }
+  .ld__clink {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .ld__done {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    outline: none;
+  }
+  .ld__done[hidden] {
+    display: none;
+  }
+  .ld__dh {
+    font-size: clamp(28px, 2.6vw, 40px);
+    font-weight: 620;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+  .ld__dp {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 40ch;
+    text-wrap: pretty;
+  }
+  .ld__edit {
+    height: 44px;
+    padding: 0 18px;
+    border-radius: 9999px;
+    border: 1px solid var(--hairS);
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+</style>

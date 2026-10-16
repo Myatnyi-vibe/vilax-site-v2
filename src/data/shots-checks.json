@@ -1,0 +1,4070 @@
+{
+ "version": 1,
+ "generatedAt": "2026-10-14T20:47:43.776Z",
+ "shots": [
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t001",
+   "file": "shots/rub/ru/dark/t001.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 51912,
+   "capturedAt": "2026-10-14",
+   "luma": 0.133,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t001",
+   "file": "shots/rub/ru/light/t001.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 53630,
+   "capturedAt": "2026-10-14",
+   "luma": 0.957,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t001",
+   "file": "shots/rub/en/dark/t001.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 50002,
+   "capturedAt": "2026-10-14",
+   "luma": 0.133,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "t001",
+   "file": "shots/rub/en/light/t001.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 51102,
+   "capturedAt": "2026-10-14",
+   "luma": 0.957,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t002",
+   "file": "shots/rub/ru/dark/t002.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 51918,
+   "capturedAt": "2026-10-14",
+   "luma": 0.133,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t002",
+   "file": "shots/rub/ru/light/t002.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 53666,
+   "capturedAt": "2026-10-14",
+   "luma": 0.957,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t002",
+   "file": "shots/rub/en/dark/t002.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 50042,
+   "capturedAt": "2026-10-14",
+   "luma": 0.133,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "t002",
+   "file": "shots/rub/en/light/t002.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 51106,
+   "capturedAt": "2026-10-14",
+   "luma": 0.957,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t014",
+   "file": "shots/rub/ru/dark/t014.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 53388,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t014",
+   "file": "shots/rub/ru/light/t014.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 56878,
+   "capturedAt": "2026-10-14",
+   "luma": 0.973,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t014",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.125,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "t014",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.969,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t018",
+   "file": "shots/rub/ru/dark/t018.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 57334,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t018",
+   "file": "shots/rub/ru/light/t018.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 59976,
+   "capturedAt": "2026-10-14",
+   "luma": 0.973,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t018",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.122,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "t018",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.976,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t020",
+   "file": "shots/rub/ru/dark/t020.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 50454,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t020",
+   "file": "shots/rub/ru/light/t020.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 51792,
+   "capturedAt": "2026-10-14",
+   "luma": 0.976,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t020",
+   "file": "shots/rub/en/dark/t020.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 50114,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "t020",
+   "file": "shots/rub/en/light/t020.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 51258,
+   "capturedAt": "2026-10-14",
+   "luma": 0.976,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "y004",
+   "file": "shots/rub/ru/dark/y004.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 40918,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "y004",
+   "file": "shots/rub/ru/light/y004.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 42526,
+   "capturedAt": "2026-10-14",
+   "luma": 0.976,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "y004",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.118,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "y004",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.976,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "y039",
+   "file": "shots/rub/ru/dark/y039.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 44714,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "y039",
+   "file": "shots/rub/ru/light/y039.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 45900,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "y039",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.118,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "y039",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.984,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t035",
+   "file": "shots/rub/ru/dark/t035.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 36548,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t035",
+   "file": "shots/rub/ru/light/t035.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 37482,
+   "capturedAt": "2026-10-14",
+   "luma": 0.984,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t035",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.114,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "t035",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.984,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t036",
+   "file": "shots/rub/ru/dark/t036.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 33916,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t036",
+   "file": "shots/rub/ru/light/t036.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 34580,
+   "capturedAt": "2026-10-14",
+   "luma": 0.984,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t036",
+   "file": "shots/rub/en/dark/t036.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 32682,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "t036",
+   "file": "shots/rub/en/light/t036.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 33752,
+   "capturedAt": "2026-10-14",
+   "luma": 0.984,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t037",
+   "file": "shots/rub/ru/dark/t037.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 42178,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t037",
+   "file": "shots/rub/ru/light/t037.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 43862,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t037",
+   "file": "shots/rub/en/dark/t037.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 41596,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "t037",
+   "file": "shots/rub/en/light/t037.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 43138,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t040",
+   "file": "shots/rub/ru/dark/t040.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 34228,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t040",
+   "file": "shots/rub/ru/light/t040.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 35526,
+   "capturedAt": "2026-10-14",
+   "luma": 0.984,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t040",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.114,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "t040",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.984,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t042",
+   "file": "shots/rub/ru/dark/t042.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 34948,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t042",
+   "file": "shots/rub/ru/light/t042.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 36926,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t042",
+   "file": "shots/rub/en/dark/t042.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 34468,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "t042",
+   "file": "shots/rub/en/light/t042.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 36334,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t046",
+   "file": "shots/rub/ru/dark/t046.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 33386,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t046",
+   "file": "shots/rub/ru/light/t046.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 34272,
+   "capturedAt": "2026-10-14",
+   "luma": 0.984,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t046",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.114,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "t046",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.984,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "y026",
+   "file": "shots/rub/ru/dark/y026.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 38996,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "y026",
+   "file": "shots/rub/ru/light/y026.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 40000,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "y026",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.114,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "y026",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.98,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t094",
+   "file": "shots/rub/ru/dark/t094.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 25078,
+   "capturedAt": "2026-10-14",
+   "luma": 0.094,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t094",
+   "file": "shots/rub/ru/light/t094.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 25362,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t094",
+   "file": "shots/rub/en/dark/t094.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 23478,
+   "capturedAt": "2026-10-14",
+   "luma": 0.094,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "t094",
+   "file": "shots/rub/en/light/t094.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 33718,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t072",
+   "file": "shots/rub/ru/dark/t072.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 47730,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t072",
+   "file": "shots/rub/ru/light/t072.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 49284,
+   "capturedAt": "2026-10-14",
+   "luma": 0.976,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t072",
+   "file": "shots/rub/en/dark/t072.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 42754,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "t072",
+   "file": "shots/rub/en/light/t072.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 43894,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "y040",
+   "file": "shots/rub/ru/dark/y040.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 39388,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "y040",
+   "file": "shots/rub/ru/light/y040.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 41136,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "y040",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.118,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "y040",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.98,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t073",
+   "file": "shots/rub/ru/dark/t073.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 34942,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t073",
+   "file": "shots/rub/ru/light/t073.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 36232,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t073",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.118,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "t073",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.98,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t078",
+   "file": "shots/rub/ru/dark/t078.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 39190,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t078",
+   "file": "shots/rub/ru/light/t078.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 40654,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t078",
+   "file": "shots/rub/en/dark/t078.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 37058,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "t078",
+   "file": "shots/rub/en/light/t078.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 38448,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t082",
+   "file": "shots/rub/ru/dark/t082.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 57712,
+   "capturedAt": "2026-10-14",
+   "luma": 0.125,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t082",
+   "file": "shots/rub/ru/light/t082.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 59768,
+   "capturedAt": "2026-10-14",
+   "luma": 0.976,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t082",
+   "file": "shots/rub/en/dark/t082.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 55130,
+   "capturedAt": "2026-10-14",
+   "luma": 0.125,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "t082",
+   "file": "shots/rub/en/light/t082.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 56858,
+   "capturedAt": "2026-10-14",
+   "luma": 0.976,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t085",
+   "file": "shots/rub/ru/dark/t085.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 49660,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t085",
+   "file": "shots/rub/ru/light/t085.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 52302,
+   "capturedAt": "2026-10-14",
+   "luma": 0.976,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t085",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.122,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "t085",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.98,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "y007",
+   "file": "shots/rub/ru/dark/y007.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 48462,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "y007",
+   "file": "shots/rub/ru/light/y007.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 50390,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "y007",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.118,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "y007",
+   "status": "fail",
+   "reason": "Р-19 (а): перевод словарём продукта неполный — есть строки без перевода",
+   "luma": 0.98,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   }
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "y008",
+   "file": "shots/rub/ru/dark/y008.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 39350,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "y008",
+   "file": "shots/rub/ru/light/y008.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 40746,
+   "capturedAt": "2026-10-14",
+   "luma": 0.984,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "y008",
+   "file": "shots/rub/en/dark/y008.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 40200,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "y008",
+   "file": "shots/rub/en/light/y008.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 41660,
+   "capturedAt": "2026-10-14",
+   "luma": 0.984,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "y010",
+   "status": "fail",
+   "reason": "раздел пустой: данных лояльности в демо нет; по решению Данила 14.10 функция идёт без снимка",
+   "luma": 0.11,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": false,
+    "masks": true
+   },
+   "bug": "DEMO-24"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "y010",
+   "status": "fail",
+   "reason": "раздел пустой: данных лояльности в демо нет; по решению Данила 14.10 функция идёт без снимка",
+   "luma": 0.988,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": false,
+    "masks": true
+   },
+   "bug": "DEMO-24"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "y010",
+   "status": "fail",
+   "reason": "раздел пустой: данных лояльности в демо нет; по решению Данила 14.10 функция идёт без снимка",
+   "luma": 0.11,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": false,
+    "masks": true
+   },
+   "bug": "DEMO-24"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "y010",
+   "status": "fail",
+   "reason": "раздел пустой: данных лояльности в демо нет; по решению Данила 14.10 функция идёт без снимка",
+   "luma": 0.988,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": false,
+    "masks": true
+   },
+   "bug": "DEMO-24"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t002",
+   "file": "shots/aed/ru/dark/t002.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 43820,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t002",
+   "file": "shots/aed/ru/light/t002.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 45472,
+   "capturedAt": "2026-10-14",
+   "luma": 0.973,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t002",
+   "file": "shots/aed/en/dark/t002.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 43704,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "t002",
+   "file": "shots/aed/en/light/t002.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 45570,
+   "capturedAt": "2026-10-14",
+   "luma": 0.973,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t014",
+   "file": "shots/aed/ru/dark/t014.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 55694,
+   "capturedAt": "2026-10-14",
+   "luma": 0.125,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t014",
+   "file": "shots/aed/ru/light/t014.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 59678,
+   "capturedAt": "2026-10-14",
+   "luma": 0.969,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t014",
+   "file": "shots/aed/en/dark/t014.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 52824,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "t014",
+   "file": "shots/aed/en/light/t014.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 56466,
+   "capturedAt": "2026-10-14",
+   "luma": 0.973,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t018",
+   "file": "shots/aed/ru/dark/t018.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 57718,
+   "capturedAt": "2026-10-14",
+   "luma": 0.125,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t018",
+   "file": "shots/aed/ru/light/t018.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 60542,
+   "capturedAt": "2026-10-14",
+   "luma": 0.973,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t018",
+   "file": "shots/aed/en/dark/t018.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 53556,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "t018",
+   "file": "shots/aed/en/light/t018.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 56642,
+   "capturedAt": "2026-10-14",
+   "luma": 0.976,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t020",
+   "file": "shots/aed/ru/dark/t020.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 53316,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t020",
+   "file": "shots/aed/ru/light/t020.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 55024,
+   "capturedAt": "2026-10-14",
+   "luma": 0.976,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t020",
+   "file": "shots/aed/en/dark/t020.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 52912,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "t020",
+   "file": "shots/aed/en/light/t020.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 54802,
+   "capturedAt": "2026-10-14",
+   "luma": 0.976,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "y004",
+   "file": "shots/aed/ru/dark/y004.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 41004,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "y004",
+   "file": "shots/aed/ru/light/y004.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 42046,
+   "capturedAt": "2026-10-14",
+   "luma": 0.976,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "y004",
+   "file": "shots/aed/en/dark/y004.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 38312,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "y004",
+   "file": "shots/aed/en/light/y004.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 39314,
+   "capturedAt": "2026-10-14",
+   "luma": 0.976,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "y039",
+   "file": "shots/aed/ru/dark/y039.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 43996,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "y039",
+   "file": "shots/aed/ru/light/y039.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 45176,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "y039",
+   "file": "shots/aed/en/dark/y039.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 43482,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "y039",
+   "file": "shots/aed/en/light/y039.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 44454,
+   "capturedAt": "2026-10-14",
+   "luma": 0.984,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t035",
+   "file": "shots/aed/ru/dark/t035.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 36560,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t035",
+   "file": "shots/aed/ru/light/t035.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 37896,
+   "capturedAt": "2026-10-14",
+   "luma": 0.984,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t035",
+   "file": "shots/aed/en/dark/t035.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 35688,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "t035",
+   "file": "shots/aed/en/light/t035.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 36534,
+   "capturedAt": "2026-10-14",
+   "luma": 0.984,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t036",
+   "file": "shots/aed/ru/dark/t036.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 33690,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t036",
+   "file": "shots/aed/ru/light/t036.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 34420,
+   "capturedAt": "2026-10-14",
+   "luma": 0.984,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t036",
+   "file": "shots/aed/en/dark/t036.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 32782,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "t036",
+   "file": "shots/aed/en/light/t036.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 33402,
+   "capturedAt": "2026-10-14",
+   "luma": 0.984,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t037",
+   "file": "shots/aed/ru/dark/t037.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 42198,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t037",
+   "file": "shots/aed/ru/light/t037.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 43480,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t037",
+   "file": "shots/aed/en/dark/t037.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 42816,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "t037",
+   "file": "shots/aed/en/light/t037.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 44056,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t040",
+   "file": "shots/aed/ru/dark/t040.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 32818,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t040",
+   "file": "shots/aed/ru/light/t040.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 34014,
+   "capturedAt": "2026-10-14",
+   "luma": 0.984,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t040",
+   "file": "shots/aed/en/dark/t040.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 31686,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "t040",
+   "file": "shots/aed/en/light/t040.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 33128,
+   "capturedAt": "2026-10-14",
+   "luma": 0.984,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t042",
+   "file": "shots/aed/ru/dark/t042.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 35092,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t042",
+   "file": "shots/aed/ru/light/t042.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 37116,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t042",
+   "file": "shots/aed/en/dark/t042.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 35176,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "t042",
+   "file": "shots/aed/en/light/t042.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 36850,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t046",
+   "file": "shots/aed/ru/dark/t046.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 33950,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t046",
+   "file": "shots/aed/ru/light/t046.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 34436,
+   "capturedAt": "2026-10-14",
+   "luma": 0.984,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t046",
+   "file": "shots/aed/en/dark/t046.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 32574,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "t046",
+   "file": "shots/aed/en/light/t046.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 33102,
+   "capturedAt": "2026-10-14",
+   "luma": 0.984,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t094",
+   "file": "shots/aed/ru/dark/t094.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 26684,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t094",
+   "file": "shots/aed/ru/light/t094.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 26070,
+   "capturedAt": "2026-10-14",
+   "luma": 0.988,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t094",
+   "status": "fail",
+   "reason": "названия блюд в данных демо не на английском",
+   "luma": 0.114,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "bug": "DEMO-56"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "t094",
+   "status": "fail",
+   "reason": "названия блюд в данных демо не на английском",
+   "luma": 0.988,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "bug": "DEMO-56"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t072",
+   "file": "shots/aed/ru/dark/t072.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 48516,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t072",
+   "file": "shots/aed/ru/light/t072.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 49678,
+   "capturedAt": "2026-10-14",
+   "luma": 0.976,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t072",
+   "file": "shots/aed/en/dark/t072.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 43440,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "t072",
+   "file": "shots/aed/en/light/t072.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 44724,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "y040",
+   "file": "shots/aed/ru/dark/y040.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 39778,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "y040",
+   "file": "shots/aed/ru/light/y040.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 41334,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "y040",
+   "status": "fail",
+   "reason": "строка сравнения периода не переведена в продукте",
+   "luma": 0.118,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "bug": "DEMO-55"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "y040",
+   "status": "fail",
+   "reason": "строка сравнения периода не переведена в продукте",
+   "luma": 0.984,
+   "checks": {
+    "lang": false,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "bug": "DEMO-55"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t073",
+   "file": "shots/aed/ru/dark/t073.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 35132,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t073",
+   "file": "shots/aed/ru/light/t073.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 36302,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t073",
+   "file": "shots/aed/en/dark/t073.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 32890,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "t073",
+   "file": "shots/aed/en/light/t073.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 33770,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t078",
+   "file": "shots/aed/ru/dark/t078.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 39414,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t078",
+   "file": "shots/aed/ru/light/t078.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 40792,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t078",
+   "file": "shots/aed/en/dark/t078.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 38540,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "t078",
+   "file": "shots/aed/en/light/t078.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 39664,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t082",
+   "file": "shots/aed/ru/dark/t082.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 57974,
+   "capturedAt": "2026-10-14",
+   "luma": 0.125,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t082",
+   "file": "shots/aed/ru/light/t082.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 60038,
+   "capturedAt": "2026-10-14",
+   "luma": 0.976,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t082",
+   "file": "shots/aed/en/dark/t082.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 57070,
+   "capturedAt": "2026-10-14",
+   "luma": 0.125,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "t082",
+   "file": "shots/aed/en/light/t082.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 59012,
+   "capturedAt": "2026-10-14",
+   "luma": 0.976,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t085",
+   "file": "shots/aed/ru/dark/t085.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 50558,
+   "capturedAt": "2026-10-14",
+   "luma": 0.125,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t085",
+   "file": "shots/aed/ru/light/t085.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 53266,
+   "capturedAt": "2026-10-14",
+   "luma": 0.976,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t085",
+   "file": "shots/aed/en/dark/t085.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 46116,
+   "capturedAt": "2026-10-14",
+   "luma": 0.122,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "t085",
+   "file": "shots/aed/en/light/t085.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 48778,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "t065",
+   "file": "shots/aed/ru/dark/t065.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 37014,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "t065",
+   "file": "shots/aed/ru/light/t065.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 38092,
+   "capturedAt": "2026-10-14",
+   "luma": 0.976,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "t065",
+   "file": "shots/aed/en/dark/t065.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 34760,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "t065",
+   "file": "shots/aed/en/light/t065.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 35638,
+   "capturedAt": "2026-10-14",
+   "luma": 0.976,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "y007",
+   "file": "shots/aed/ru/dark/y007.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 48488,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "y007",
+   "file": "shots/aed/ru/light/y007.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 50376,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "y007",
+   "file": "shots/aed/en/dark/y007.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 48126,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "y007",
+   "file": "shots/aed/en/light/y007.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 50262,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "y008",
+   "file": "shots/aed/ru/dark/y008.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 40884,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "y008",
+   "file": "shots/aed/ru/light/y008.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 42466,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "y008",
+   "file": "shots/aed/en/dark/y008.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 41316,
+   "capturedAt": "2026-10-14",
+   "luma": 0.118,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "y008",
+   "file": "shots/aed/en/light/y008.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 43480,
+   "capturedAt": "2026-10-14",
+   "luma": 0.98,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "g-reviews",
+   "file": "shots/rub/ru/dark/g-reviews.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 56608,
+   "capturedAt": "2026-10-14",
+   "luma": 0.116,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "g-aura",
+   "file": "shots/rub/ru/dark/g-aura.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 50734,
+   "capturedAt": "2026-10-14",
+   "luma": 0.117,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "g-reviews",
+   "file": "shots/rub/ru/light/g-reviews.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 57854,
+   "capturedAt": "2026-10-14",
+   "luma": 0.965,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "g-aura",
+   "file": "shots/rub/ru/light/g-aura.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 51980,
+   "capturedAt": "2026-10-14",
+   "luma": 0.944,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "g-reviews",
+   "file": "shots/rub/en/dark/g-reviews.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 57504,
+   "capturedAt": "2026-10-14",
+   "luma": 0.116,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "g-aura",
+   "file": "shots/rub/en/dark/g-aura.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 47916,
+   "capturedAt": "2026-10-14",
+   "luma": 0.116,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "g-reviews",
+   "file": "shots/rub/en/light/g-reviews.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 57240,
+   "capturedAt": "2026-10-14",
+   "luma": 0.965,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "g-aura",
+   "file": "shots/rub/en/light/g-aura.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 48992,
+   "capturedAt": "2026-10-14",
+   "luma": 0.946,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "g-reviews",
+   "file": "shots/aed/ru/dark/g-reviews.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 56274,
+   "capturedAt": "2026-10-14",
+   "luma": 0.115,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "g-aura",
+   "file": "shots/aed/ru/dark/g-aura.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 47838,
+   "capturedAt": "2026-10-14",
+   "luma": 0.117,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "g-reviews",
+   "file": "shots/aed/ru/light/g-reviews.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 57306,
+   "capturedAt": "2026-10-14",
+   "luma": 0.966,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "g-aura",
+   "file": "shots/aed/ru/light/g-aura.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 48908,
+   "capturedAt": "2026-10-14",
+   "luma": 0.945,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "g-reviews",
+   "file": "shots/aed/en/dark/g-reviews.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 55524,
+   "capturedAt": "2026-10-14",
+   "luma": 0.115,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "g-aura",
+   "file": "shots/aed/en/dark/g-aura.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 46736,
+   "capturedAt": "2026-10-14",
+   "luma": 0.116,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "g-reviews",
+   "file": "shots/aed/en/light/g-reviews.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 55718,
+   "capturedAt": "2026-10-14",
+   "luma": 0.966,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "g-aura",
+   "file": "shots/aed/en/light/g-aura.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 47698,
+   "capturedAt": "2026-10-14",
+   "luma": 0.946,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "g-booking",
+   "file": "shots/rub/ru/dark/g-booking.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 27476,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "rub",
+   "lang": "ru",
+   "theme": "light",
+   "id": "g-booking",
+   "file": "shots/rub/ru/light/g-booking.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 27356,
+   "capturedAt": "2026-10-14",
+   "luma": 0.949,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "dark",
+   "id": "g-booking",
+   "file": "shots/rub/en/dark/g-booking.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 26130,
+   "capturedAt": "2026-10-14",
+   "luma": 0.113,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "rub",
+   "lang": "en",
+   "theme": "light",
+   "id": "g-booking",
+   "file": "shots/rub/en/light/g-booking.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 26124,
+   "capturedAt": "2026-10-14",
+   "luma": 0.948,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "dark",
+   "id": "g-booking",
+   "file": "shots/aed/ru/dark/g-booking.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 27428,
+   "capturedAt": "2026-10-14",
+   "luma": 0.114,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "aed",
+   "lang": "ru",
+   "theme": "light",
+   "id": "g-booking",
+   "file": "shots/aed/ru/light/g-booking.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 27442,
+   "capturedAt": "2026-10-14",
+   "luma": 0.949,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "dark",
+   "id": "g-booking",
+   "file": "shots/aed/en/dark/g-booking.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 25620,
+   "capturedAt": "2026-10-14",
+   "luma": 0.113,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  },
+  {
+   "cur": "aed",
+   "lang": "en",
+   "theme": "light",
+   "id": "g-booking",
+   "file": "shots/aed/en/light/g-booking.webp",
+   "width": 1600,
+   "height": 800,
+   "bytes": 25584,
+   "capturedAt": "2026-10-14",
+   "luma": 0.949,
+   "checks": {
+    "lang": true,
+    "currency": true,
+    "theme": true,
+    "notEmpty": true,
+    "masks": true
+   },
+   "status": "pass",
+   "source": "illustration"
+  }
+ ]
+}
