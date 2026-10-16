@@ -28,7 +28,9 @@ export function initHeroVideo(D: PageData) {
   function sync() {
     const a = axes();
     const combo = `${a.cur}-${a.lang}-${a.theme}`;
-    const mobile = mq.matches;
+    // Сайт v2 (SITE-56, слово Данила 16.10): «без MacBook» — на всех ширинах вертикальный ролик с iPhone (9:16);
+    // ролики 16:9 остаются в public/video, но обложка их не показывает (mq — только пересборка при смене ширины).
+    const mobile = true;
     const fmt = mobile ? '9x16' : '16x9';
     const code = (D.media.video[combo] || '00')[mobile ? 1 : 0];
     const base = `${D.media.base}video/hero-${combo}-${fmt}`;

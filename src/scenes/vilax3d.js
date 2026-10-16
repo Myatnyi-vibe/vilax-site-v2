@@ -37,7 +37,9 @@ export async function boot(host) {
 
   const canvas = document.createElement('canvas');
   canvas.setAttribute('aria-hidden', 'true');
-  Object.assign(canvas.style, { position: 'fixed', left: '0', top: '0', width: '100vw', height: '100vh', pointerEvents: 'none', zIndex: '30' });
+  // SITE-58: размер холста — в пикселях окна (innerWidth × innerHeight), а не 100vw × 100vh: в Safari на iPhone 100vh —
+  // высота без панели адреса, а рисуем мы в innerHeight; при видимой панели картинка растягивалась и наезжала на текст.
+  Object.assign(canvas.style, { position: 'fixed', left: '0', top: '0', width: innerWidth + 'px', height: innerHeight + 'px', pointerEvents: 'none', zIndex: '30' });
   let R;
   try { R = new T.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' }); } catch (e) { return null; }
   document.body.appendChild(canvas);
@@ -341,7 +343,9 @@ export async function boot(host) {
         if (!tube || Math.abs(H * aspect - W) > 1e-3) build(aspect);
         Object.assign(cam, { left: -W / 2, right: W / 2, top: H / 2, bottom: -H / 2 });
         cam.position.set(0, 3.6, 6); cam.lookAt(0, 0, 0); cam.updateProjectionMatrix();
-        const prog = s.reduced ? 1 : clamp(p * 1.08);
+        // SITE-57 (v2, слово Данила 16.10): шайбы — по очереди, а не разом: нить раскрывается не быстрее 4,5 с с момента,
+        // как лента показалась на экране (since), даже если прокрутка уже прошла секцию (быстрый скролл, поздний старт 3D).
+        const prog = s.reduced ? 1 : clamp(Math.min(p * 1.08, since / 4.5));
         drawTo(tube, prog);
         for (const o of st) {
           const f = fr[o.i] ?? o.i / 4;
@@ -602,7 +606,7 @@ export async function boot(host) {
     raf = requestAnimationFrame(frameLoop);
     const dt = Math.min(0.05, (now - last) / 1000); last = now;
     const w = innerWidth, h = innerHeight;
-    R.getSize(size); if (size.x !== w || size.y !== h) R.setSize(w, h, false);
+    R.getSize(size); if (size.x !== w || size.y !== h) { R.setSize(w, h, false); canvas.style.width = w + 'px'; canvas.style.height = h + 'px'; }
     const st = host.getState(); setTheme(st.theme);
     R.setScissorTest(false); R.clear(); R.setScissorTest(true);
     items.forEach((it, idx) => {
