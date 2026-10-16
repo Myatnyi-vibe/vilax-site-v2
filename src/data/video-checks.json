@@ -1,6 +1,6 @@
 {
  "version": 1,
- "generatedAt": "2026-10-16T13:36:25.632Z",
+ "generatedAt": "2026-10-16T18:27:05.227Z",
  "videos": [
   {
    "cur": "rub",
@@ -10,11 +10,11 @@
    "files": {
     "webm": {
      "file": "video/hero-rub-ru-dark-16x9.webm",
-     "bytes": 2002057
+     "bytes": 2247689
     },
     "mp4": {
      "file": "video/hero-rub-ru-dark-16x9.mp4",
-     "bytes": 1793133
+     "bytes": 2074358
     },
     "webp": {
      "file": "video/hero-rub-ru-dark-16x9.webp",
@@ -38,8 +38,8 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.117,
-   "loopPsnr": 48.1
+   "luma": 0.129,
+   "loopPsnr": 48.2
   },
   {
    "cur": "rub",
@@ -88,11 +88,11 @@
    "files": {
     "webm": {
      "file": "video/hero-rub-ru-light-16x9.webm",
-     "bytes": 2429550
+     "bytes": 2394847
     },
     "mp4": {
      "file": "video/hero-rub-ru-light-16x9.mp4",
-     "bytes": 1958623
+     "bytes": 2140934
     },
     "webp": {
      "file": "video/hero-rub-ru-light-16x9.webp",
@@ -116,7 +116,7 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.848,
+   "luma": 0.871,
    "loopPsnr": 47.1
   },
   {
@@ -166,11 +166,11 @@
    "files": {
     "webm": {
      "file": "video/hero-rub-en-dark-16x9.webm",
-     "bytes": 1991318
+     "bytes": 2243366
     },
     "mp4": {
      "file": "video/hero-rub-en-dark-16x9.mp4",
-     "bytes": 1785760
+     "bytes": 2038239
     },
     "webp": {
      "file": "video/hero-rub-en-dark-16x9.webp",
@@ -194,8 +194,8 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.117,
-   "loopPsnr": 48.3
+   "luma": 0.129,
+   "loopPsnr": 48
   },
   {
    "cur": "rub",
@@ -244,11 +244,11 @@
    "files": {
     "webm": {
      "file": "video/hero-rub-en-light-16x9.webm",
-     "bytes": 2427238
+     "bytes": 2422713
     },
     "mp4": {
      "file": "video/hero-rub-en-light-16x9.mp4",
-     "bytes": 1951234
+     "bytes": 2123199
     },
     "webp": {
      "file": "video/hero-rub-en-light-16x9.webp",
@@ -272,8 +272,8 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.848,
-   "loopPsnr": 46.9
+   "luma": 0.871,
+   "loopPsnr": 47.2
   },
   {
    "cur": "rub",
@@ -322,11 +322,11 @@
    "files": {
     "webm": {
      "file": "video/hero-aed-ru-dark-16x9.webm",
-     "bytes": 1811789
+     "bytes": 2049988
     },
     "mp4": {
      "file": "video/hero-aed-ru-dark-16x9.mp4",
-     "bytes": 1573820
+     "bytes": 1783711
     },
     "webp": {
      "file": "video/hero-aed-ru-dark-16x9.webp",
@@ -350,8 +350,8 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.116,
-   "loopPsnr": 48.1
+   "luma": 0.126,
+   "loopPsnr": 48.2
   },
   {
    "cur": "aed",
@@ -400,11 +400,11 @@
    "files": {
     "webm": {
      "file": "video/hero-aed-ru-light-16x9.webm",
-     "bytes": 2223582
+     "bytes": 2236082
     },
     "mp4": {
      "file": "video/hero-aed-ru-light-16x9.mp4",
-     "bytes": 1745217
+     "bytes": 1890559
     },
     "webp": {
      "file": "video/hero-aed-ru-light-16x9.webp",
@@ -428,8 +428,8 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.851,
-   "loopPsnr": 47.1
+   "luma": 0.87,
+   "loopPsnr": 47
   },
   {
    "cur": "aed",
@@ -478,11 +478,11 @@
    "files": {
     "webm": {
      "file": "video/hero-aed-en-dark-16x9.webm",
-     "bytes": 1746303
+     "bytes": 1965563
     },
     "mp4": {
      "file": "video/hero-aed-en-dark-16x9.mp4",
-     "bytes": 1530304
+     "bytes": 1732632
     },
     "webp": {
      "file": "video/hero-aed-en-dark-16x9.webp",
@@ -506,8 +506,8 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.115,
-   "loopPsnr": 48.3
+   "luma": 0.126,
+   "loopPsnr": 48.2
   },
   {
    "cur": "aed",
@@ -556,11 +556,11 @@
    "files": {
     "webm": {
      "file": "video/hero-aed-en-light-16x9.webm",
-     "bytes": 2168678
+     "bytes": 2154744
     },
     "mp4": {
      "file": "video/hero-aed-en-light-16x9.mp4",
-     "bytes": 1705180
+     "bytes": 1849413
     },
     "webp": {
      "file": "video/hero-aed-en-light-16x9.webp",
@@ -584,7 +584,7 @@
    "durationSec": 22,
    "fps": 30,
    "audio": false,
-   "luma": 0.852,
+   "luma": 0.871,
    "loopPsnr": 47.2
   },
   {
